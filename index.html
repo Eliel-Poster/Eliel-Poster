@@ -3,10 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&family=Poppins:wght@600;700&display=swap">
+    <link rel="stylesheet" href="assets/css/style.css">
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
     <link rel="shortcut icon" href="favicon.svg" type="image/x-icon">
     <title>Eliel Poster</title>
+    <meta name="description" content="Eliel Poster, agence créative basée à Abidjan. Création de sites web, design graphique et production de contenus multimédias.">
 </head>
 <body>
 
@@ -14,7 +18,7 @@
     <div class="entete">
         <div class="logo">
             <a href="index.html">
-                <img src="LOGO.png" alt="Logo Eliel Poster">
+                <img src="assets/img/logo.png" alt="Logo Eliel Poster">
             </a>
         </div>
 
@@ -24,8 +28,8 @@
                 <li><a href="#accueil">Accueil</a></li>
                 <li><a href="#apropos">À propos</a></li>
                 <li><a href="#services">Services</a></li>
-                <li><a href="portfolio.html">Réalisations</a></li>
-                <li><a href="contact.html">Contact</a></li>
+                <li><a href="pages/portfolio.html">Réalisations</a></li>
+                <li><a href="pages/contact.html">Contact</a></li>
             </ul>
         </nav>
 
@@ -44,10 +48,10 @@
             <li><a href="#accueil"  class="mobile-lien">Accueil</a></li>
             <li><a href="#apropos"  class="mobile-lien">À propos</a></li>
             <li><a href="#services" class="mobile-lien">Services</a></li>
-            <li><a href="portfolio.html" class="mobile-lien">Réalisations</a></li>
-            <li><a href="contact.html"   class="mobile-lien">Contact</a></li>
+            <li><a href="pages/portfolio.html" class="mobile-lien">Réalisations</a></li>
+            <li><a href="pages/contact.html"   class="mobile-lien">Contact</a></li>
         </ul>
-        <a href="devis.html" class="btn-mobile-cta">Demander un devis</a>
+        <a href="pages/devis.html" class="btn-mobile-cta">Demander un devis</a>
     </div>
 
 
@@ -57,12 +61,12 @@
             <h1 class="hero-titre-anime">Donnez vie à vos idées avec <span>Eliel Poster</span></h1>
             <p>Eliel Poster est une agence de communication créative spécialisée dans la création de sites web, le design graphique et la production de contenus multimédias. Nous accompagnons marques, artistes et organisations dans la construction d'une image forte et cohérente.</p>
             <div class="hero-btns">
-                <a href="portfolio.html" class="btn-hero">Voir nos réalisations</a>
-                <a href="contact.html" class="btn-hero-outline">Nous contacter</a>
+                <a href="pages/portfolio.html" class="btn-hero">Voir nos réalisations</a>
+                <a href="pages/contact.html" class="btn-hero-outline">Nous contacter</a>
             </div>
         </div>
         <div class="hero-visual">
-            <img src="ILLUSTRATION ACCEU.jpg" alt="Illustration femme">
+            <img src="assets/img/illustration-accueil.jpg" alt="Illustration femme">
         </div>
     </section>
 
@@ -76,7 +80,7 @@
                 <p class="complement">Nous travaillons avec passion, rigueur et créativité afin d'offrir des résultats durables et impactants.</p>
             </div>
             <div class="hero-visual2">
-                <img src="illustratio 2 site.png" alt="Illustration femme digitale">
+                <img src="assets/img/illustration-apropos.png" alt="Illustration femme digitale">
             </div>
         </div>
     </section>
@@ -122,23 +126,15 @@
         <div class="section-line"></div>
         <p>Découvrez quelques projets réalisés pour nos clients dans les domaines du web, du graphisme et du multimédia. Chaque réalisation reflète notre engagement pour la qualité et le détail.</p>
         <br>
-        <a href="portfolio.html" class="btn-primary">Découvrir le portfolio</a>
-    </section>
-
- 
-    <section id="temoignages">
-        <span class="section-label">Témoignages</span>
-        <h2 class="section-title">Ce que disent nos clients</h2>
-        <div class="section-line"></div>
-        <p>La satisfaction de nos clients est au cœur de notre travail. Nous construisons des relations basées sur la confiance, la transparence et les résultats.</p>
+        <a href="pages/portfolio.html" class="btn-primary">Découvrir le portfolio</a>
     </section>
 
     <section id="contact" class="cta">
         <h2>Prêt à donner une nouvelle dimension à votre projet ?</h2>
         <p>Parlons de votre idée et construisons ensemble une communication à votre image.</p>
         <div class="cta-btns">
-            <a href="devis.html" class="btn-hero">Demander un devis</a>
-            <a href="contact.html" class="btn-hero-outline">Nous contacter</a>
+            <a href="pages/devis.html" class="btn-hero">Demander un devis</a>
+            <a href="pages/contact.html" class="btn-hero-outline">Nous contacter</a>
         </div>
     </section>
 
@@ -149,7 +145,7 @@
             <p>Votre image, notre mission</p>
         </div>
         <div class="footer-contact">
-            <p>Contact : <a href="mailto:postereliel@gmail.com">postereliel@gmail.com</a></p>
+            <p>Contact : <a href="#" class="email-link" data-user="postereliel" data-domain="gmail.com">afficher l'adresse</a></p>
             <p><a href="tel:+2250576224680">+225 0576 224 680</a></p>
         </div>
     </footer>
@@ -212,6 +208,19 @@
             entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('reveal--visible'); });
         }, { threshold: 0.15 });
         reveals.forEach(r => observer.observe(r));
+    </script>
+
+    <script>
+        document.querySelectorAll('.email-link').forEach(el => {
+            el.addEventListener('click', function(e) {
+                e.preventDefault();
+                const addr = this.dataset.user + '@' + this.dataset.domain;
+                if (this.tagName === 'A') {
+                    this.href = 'mailto:' + addr;
+                }
+                this.textContent = addr;
+            });
+        });
     </script>
 </body>
 </html>

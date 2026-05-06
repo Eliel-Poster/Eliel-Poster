@@ -3,24 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="contact.css">
-    <link rel="shortcut icon" href="favicon.svg" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&family=Poppins:wght@600;700&display=swap">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/contact.css">
+    <link rel="shortcut icon" href="../favicon.svg" type="image/x-icon">
     <title>Nous contacter — Eliel Poster</title>
+    <meta name="description" content="Contactez Eliel Poster pour discuter de votre projet. Appel découverte gratuit, sans engagement.">
 </head>
 <body>
 
     <div class="entete">
         <div class="logo">
-            <a href="index.html">
-                <img src="LOGO.png" alt="Logo Eliel Poster">
+            <a href="../index.html">
+                <img src="../assets/img/logo.png" alt="Logo Eliel Poster">
             </a>
         </div>
         <nav>
             <ul>
-                <li><a href="index.html#accueil">Accueil</a></li>
-                <li><a href="index.html#apropos">À propos</a></li>
-                <li><a href="index.html#services">Services</a></li>
+                <li><a href="../index.html#accueil">Accueil</a></li>
+                <li><a href="../index.html#apropos">À propos</a></li>
+                <li><a href="../index.html#services">Services</a></li>
                 <li><a href="portfolio.html">Réalisations</a></li>
                 <li><a href="contact.html" class="nav-actif">Contact</a></li>
             </ul>
@@ -37,9 +41,9 @@
 
     <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
         <ul>
-            <li><a href="index.html#accueil" class="mobile-lien">Accueil</a></li>
-            <li><a href="index.html#apropos" class="mobile-lien">À propos</a></li>
-            <li><a href="index.html#services" class="mobile-lien">Services</a></li>
+            <li><a href="../index.html#accueil" class="mobile-lien">Accueil</a></li>
+            <li><a href="../index.html#apropos" class="mobile-lien">À propos</a></li>
+            <li><a href="../index.html#services" class="mobile-lien">Services</a></li>
             <li><a href="portfolio.html" class="mobile-lien">Réalisations</a></li>
             <li><a href="contact.html" class="mobile-lien">Contact</a></li>
         </ul>
@@ -75,13 +79,13 @@
                         </div>
                     </a>
 
-                    <div class="coord-item coord-no-link" data-email="postereliel@gmail.com">
+                    <div class="coord-item coord-no-link" >
                         <div class="coord-icone">
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
                         </div>
                         <div class="coord-texte">
                             <span class="coord-label">Email</span>
-                            <strong>postereliel@gmail.com</strong>
+                            <strong class="email-link" data-user="postereliel" data-domain="gmail.com">afficher l'adresse</strong>
                         </div>
                     </div>
 
@@ -187,7 +191,7 @@
             <p>Votre image, notre mission</p>
         </div>
         <div class="footer-contact">
-            <p>Contact : <a href="mailto:postereliel@gmail.com">postereliel@gmail.com</a></p>
+            <p>Contact : <a href="#" class="email-link" data-user="postereliel" data-domain="gmail.com">afficher l'adresse</a></p>
             <p><a href="tel:+2250576224680">+225 0576 224 680</a></p>
         </div>
     </footer>
@@ -266,6 +270,19 @@
         });
     </script>
 
-    <script src="js/contact.js"></script>
+    <script src="../assets/js/contact.js"></script>
+
+    <script>
+        document.querySelectorAll('.email-link').forEach(el => {
+            el.addEventListener('click', function(e) {
+                e.preventDefault();
+                const addr = this.dataset.user + '@' + this.dataset.domain;
+                if (this.tagName === 'A') {
+                    this.href = 'mailto:' + addr;
+                }
+                this.textContent = addr;
+            });
+        });
+    </script>
 </body>
 </html>

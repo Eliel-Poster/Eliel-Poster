@@ -761,78 +761,9 @@ footer a:hover {
     color: var(--blanc);
 }
 
-@media (max-width: 960px) {
-    .hero {
-        grid-template-columns: 1fr;
-        padding: 8rem 4% 4rem;
-        gap: 3rem;
-    }
 
-    .hero::before {
-        display: none;
-    }
 
-    .hero-visual {
-        order: -1;
-    }
 
-    .hero-visual img {
-        max-width: 100%;
-        border-radius: 8px 40px 8px 40px;
-    }
-
-    .apropos-grid {
-        grid-template-columns: 1fr;
-        gap: 2.5rem;
-    }
-
-    .hero-visual2 {
-        order: -1;
-    }
-
-    .services-grid {
-        grid-template-columns: 1fr 1fr;
-    }
-
-    .entete {
-        padding: 1rem 4%;
-    }
-
-    section {
-        padding: 5rem 4%;
-    }
-}
-
-@media (max-width: 640px) {
-    .services-grid {
-        grid-template-columns: 1fr;
-    }
-
-    nav ul {
-        gap: 1.2rem;
-    }
-
-    nav ul li a {
-        font-size: 0.75rem;
-    }
-
-    .hero {
-        padding: 8rem 4% 4rem;
-    }
-
-    .form-box {
-        padding: 2rem 1.5rem;
-    }
-
-    footer {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .footer-contact {
-        text-align: center;
-    }
-}
 
 
 
@@ -959,87 +890,6 @@ nav ul li a.nav-actif::after {
     to   { opacity: 1; transform: translateY(0); }
 }
 
-/* ============================================================
-   PATCH RESPONSIVE — EN-TÊTE + MENU HAMBURGER
-   À intégrer dans style.css (remplacer les sections concernées)
-   ============================================================ */
-
-/* ── EN-TÊTE ── */
-.entete {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    z-index: 999;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 6%;
-    background: rgba(255, 255, 255, 0.97);
-    backdrop-filter: blur(14px);
-    border-bottom: 1px solid rgba(211, 47, 47, 0.08);
-    transition: box-shadow var(--transition);
-}
-
-.entete--scroll {
-    box-shadow: 0 4px 24px rgba(0,0,0,0.08);
-}
-
-/* ── LOGO ── */
-.logo {
-    display: flex;
-    align-items: center;
-    gap: 0.7rem;
-    z-index: 1001;
-    flex-shrink: 0;
-}
-
-.logo img {
-    height: 40px;
-    width: auto;
-    object-fit: contain;
-}
-
-/* ── NAV DESKTOP ── */
-nav ul {
-    display: flex;
-    gap: 2.5rem;
-    align-items: center;
-    list-style: none;
-}
-
-nav ul li a {
-    font-family: var(--font-corps);
-    font-size: 0.85rem;
-    font-weight: 500;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--gris-moyen);
-    position: relative;
-    transition: color var(--transition);
-    white-space: nowrap;
-}
-
-nav ul li a::after {
-    content: '';
-    position: absolute;
-    bottom: -4px;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: var(--rouge);
-    transition: width var(--transition);
-}
-
-nav ul li a:hover,
-nav ul li a.nav-actif {
-    color: var(--rouge);
-}
-
-nav ul li a:hover::after,
-nav ul li a.nav-actif::after {
-    width: 100%;
-}
-
-/* ── BOUTON HAMBURGER ── */
 .hamburger {
     display: none;
     flex-direction: column;
@@ -1069,7 +919,6 @@ nav ul li a.nav-actif::after {
     transition: transform 0.35s ease, opacity 0.35s ease, background 0.2s;
 }
 
-/* Animation croix quand ouvert */
 .hamburger.ouvert span:nth-child(1) {
     transform: translateY(7px) rotate(45deg);
 }
@@ -1081,7 +930,6 @@ nav ul li a.nav-actif::after {
     transform: translateY(-7px) rotate(-45deg);
 }
 
-/* ── MENU MOBILE (tiroir latéral) ── */
 .mobile-menu {
     display: none;
     position: fixed;
@@ -1151,7 +999,6 @@ nav ul li a.nav-actif::after {
     background: var(--rouge-sombre);
 }
 
-/* ── OVERLAY sombre derrière le menu ── */
 .menu-overlay {
     display: none;
     position: fixed;
@@ -1165,37 +1012,20 @@ nav ul li a.nav-actif::after {
     display: block;
 }
 
-.hero {
-    min-height: 100vh;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    align-items: center;
-    padding: 8rem 6% 4rem;
-    position: relative;
-    overflow: hidden;
-    background: var(--blanc);
-    gap: 4rem;
-}
-/*RESPONSIVE
-
-/* ── Tablette ── */
 @media (max-width: 960px) {
 
     .entete {
         padding: 1rem 4%;
     }
 
-    /* Cacher la nav desktop */
     .entete > nav {
         display: none;
     }
 
-    /* Afficher le hamburger */
     .hamburger {
         display: flex;
     }
 
-    /* Hero en colonne */
     .hero {
         grid-template-columns: 1fr;
         padding: 7rem 4% 4rem;
@@ -1228,7 +1058,6 @@ nav ul li a.nav-actif::after {
         border-radius: 8px 40px 8px 40px;
     }
 
-    /* À propos */
     .apropos-grid {
         grid-template-columns: 1fr;
         gap: 2.5rem;
@@ -1247,17 +1076,14 @@ nav ul li a.nav-actif::after {
         max-width: 280px;
     }
 
-    /* Services */
     .services-grid {
         grid-template-columns: 1fr 1fr;
     }
 
-    /* Sections */
     section {
         padding: 5rem 4%;
     }
 
-    /* Footer */
     footer {
         flex-direction: column;
         text-align: center;
@@ -1265,7 +1091,6 @@ nav ul li a.nav-actif::after {
     }
 }
 
-/* ── Mobile ── */
 @media (max-width: 580px) {
 
     .services-grid {

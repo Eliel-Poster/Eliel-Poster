@@ -3,24 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="portfolio.css">
-    <link rel="shortcut icon" href="favicon.svg" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&family=Poppins:wght@600;700&display=swap">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/portfolio.css">
+    <link rel="shortcut icon" href="../favicon.svg" type="image/x-icon">
     <title>Portfolio — Eliel Poster</title>
+    <meta name="description" content="Découvrez les réalisations d'Eliel Poster : sites web, design graphique et contenus multimédias pour nos clients.">
 </head>
 <body>
 
     <div class="entete">
         <div class="logo">
-            <a href="index.html">
-                <img src="LOGO.png" alt="Logo Eliel Poster">
+            <a href="../index.html">
+                <img src="../assets/img/logo.png" alt="Logo Eliel Poster">
             </a>
         </div>
         <nav>
             <ul>
-                <li><a href="index.html#accueil">Accueil</a></li>
-                <li><a href="index.html#apropos">À propos</a></li>
-                <li><a href="index.html#services">Services</a></li>
+                <li><a href="../index.html#accueil">Accueil</a></li>
+                <li><a href="../index.html#apropos">À propos</a></li>
+                <li><a href="../index.html#services">Services</a></li>
                 <li><a href="portfolio.html" class="nav-actif">Réalisations</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
@@ -38,9 +42,9 @@
     <!-- Menu mobile -->
     <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
         <ul>
-            <li><a href="index.html#accueil" class="mobile-lien">Accueil</a></li>
-            <li><a href="index.html#apropos" class="mobile-lien">À propos</a></li>
-            <li><a href="index.html#services" class="mobile-lien">Services</a></li>
+            <li><a href="../index.html#accueil" class="mobile-lien">Accueil</a></li>
+            <li><a href="../index.html#apropos" class="mobile-lien">À propos</a></li>
+            <li><a href="../index.html#services" class="mobile-lien">Services</a></li>
             <li><a href="portfolio.html" class="mobile-lien">Réalisations</a></li>
             <li><a href="contact.html" class="mobile-lien">Contact</a></li>
         </ul>
@@ -81,7 +85,7 @@
 <article class="projet-card projet-card--large" data-categorie="web">
     <div class="projet-visuel">
         <div class="projet-placeholder">
-            <img src="img & resource porfolio/abraham gogo porf.png" alt="Portfolio Abraham Dogo">
+            <img src="../assets/img/portfolio/abraham-gogo.png" alt="Portfolio Abraham Dogo">
             <span>Abraham Dogo – Portfolio professionnel</span>
         </div>
         <div class="projet-overlay">
@@ -109,13 +113,13 @@
                 <div class="projet-visuel">
                     <div class="projet-placeholder" style="background: linear-gradient(135deg, #102e6e 0%, #1c4596 100%);">
                         <span>Comm.</span>
-                    <img src="img & resource porfolio/MASTER CLASS.png" alt="Master class">
+                    <img src="../assets/img/portfolio/master-class.png" alt="Master class">
                     </div>
                     <div class="projet-overlay">
                         <span class="projet-tag">Affiche Événementielle</span>
                         <h3>Master Class d'Adoration</h3>
                         <p>Affiche promotionnelle pour la formation de David Eliakim (Divine Production).</p>
-                        <a href="img & resource porfolio/MASTER CLASS.png" class="btn-projet">Voir le projet →</a>
+                        <a href="../assets/img/portfolio/master-class.png" class="btn-projet">Voir le projet →</a>
                     </div>
                 </div>
                 <div class="projet-meta">
@@ -145,7 +149,7 @@
             <p>Votre image, notre mission</p>
         </div>
         <div class="footer-contact">
-            <p>Contact : <a href="mailto:postereliel@gmail.com">postereliel@gmail.com</a></p>
+            <p>Contact : <a href="#" class="email-link" data-user="postereliel" data-domain="gmail.com">afficher l'adresse</a></p>
             <p><a href="tel:+2250576224680">+225 0576 224 680</a></p>
         </div>
     </footer>
@@ -183,6 +187,19 @@
 
         window.addEventListener('scroll', () => {
             document.querySelector('.entete').classList.toggle('entete--scroll', window.scrollY > 30);
+        });
+    </script>
+
+    <script>
+        document.querySelectorAll('.email-link').forEach(el => {
+            el.addEventListener('click', function(e) {
+                e.preventDefault();
+                const addr = this.dataset.user + '@' + this.dataset.domain;
+                if (this.tagName === 'A') {
+                    this.href = 'mailto:' + addr;
+                }
+                this.textContent = addr;
+            });
         });
     </script>
 </body>

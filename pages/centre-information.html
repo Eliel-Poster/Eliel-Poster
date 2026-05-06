@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../style.css">
-    <link rel="shortcut icon" href="favicon.svg" type="image/x-icon">
+    <link rel="shortcut icon" href="../favicon.svg" type="image/x-icon">
     <title>Eliel Poster — FAQ & Informations</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;800&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
@@ -554,7 +554,7 @@
 <div class="entete">
     <div class="logo">
         <a href="../index.html">
-            <img src="../LOGO.png" alt="Logo Eliel Poster"
+            <img src="../assets/img/logo.png" alt="Logo Eliel Poster"
                 onerror="this.style.display='none'; document.getElementById('logo-fallback').style.display='block'">
             <span class="logo-text" id="logo-fallback" style="display:none">
                 Eliel <span>Poster</span>
@@ -704,7 +704,7 @@
                 <h3>Une autre question ?</h3>
                 <p>Notre équipe est disponible pour répondre à toutes vos interrogations.</p>
                 <div class="contact-links">
-                    <a href="mailto:postereliel@gmail.com">postereliel@gmail.com</a>
+                    <a href="#" class="email-link" data-user="postereliel" data-domain="gmail.com">afficher l'adresse</a>
                     <a href="tel:+2250576224680">+225 0576224680</a>
                 </div>
             </div>
@@ -759,7 +759,7 @@
             <div class="legal-section">
                 <h3>Contact</h3>
                 <ul>
-                    <li>Email : <a href="mailto:postereliel@gmail.com" style="color:var(--rouge)">postereliel@gmail.com</a></li>
+                    <li>Email : <a href="#" class="email-link" data-user="postereliel" data-domain="gmail.com" style="color:var(--rouge)">afficher l'adresse</a></li>
                     <li>Téléphone : <a href="tel:+2250576224680" style="color:var(--rouge)">+225 0576224680</a></li>
                 </ul>
             </div>
@@ -863,7 +863,7 @@
                 <h3>Une question sur votre paiement ?</h3>
                 <p>Contactez directement l'agence pour toute demande concernant votre rémunération.</p>
                 <div class="contact-links">
-                    <a href="mailto:postereliel@gmail.com">postereliel@gmail.com</a>
+                    <a href="#" class="email-link" data-user="postereliel" data-domain="gmail.com">afficher l'adresse</a>
                     <a href="tel:+2250576224680">+225 0576224680</a>
                 </div>
             </div>
@@ -876,10 +876,10 @@
             <span class="footer-brand">Eliel <span>Poster</span></span>
             <p>Agence de communication créative</p>
             <p>Votre image, notre mission</p>
-            <a href="Centre d'information.html">Centre d'information</a>
+            <a href="centre-information.html">Centre d'information</a>
         </div>
         <div class="footer-contact">
-            <p>Contact : <a href="mailto:postereliel@gmail.com">postereliel@gmail.com</a></p>
+            <p>Contact : <a href="#" class="email-link" data-user="postereliel" data-domain="gmail.com">afficher l'adresse</a></p>
             <p><a href="tel:+2250576224680">+225 0576 224 680</a></p>
         </div>
     </footer>
@@ -961,5 +961,18 @@
         });
     </script>
 
+
+    <script>
+        document.querySelectorAll('.email-link').forEach(el => {
+            el.addEventListener('click', function(e) {
+                e.preventDefault();
+                const addr = this.dataset.user + '@' + this.dataset.domain;
+                if (this.tagName === 'A') {
+                    this.href = 'mailto:' + addr;
+                }
+                this.textContent = addr;
+            });
+        });
+    </script>
 </body>
 </html>
