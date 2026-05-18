@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wara — Restaurant Gastronomique Ivoirien, Abidjan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --fond: #1A1208;
+  --brun: #3D2610;
+  --or: #D4880E;
+  --or-clair: #F5B83D;
+  --creme: #F5EDD8;
+  --sable: #C4A97A;
+  --gris: #7A6A55;
+  --vert: #2D4A2A;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--fond);
+  color: var(--creme);
+  font-family: 'Libre Baskerville', serif;
+  overflow-x: hidden;
+}
+
+/* NAV */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 1.6rem 3rem;
+  background: rgba(26,18,8,0.92);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(212,136,14,0.15);
+}
+.nav-logo {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 1.4rem; font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--or-clair);
+}
+.nav-logo span { font-weight: 400; font-style: italic; color: var(--sable); font-size: 0.85rem; display: block; letter-spacing: 0.18em; }
+.nav-links { display: flex; gap: 2.5rem; list-style: none; }
+.nav-links a {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase;
+  color: rgba(245,237,216,0.5); text-decoration: none;
+  transition: color 0.3s;
+}
+.nav-links a:hover { color: var(--or-clair); }
+.nav-resa {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--fond); background: var(--or);
+  padding: 11px 22px; text-decoration: none;
+  transition: background 0.3s;
+}
+.nav-resa:hover { background: var(--or-clair); }
+
+/* HERO */
+.hero {
+  min-height: 100vh;
+  display: flex; flex-direction: column;
+  justify-content: flex-end;
+  padding: 3rem;
+  position: relative; overflow: hidden;
+}
+.hero-bg {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse at 30% 60%, rgba(61,38,16,0.8) 0%, transparent 60%),
+    radial-gradient(ellipse at 70% 30%, rgba(212,136,14,0.08) 0%, transparent 50%),
+    linear-gradient(170deg, #0D0A04 0%, #1A1208 40%, #2A1A08 100%);
+}
+.hero-texture {
+  position: absolute; inset: 0; opacity: 0.04;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 200px;
+}
+.hero-center {
+  position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center; pointer-events: none;
+}
+.hero-center-text {
+  font-size: clamp(5rem, 15vw, 14rem);
+  font-weight: 700; line-height: 0.9;
+  color: rgba(212,136,14,0.07);
+  letter-spacing: -0.03em;
+  white-space: nowrap;
+}
+.hero-content { position: relative; z-index: 2; }
+.hero-top {
+  position: absolute; top: 8rem; left: 3rem; right: 3rem;
+  display: flex; justify-content: space-between; align-items: flex-start;
+  z-index: 2;
+}
+.hero-badge {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--or); border: 1px solid rgba(212,136,14,0.3);
+  padding: 6px 14px;
+}
+.hero-year {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px; color: rgba(245,237,216,0.3);
+  letter-spacing: 0.1em;
+}
+.hero-bottom-grid {
+  display: grid; grid-template-columns: 1fr auto 1fr;
+  gap: 3rem; align-items: end;
+  border-top: 1px solid rgba(212,136,14,0.15);
+  padding-top: 2rem;
+}
+.hero-desc {
+  font-size: 1rem; font-style: italic; font-weight: 400;
+  color: rgba(245,237,216,0.65); line-height: 1.85;
+  max-width: 320px;
+}
+.hero-title-center { text-align: center; }
+.hero-h1 {
+  font-size: clamp(4rem, 10vw, 9rem);
+  font-weight: 700; line-height: 0.9;
+  letter-spacing: -0.02em;
+  color: var(--creme);
+}
+.hero-h1 em { color: var(--or); font-style: italic; }
+.hero-sub-center {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--sable); margin-top: 1rem;
+}
+.hero-right { text-align: right; }
+.hero-resa {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--fond); background: var(--or);
+  padding: 14px 28px; text-decoration: none;
+  display: inline-block; transition: background 0.3s;
+  margin-bottom: 1rem;
+}
+.hero-resa:hover { background: var(--or-clair); }
+.hero-horaires {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px; color: rgba(245,237,216,0.3);
+  line-height: 1.9; letter-spacing: 0.08em;
+}
+
+/* MENU */
+.menu-section { padding: 7rem 3rem; }
+.menu-header {
+  display: flex; align-items: flex-end; justify-content: space-between;
+  margin-bottom: 5rem;
+  border-bottom: 1px solid rgba(212,136,14,0.15);
+  padding-bottom: 2rem;
+}
+.section-tag {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--or); margin-bottom: 0.8rem;
+}
+.section-h2 { font-size: clamp(2rem, 3.5vw, 2.8rem); font-weight: 400; }
+.section-h2 em { font-style: italic; color: var(--or); }
+.menu-note {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px; color: var(--gris); letter-spacing: 0.1em;
+  max-width: 220px; text-align: right; line-height: 1.8;
+}
+.menu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
+.menu-col { }
+.menu-category {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--or); margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(212,136,14,0.2);
+}
+.menu-item {
+  display: flex; justify-content: space-between; align-items: baseline;
+  padding: 1.2rem 0;
+  border-bottom: 1px solid rgba(212,136,14,0.06);
+  gap: 2rem;
+}
+.menu-item-left { flex: 1; }
+.menu-item-name { font-size: 1rem; font-weight: 400; margin-bottom: 0.3rem; }
+.menu-item-desc { font-size: 0.8rem; font-style: italic; color: var(--gris); line-height: 1.6; }
+.menu-price {
+  font-family: 'Space Mono', monospace;
+  font-size: 11px; color: var(--or); white-space: nowrap;
+  flex-shrink: 0;
+}
+.menu-col-right { padding-left: 4rem; border-left: 1px solid rgba(212,136,14,0.1); }
+
+/* AMBIANCE */
+.ambiance { padding: 5rem 0; overflow: hidden; }
+.ambiance-track {
+  display: flex; gap: 1.5rem;
+  animation: scrollAmbiance 30s linear infinite;
+  width: max-content;
+}
+.ambiance-card {
+  width: 340px; height: 420px; flex-shrink: 0;
+  background: var(--brun); border-radius: 4px;
+  position: relative; overflow: hidden;
+  display: flex; align-items: flex-end; padding: 1.5rem;
+}
+.a1 { background: linear-gradient(170deg, #4A2E10 0%, #2A1808 100%); }
+.a2 { background: linear-gradient(170deg, #1E3A1A 0%, #0E2008 100%); }
+.a3 { background: linear-gradient(170deg, #3A3010 0%, #1A1808 100%); }
+.a4 { background: linear-gradient(170deg, #3A1E10 0%, #200E08 100%); }
+.a5 { background: linear-gradient(170deg, #2A3020 0%, #141A10 100%); }
+.ambiance-label {
+  font-family: 'Space Mono', monospace;
+  font-size: 8px; letter-spacing: 0.16em; text-transform: uppercase;
+  color: rgba(245,237,216,0.4);
+  background: rgba(0,0,0,0.3);
+  padding: 4px 10px;
+}
+@keyframes scrollAmbiance { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+/* EXPERIENCE */
+.experience { padding: 7rem 3rem; background: var(--brun); }
+.experience-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 8rem; align-items: center; }
+.exp-left { }
+.exp-h2 { font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 400; line-height: 1.2; margin-bottom: 2rem; }
+.exp-h2 em { font-style: italic; color: var(--or-clair); }
+.exp-text { font-size: 0.95rem; font-style: italic; color: rgba(245,237,216,0.65); line-height: 1.9; margin-bottom: 1rem; }
+.exp-right { display: flex; flex-direction: column; gap: 1.5rem; }
+.exp-item {
+  display: flex; gap: 1.5rem; align-items: flex-start;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(212,136,14,0.15);
+}
+.exp-item:last-child { border-bottom: none; }
+.exp-num { font-family: 'Space Mono', monospace; font-size: 9px; color: var(--or); flex-shrink: 0; padding-top: 4px; }
+.exp-item-title { font-size: 1.05rem; font-weight: 700; margin-bottom: 0.4rem; }
+.exp-item-desc { font-size: 0.85rem; font-style: italic; color: rgba(245,237,216,0.55); line-height: 1.7; }
+
+/* AVIS */
+.avis { padding: 7rem 3rem; }
+.avis-inner { max-width: 1100px; margin: 0 auto; }
+.avis-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 2rem; margin-top: 4rem; }
+.avis-card {
+  padding: 2rem;
+  border: 1px solid rgba(212,136,14,0.12);
+  position: relative;
+}
+.avis-quote {
+  font-size: 3rem; line-height: 1; color: rgba(212,136,14,0.2);
+  font-style: italic; margin-bottom: 1rem;
+  font-family: 'Libre Baskerville', serif;
+}
+.avis-text { font-size: 0.9rem; font-style: italic; color: rgba(245,237,216,0.7); line-height: 1.85; margin-bottom: 1.5rem; }
+.avis-author { font-family: 'Space Mono', monospace; font-size: 9px; color: var(--or); letter-spacing: 0.12em; text-transform: uppercase; }
+.avis-stars { color: var(--or); font-size: 10px; margin-bottom: 0.4rem; letter-spacing: 0.1em; }
+
+/* RESERVATION CTA */
+.resa-cta {
+  padding: 8rem 3rem; text-align: center;
+  position: relative; overflow: hidden;
+  border-top: 1px solid rgba(212,136,14,0.15);
+}
+.resa-cta::before {
+  content: '';
+  position: absolute; top: 50%; left: 50%;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(212,136,14,0.06) 0%, transparent 70%);
+  transform: translate(-50%, -50%);
+}
+.resa-tag { font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--or); margin-bottom: 2rem; }
+.resa-h2 { font-size: clamp(2.5rem, 5vw, 4.5rem); font-weight: 400; line-height: 1.1; margin-bottom: 3rem; }
+.resa-h2 em { font-style: italic; color: var(--or); }
+.resa-btn {
+  font-family: 'Space Mono', monospace;
+  font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+  background: var(--or); color: var(--fond);
+  padding: 18px 42px; text-decoration: none;
+  display: inline-block; transition: background 0.3s;
+}
+.resa-btn:hover { background: var(--or-clair); }
+.resa-infos { font-family: 'Space Mono', monospace; font-size: 9px; color: var(--gris); margin-top: 2rem; line-height: 2; letter-spacing: 0.1em; }
+
+/* FOOTER */
+footer {
+  background: #0A0703;
+  border-top: 1px solid rgba(212,136,14,0.1);
+  padding: 3rem;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.footer-logo { font-size: 1.3rem; font-weight: 700; color: var(--or-clair); }
+.footer-info { font-family: 'Space Mono', monospace; font-size: 9px; color: var(--gris); letter-spacing: 0.1em; text-align: center; line-height: 2.2; }
+.footer-credit { font-family: 'Space Mono', monospace; font-size: 9px; color: rgba(245,237,216,0.2); letter-spacing: 0.08em; text-align: right; }
+.footer-credit span { color: var(--or); }
+
+.concept-badge {
+  position: fixed; bottom: 2rem; left: 2rem; z-index: 200;
+  font-family: 'Space Mono', monospace;
+  font-size: 8px; letter-spacing: 0.14em;
+  background: rgba(212,136,14,0.1); color: var(--or);
+  border: 1px solid rgba(212,136,14,0.2); padding: 6px 12px;
+}
+
+.reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.8s cubic-bezier(0.16,1,0.3,1), transform 0.8s cubic-bezier(0.16,1,0.3,1); }
+.reveal.visible { opacity: 1; transform: none; }
+
+@media (max-width: 900px) {
+  nav { padding: 1.5rem; }
+  .nav-links { display: none; }
+  .hero-top { left: 1.5rem; right: 1.5rem; }
+  .hero { padding: 2rem 1.5rem; }
+  .hero-bottom-grid { grid-template-columns: 1fr; text-align: center; }
+  .hero-desc { max-width: 100%; }
+  .hero-right { text-align: center; }
+  .menu-grid { grid-template-columns: 1fr; }
+  .menu-col-right { padding-left: 0; border-left: none; border-top: 1px solid rgba(212,136,14,0.1); padding-top: 3rem; margin-top: 1rem; }
+  .experience-inner { grid-template-columns: 1fr; gap: 3rem; }
+  .avis-grid { grid-template-columns: 1fr; }
+  footer { flex-direction: column; gap: 1.5rem; text-align: center; }
+}
+</style>
+</head>
+<body>
+<div class="concept-badge">Concept Project — Eliel Poster</div>
+
+<nav>
+  <div class="nav-logo">Wara <span>Gastronomie Ivoirienne</span></div>
+  <ul class="nav-links">
+    <li><a href="#menu">La carte</a></li>
+    <li><a href="#experience">L'experience</a></li>
+    <li><a href="#avis">Avis</a></li>
+    <li><a href="#reservation">Reserver</a></li>
+  </ul>
+  <a href="#reservation" class="nav-resa">Reserver une table</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-texture"></div>
+  <div class="hero-center"><div class="hero-center-text">WARA</div></div>
+  <div class="hero-top">
+    <div class="hero-badge">Restaurant gastronomique — Cocody, Abidjan</div>
+    <div class="hero-year">Depuis 2019</div>
+  </div>
+  <div class="hero-content">
+    <div class="hero-bottom-grid">
+      <div>
+        <p class="hero-desc">La cuisine ivoirienne elevee au rang qu'elle merite. Des produits locaux, un savoir-faire transmis, une table qui raconte l'identite d'un peuple.</p>
+      </div>
+      <div class="hero-title-center">
+        <h1 class="hero-h1"><em>Wara</em></h1>
+        <div class="hero-sub-center">Gastronomie ivoirienne contemporaine</div>
+      </div>
+      <div class="hero-right">
+        <a href="#reservation" class="hero-resa">Reserver une table</a>
+        <div class="hero-horaires">
+          Mardi — Dimanche<br>
+          Dejeuner 12h — 15h<br>
+          Diner 19h — 23h
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="menu" class="menu-section">
+  <div class="menu-header reveal">
+    <div>
+      <div class="section-tag">Notre carte</div>
+      <h2 class="section-h2">Ce soir, nous <em>cuisinons</em></h2>
+    </div>
+    <div class="menu-note">Carte renouvelee chaque semaine selon les arrivages du marche. Produits 100% locaux.</div>
+  </div>
+  <div class="menu-grid">
+    <div class="menu-col">
+      <div class="menu-category">Entrees</div>
+      <div class="menu-item reveal">
+        <div class="menu-item-left">
+          <div class="menu-item-name">Accras de crevettes du lac</div>
+          <div class="menu-item-desc">Crevettes fraiches, piment doux, herbes du jardin, creme d'igname</div>
+        </div>
+        <div class="menu-price">3 500 XOF</div>
+      </div>
+      <div class="menu-item reveal">
+        <div class="menu-item-left">
+          <div class="menu-item-name">Veloute d'attiéké aux champignons</div>
+          <div class="menu-item-desc">Attiéké fin, champignons de saison, bouillon de poisson fume</div>
+        </div>
+        <div class="menu-price">2 800 XOF</div>
+      </div>
+      <div class="menu-item reveal">
+        <div class="menu-item-left">
+          <div class="menu-item-name">Carpaccio de thiof</div>
+          <div class="menu-item-desc">Thiof de peche locale, agrumes, huile de palme rouge, fleur de sel</div>
+        </div>
+        <div class="menu-price">4 200 XOF</div>
+      </div>
+      <br>
+      <div class="menu-category">Plats principaux</div>
+      <div class="menu-item reveal">
+        <div class="menu-item-left">
+          <div class="menu-item-name">Cabri en sauce graine revisitee</div>
+          <div class="menu-item-desc">Cabri du Korhogo, noix de palme torreflee, piment vert, igname pilée</div>
+        </div>
+        <div class="menu-price">9 500 XOF</div>
+      </div>
+      <div class="menu-item reveal">
+        <div class="menu-item-left">
+          <div class="menu-item-name">Braise de tilapia du Bandama</div>
+          <div class="menu-item-desc">Tilapia entier braise, coulis de tomate, oignons confits, riz parfume</div>
+        </div>
+        <div class="menu-price">8 000 XOF</div>
+      </div>
+      <div class="menu-item reveal">
+        <div class="menu-item-left">
+          <div class="menu-item-name">Poulet kedjenou signature Wara</div>
+          <div class="menu-item-desc">Mijoté en canari ferme, epicé au poivre selim, banane plantain rotie</div>
+        </div>
+        <div class="menu-price">7 500 XOF</div>
+      </div>
+    </div>
+    <div class="menu-col menu-col-right">
+      <div class="menu-category">Desserts</div>
+      <div class="menu-item reveal">
+        <div class="menu-item-left">
+          <div class="menu-item-name">Fondant chocolat de Soubre</div>
+          <div class="menu-item-desc">Cacao grand cru de Soubre, coeur coulant, glace noix de coco artisanale</div>
+        </div>
+        <div class="menu-price">2 500 XOF</div>
+      </div>
+      <div class="menu-item reveal">
+        <div class="menu-item-left">
+          <div class="menu-item-name">Tarte aux bananes flambees</div>
+          <div class="menu-item-desc">Bananes de plantation, caramel beurre sale, creme fraiche locale</div>
+        </div>
+        <div class="menu-price">2 200 XOF</div>
+      </div>
+      <div class="menu-item reveal">
+        <div class="menu-item-left">
+          <div class="menu-item-name">Pannacotta gingembre-citron</div>
+          <div class="menu-item-desc">Creme de lait de vache peul, gingembre frais, zeste de citron vert</div>
+        </div>
+        <div class="menu-price">1 800 XOF</div>
+      </div>
+      <br>
+      <div class="menu-category">Boissons maison</div>
+      <div class="menu-item reveal">
+        <div class="menu-item-left">
+          <div class="menu-item-name">Bissap frais a la menthe</div>
+          <div class="menu-item-desc">Infusion d'hibiscus locale, sucre de canne, menthe fraiche, glace pilée</div>
+        </div>
+        <div class="menu-price">1 200 XOF</div>
+      </div>
+      <div class="menu-item reveal">
+        <div class="menu-item-left">
+          <div class="menu-item-name">Gingembre & citronelle</div>
+          <div class="menu-item-desc">Gingembre brut du marche, citronelle, miel de foret, piment de Jamaica</div>
+        </div>
+        <div class="menu-price">1 500 XOF</div>
+      </div>
+      <div class="menu-item reveal">
+        <div class="menu-item-left">
+          <div class="menu-item-name">Cocktail Wara sans alcool</div>
+          <div class="menu-item-desc">Tamarinde, citron vert, sirop de canne brut, eau gazeuse</div>
+        </div>
+        <div class="menu-price">1 800 XOF</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="ambiance">
+  <div class="ambiance-track">
+    <div class="ambiance-card a1"><span class="ambiance-label">La salle principale</span></div>
+    <div class="ambiance-card a2"><span class="ambiance-label">Le jardin interieur</span></div>
+    <div class="ambiance-card a3"><span class="ambiance-label">La cuisine ouverte</span></div>
+    <div class="ambiance-card a4"><span class="ambiance-label">Le bar</span></div>
+    <div class="ambiance-card a5"><span class="ambiance-label">La table du chef</span></div>
+    <div class="ambiance-card a1"><span class="ambiance-label">La salle principale</span></div>
+    <div class="ambiance-card a2"><span class="ambiance-label">Le jardin interieur</span></div>
+    <div class="ambiance-card a3"><span class="ambiance-label">La cuisine ouverte</span></div>
+    <div class="ambiance-card a4"><span class="ambiance-label">Le bar</span></div>
+    <div class="ambiance-card a5"><span class="ambiance-label">La table du chef</span></div>
+  </div>
+</div>
+
+<section id="experience" class="experience">
+  <div class="experience-inner">
+    <div class="exp-left reveal">
+      <div class="section-tag">L'experience</div>
+      <h2 class="exp-h2">Manger ici,<br>c'est <em>se souvenir.</em></h2>
+      <p class="exp-text">Wara n'est pas seulement un restaurant. C'est un argument — la preuve que la cuisine ivoirienne merite une scene digne de ce qu'elle est.</p>
+      <p class="exp-text">Chaque plat est un acte de memoire et d'invention. Nous prenons les recettes de nos grands-meres et nous demandons ce qu'elles diraient avec les techniques d'aujourd'hui.</p>
+    </div>
+    <div class="exp-right">
+      <div class="exp-item reveal">
+        <div class="exp-num">01</div>
+        <div>
+          <div class="exp-item-title">Produits de saison, producteurs nommes</div>
+          <div class="exp-item-desc">Chaque ingredient a un visage. Nous travaillons avec les memes producteurs depuis l'ouverture. Leur nom figure sur notre tableau chaque semaine.</div>
+        </div>
+      </div>
+      <div class="exp-item reveal">
+        <div class="exp-num">02</div>
+        <div>
+          <div class="exp-item-title">Cuisine ouverte, chef visible</div>
+          <div class="exp-item-desc">La cuisine n'est pas cachee. Vous voyez ce qui se prepare, vous sentez les epiceries, vous comprenez le travail. Rien n'est fait dans l'ombre.</div>
+        </div>
+      </div>
+      <div class="exp-item reveal">
+        <div class="exp-num">03</div>
+        <div>
+          <div class="exp-item-title">Service sans pression</div>
+          <div class="exp-item-desc">Pas de rotation de table. Pas de regard de l'horloge. Vous etes ici pour le temps qu'il vous faut — ni plus, ni moins que le temps d'un vrai repas.</div>
+        </div>
+      </div>
+      <div class="exp-item reveal">
+        <div class="exp-num">04</div>
+        <div>
+          <div class="exp-item-title">Evenements prives</div>
+          <div class="exp-item-desc">Le restaurant est disponible en exclusivite pour des dines prives, celebrations et evenements corporatifs — avec menu sur mesure.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="avis" class="avis">
+  <div class="avis-inner">
+    <div class="reveal">
+      <div class="section-tag">Ce que disent nos hotes</div>
+      <h2 class="section-h2">Des <em>tables</em> qui parlent</h2>
+    </div>
+    <div class="avis-grid">
+      <div class="avis-card reveal">
+        <div class="avis-quote">"</div>
+        <p class="avis-text">Je vis a Paris depuis dix ans et quand je reviens, la premiere chose que je fais c'est reserver chez Wara. Pas par habitude — par besoin reel.</p>
+        <div class="avis-stars">★★★★★</div>
+        <div class="avis-author">Fatou K. — Paris / Abidjan</div>
+      </div>
+      <div class="avis-card reveal">
+        <div class="avis-quote">"</div>
+        <p class="avis-text">Le kedjenou signature m'a fait comprendre que je ne savais pas vraiment ce que ce plat pouvait etre. Ils ont change mon cadre de reference.</p>
+        <div class="avis-stars">★★★★★</div>
+        <div class="avis-author">Remi D. — Directeur, Plateau</div>
+      </div>
+      <div class="avis-card reveal">
+        <div class="avis-quote">"</div>
+        <p class="avis-text">Nous avons organise le diner de fin d'annee de notre equipe ici. Quarante personnes. Tout etait parfait — de la mise en place a la qualite du service.</p>
+        <div class="avis-stars">★★★★★</div>
+        <div class="avis-author">Nadia A. — DRH, Multinationale</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="reservation" class="resa-cta">
+  <div class="resa-tag">Reservations</div>
+  <h2 class="resa-h2 reveal">Une table vous attend,<br>ce soir ou <em>quand vous voulez.</em></h2>
+  <a href="tel:+2250700000000" class="resa-btn">Appeler pour reserver</a>
+  <div class="resa-infos">
+    Mardi — Dimanche · Dejeuner 12h-15h · Diner 19h-23h<br>
+    Cocody, Abidjan · +225 07 00 00 00 00 · table@wara.ci
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">Wara</div>
+  <div class="footer-info">
+    Cocody, Abidjan · Cote d'Ivoire<br>
+    Ouvert du mardi au dimanche
+  </div>
+  <div class="footer-credit">Design par <span>Eliel Poster</span> · Concept Project 2025</div>
+</footer>
+
+<script>
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>

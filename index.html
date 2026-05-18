@@ -1,226 +1,386 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eliel Poster — Agence de Communication Abidjan | Branding · Web · Multimédia</title>
+    <meta name="description" content="Eliel Poster, agence créative à Abidjan. Création logo, branding, site web, UI/UX, flyers, vidéo. +50 projets livrés. Votre image décide si les clients vous font confiance.">
+    <meta name="keywords" content="agence communication Abidjan, création logo Abidjan, création site web Côte d'Ivoire, branding Abidjan, graphiste Abidjan, agence digitale Abidjan">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://elielposter.com/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Eliel Poster — Agence Créative Abidjan">
+    <meta property="og:description" content="+50 projets livrés. Branding, web, multimédia. Votre image décide si les clients vous font confiance.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&family=Poppins:wght@600;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap">
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
-    <link rel="shortcut icon" href="favicon.svg" type="image/x-icon">
-    <title>Eliel Poster</title>
-    <meta name="description" content="Eliel Poster, agence créative basée à Abidjan. Création de sites web, design graphique et production de contenus multimédias.">
 </head>
 <body>
 
-
-    <div class="entete">
-        <div class="logo">
-            <a href="index.html">
-                <img src="assets/img/logo.png" alt="Logo Eliel Poster">
-            </a>
-        </div>
-
-
-        <nav>
-            <ul>
-                <li><a href="#accueil">Accueil</a></li>
-                <li><a href="#apropos">À propos</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="pages/portfolio.html">Réalisations</a></li>
-                <li><a href="pages/contact.html">Contact</a></li>
-            </ul>
-        </nav>
-
-        <button class="hamburger" id="hamburger" aria-label="Ouvrir le menu" aria-expanded="false">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
-    </div>
-
-    <div class="menu-overlay" id="menuOverlay"></div>
-
-
-    <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+<div class="entete" id="entete">
+    <div class="logo"><a href="index.html"><img src="assets/img/logo.png" alt="Eliel Poster"></a></div>
+    <nav>
         <ul>
-            <li><a href="#accueil"  class="mobile-lien">Accueil</a></li>
-            <li><a href="#apropos"  class="mobile-lien">À propos</a></li>
-            <li><a href="#services" class="mobile-lien">Services</a></li>
-            <li><a href="pages/portfolio.html" class="mobile-lien">Réalisations</a></li>
-            <li><a href="pages/contact.html"   class="mobile-lien">Contact</a></li>
+            <li><a href="#accueil">Accueil</a></li>
+            <li><a href="#preuves">Réalisations</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#temoignages">Clients</a></li>
+            <li><a href="pages/contact.html">Contact</a></li>
         </ul>
-        <a href="pages/devis.html" class="btn-mobile-cta">Demander un devis</a>
+    </nav>
+    <div style="display:flex;align-items:center;gap:0.8rem;">
+        <button class="theme-toggle" id="themeToggle" aria-label="Changer le thème" title="Mode sombre / clair">
+            <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+            <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        </button>
+        <a href="pages/devis.html" class="nav-cta">Parler de mon projet</a>
     </div>
+    <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+    </button>
+</div>
+
+<div class="menu-overlay" id="menuOverlay"></div>
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <ul>
+        <li><a href="#accueil" class="mobile-lien">Accueil</a></li>
+        <li><a href="#preuves" class="mobile-lien">Réalisations</a></li>
+        <li><a href="#services" class="mobile-lien">Services</a></li>
+        <li><a href="#temoignages" class="mobile-lien">Clients</a></li>
+        <li><a href="pages/contact.html" class="mobile-lien">Contact</a></li>
+    </ul>
+    <div style="display:flex;gap:0.8rem;align-items:center;padding:0 0.5rem;">
+        <button class="theme-toggle" id="themeToggleMobile" aria-label="Changer le thème">
+            <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+            <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        </button>
+        <a href="pages/devis.html" class="btn-mobile-cta" style="flex:1;margin-top:0;">Parler de mon projet</a>
+    </div>
+</div>
 
 
-    <section id="accueil" class="hero">
-        <div class="hero-content">
-            <h4>Agence créative</h4>
-            <h1 class="hero-titre-anime">Donnez vie à vos idées avec <span>Eliel Poster</span></h1>
-            <p>Eliel Poster est une agence de communication créative spécialisée dans la création de sites web, le design graphique et la production de contenus multimédias. Nous accompagnons marques, artistes et organisations dans la construction d'une image forte et cohérente.</p>
-            <div class="hero-btns">
-                <a href="pages/portfolio.html" class="btn-hero">Voir nos réalisations</a>
-                <a href="pages/contact.html" class="btn-hero-outline">Nous contacter</a>
+<!-- HERO -->
+<section id="accueil" class="hero">
+    <div class="hero-container">
+
+        <!-- Tech icons strip (remplace le trust strip générique) -->
+        <div class="tech-strip">
+            <span class="tech-separator">Nous maîtrisons</span>
+            <!-- HTML5 -->
+            <div class="tech-icon" title="HTML5">
+                <svg viewBox="0 0 24 24" fill="none"><path d="M4 3l1.5 16.5L12 21l6.5-1.5L20 3H4z" fill="#e34c26" opacity=".9"/><path d="M12 19.5l5.3-1.5 1.3-14H12v15.5z" fill="#ef652a" opacity=".7"/><path d="M12 8.5H8.5l.2 2H12V8.5zM12 13.5H9l.3 3L12 17.5v-4z" fill="#fff"/><path d="M12 8.5v2h3.3l-.3 3H12v2h2.7l-.3 2.5L12 19.5v1.8l5.3-1.5 1.3-14H12z" fill="#ebebeb"/></svg>
+            </div>
+            <!-- CSS3 -->
+            <div class="tech-icon" title="CSS3">
+                <svg viewBox="0 0 24 24" fill="none"><path d="M4 3l1.5 16.5L12 21l6.5-1.5L20 3H4z" fill="#264de4" opacity=".9"/><path d="M12 19.5l5.3-1.5 1.3-14H12v15.5z" fill="#2965f1" opacity=".7"/><path d="M8.5 8.5l.2 2H15l-.2 2H10l.2 2 1.8.5 1.8-.5.2-1.5h2l-.4 3.5L12 17.5l-3.2-.9-.3-2.6h2l.1 1.3 1.4.4 1.4-.4.2-2.3H8.3L7.8 8.5h8.4l-.2 2H8.5z" fill="#fff"/></svg>
+            </div>
+            <!-- JavaScript -->
+            <div class="tech-icon" title="JavaScript">
+                <svg viewBox="0 0 24 24"><rect width="24" height="24" rx="3" fill="#f7df1e"/><path d="M7 18.5c.4.8 1 1.3 2 1.3 1.1 0 1.7-.5 1.7-1.3 0-.9-.7-1.2-1.8-1.7L8.3 16c-1.5-.6-2.5-1.4-2.5-3 0-1.5 1.1-2.6 2.9-2.6 1.3 0 2.2.4 2.8 1.5l-1.5 1c-.3-.6-.6-.8-1.2-.8-.6 0-1 .4-1 .8 0 .6.4.8 1.3 1.2l.7.3c1.7.7 2.8 1.5 2.8 3.2 0 1.8-1.4 2.8-3.3 2.8-1.9 0-3-.9-3.6-2.1L7 18.5zm8.5-7.3c.4.7.8 1.1 1.6 1.1.7 0 1.1-.4 1.1-.9 0-1.5-4.6-.4-4.6-4.1 0-2.4 1.8-3.5 3.6-3.5 1.6 0 2.7.8 3.3 2l-1.6 1c-.3-.6-.8-1-1.7-1-.7 0-1.1.4-1.1.9 0 1.5 4.6.4 4.6 4.2 0 2.2-1.6 3.5-3.6 3.5-2.1 0-3.3-1.1-3.8-2.3l1.6-1.1-.4.2z" fill="#000"/></svg>
+            </div>
+            <!-- React -->
+            <div class="tech-icon" title="React">
+                <svg viewBox="0 0 24 24" fill="#61dafb"><circle cx="12" cy="12" r="2.2"/><ellipse cx="12" cy="12" rx="10" ry="4" fill="none" stroke="#61dafb" stroke-width="1.2"/><ellipse cx="12" cy="12" rx="10" ry="4" fill="none" stroke="#61dafb" stroke-width="1.2" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="10" ry="4" fill="none" stroke="#61dafb" stroke-width="1.2" transform="rotate(120 12 12)"/></svg>
+            </div>
+            <!-- Figma -->
+            <div class="tech-icon" title="Figma">
+                <svg viewBox="0 0 24 24"><path d="M8 2h4a4 4 0 0 1 0 8H8V2z" fill="#f24e1e"/><path d="M8 10h4a4 4 0 0 1 0 8H8v-8z" fill="#a259ff"/><path d="M8 18a4 4 0 1 0 0 8v-8z" fill="#0acf83" transform="scale(1) translate(0,-18)"/><path d="M8 10H4a4 4 0 0 1 0-8h4v8z" fill="#ff7262"/><circle cx="16" cy="10" r="4" fill="#1abcfe"/></svg>
+            </div>
+            <!-- WordPress -->
+            <div class="tech-icon" title="WordPress">
+                <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#21759b"/><path d="M2.2 12c0 4.3 2.5 8.1 6.2 9.8L3 8.4A9.8 9.8 0 0 0 2.2 12zm15.1-.5c0-1.3-.5-2.2-1-2.9-.6-.9-1.1-1.7-1.1-2.6 0-1 .7-2 1.8-2h.1A9.8 9.8 0 0 0 2.4 11l5.5 15.8A9.8 9.8 0 0 0 21.8 12c0-3.5-1.3-5.8-1.3-5.8a9.8 9.8 0 0 0-3.2-.7zm-5.3 5.7l-2.8-8.1C10 9 10.7 9 10.7 9c.6 0 .7-.8 0-.8H7a9.8 9.8 0 0 1 5-1.4c1.3 0 2.5.2 3.6.5-.1 0-.1 0-.2.1-.8 0-1.5.7-1.5 1.5 0 .7.4 1.3.8 2 .3.6.7 1.3.7 2.3 0 .7-.3 1.6-.7 2.8l-.9 3-3.2-9.4z" fill="#fff"/><path d="M14.1 20.3 16.6 13c.5-1.2.7-2.1.7-3 0-.3 0-.6-.1-.9l2.3 6.7a9.8 9.8 0 0 1-5.4 4.5z" fill="#fff"/></svg>
+            </div>
+            <!-- Photoshop -->
+            <div class="tech-icon" title="Photoshop">
+                <svg viewBox="0 0 24 24"><rect width="24" height="24" rx="4" fill="#001e36"/><path d="M5 17V7h3.2c.7 0 1.3.1 1.8.3.5.2.9.5 1.2 1 .3.5.5 1 .5 1.6 0 .6-.2 1.2-.5 1.6-.3.5-.7.8-1.2 1-.5.2-1.1.3-1.8.3H6.7V17H5zm1.7-4.5h1.4c.6 0 1-.1 1.3-.4.3-.3.5-.7.5-1.2 0-.5-.2-.9-.5-1.2-.3-.3-.8-.4-1.3-.4H6.7v3.2zm7.6 4.6c-.5 0-1-.1-1.4-.3-.4-.2-.7-.5-.9-.9l1.2-.7c.2.3.4.5.6.6.3.1.5.2.8.2.3 0 .6-.1.8-.2.2-.1.3-.3.3-.5 0-.3-.2-.5-.5-.6l-1-.3c-.6-.2-1-.4-1.3-.7-.3-.3-.4-.7-.4-1.2 0-.4.1-.8.3-1.1.2-.3.5-.6.9-.7.4-.2.8-.3 1.3-.3.4 0 .8.1 1.2.2.4.2.7.4.9.8l-1.1.7c-.1-.2-.3-.4-.5-.5-.2-.1-.4-.2-.6-.2-.3 0-.5.1-.6.2-.2.1-.2.3-.2.5 0 .2.1.4.3.5l1 .3c.6.2 1.1.5 1.4.8.3.3.4.7.4 1.2 0 .4-.1.8-.4 1.1-.2.3-.5.6-.9.7-.3.3-.8.4-1.4.4z" fill="#31a8ff"/></svg>
+            </div>
+            <!-- Illustrator -->
+            <div class="tech-icon" title="Illustrator">
+                <svg viewBox="0 0 24 24"><rect width="24" height="24" rx="4" fill="#ff7c00"/><path d="M9 15.5H6.5l-.6 2H4l2.7-8h1.7l2.7 8h-1.5L9 15.5zm-2.2-1.2h1.9L7.7 11l-1 3.3zm8.4-4.3c1 0 1.8.4 2.3 1.1.6.7.8 1.7.8 2.9 0 1.2-.3 2.2-.8 2.9-.5.7-1.3 1-2.3 1-.5 0-1-.1-1.4-.4-.4-.2-.7-.6-.9-1v4.1h-1.4V10.1h1.3l.1.9c.2-.3.5-.6.9-.8.4-.3.8-.3 1.4-.3zm-.4 1.3c-.6 0-1.1.3-1.4.8-.3.5-.5 1.2-.5 2 0 .8.2 1.5.5 2 .3.5.8.8 1.4.8.6 0 1.1-.3 1.4-.8.3-.5.5-1.2.5-2 0-.8-.2-1.5-.5-2-.3-.5-.8-.8-1.4-.8z" fill="#fff"/></svg>
+            </div>
+            <!-- After Effects -->
+            <div class="tech-icon" title="After Effects">
+                <svg viewBox="0 0 24 24"><rect width="24" height="24" rx="4" fill="#00005b"/><path d="M6.4 17l2.7-8H7.4l-1 3.3L5.3 9H3.8l2.6 8zm4.6 0V9H9.6v8h1.4zm-.7-9.5c.5 0 .8-.3.8-.8S10.8 6 10.3 6s-.8.3-.8.8.3.7.8.7zm9.7 4.7H16c0-.7-.2-1.2-.5-1.6-.3-.4-.8-.6-1.3-.6-.6 0-1 .2-1.3.6-.3.4-.5 1-.5 1.7 0 .7.2 1.3.5 1.7.3.4.8.6 1.4.6.5 0 .9-.1 1.2-.4.3-.2.6-.6.7-1h1.5c-.2.8-.6 1.5-1.2 2-.6.5-1.3.7-2.2.7-1 0-1.8-.3-2.4-1-.6-.7-.9-1.6-.9-2.7 0-1.1.3-2 .9-2.7.6-.7 1.4-1 2.4-1 .9 0 1.6.3 2.2.8.6.5 1 1.2 1.1 2.1v.8z" fill="#9999ff"/></svg>
+            </div>
+            <!-- Premiere Pro -->
+            <div class="tech-icon" title="Premiere Pro">
+                <svg viewBox="0 0 24 24"><rect width="24" height="24" rx="4" fill="#00005b"/><path d="M5 17V9h3.2c.7 0 1.3.1 1.7.3.5.2.8.5 1.1 1 .3.5.4 1 .4 1.6 0 .6-.1 1.2-.4 1.6-.3.5-.6.8-1.1 1-.5.2-1 .3-1.7.3H6.4V17H5zm1.4-4.5h1.7c.5 0 1-.1 1.2-.4.3-.3.4-.6.4-1.2 0-.5-.1-.9-.4-1.2-.3-.3-.7-.4-1.2-.4H6.4v3.2zm7.4 4.6c-.8 0-1.5-.2-2-.5-.5-.3-.8-.8-1-1.4l1.2-.3c.1.4.3.7.6.9.3.2.7.3 1.1.3.4 0 .7-.1.9-.3.2-.2.3-.4.3-.7 0-.4-.3-.6-.8-.8l-1.1-.3c-.5-.2-.9-.4-1.2-.7-.3-.3-.4-.7-.4-1.2 0-.4.1-.8.3-1.1.2-.3.5-.6.9-.7.4-.2.8-.3 1.2-.3.7 0 1.3.2 1.7.5.4.3.7.8.9 1.3l-1.2.3c-.1-.3-.3-.5-.5-.7-.2-.2-.5-.2-.8-.2-.3 0-.6.1-.8.2-.2.2-.3.4-.3.6 0 .3.2.5.6.7l1 .3c.6.2 1.1.5 1.4.8.3.3.5.7.5 1.3 0 .5-.1.9-.4 1.2-.2.4-.6.6-1 .8-.4.2-.8.3-1.3.3z" fill="#e68000"/></svg>
             </div>
         </div>
-        <div class="hero-visual">
-            <img src="assets/img/illustration-accueil.jpg" alt="Illustration femme">
-        </div>
-    </section>
 
-    <section id="apropos">
-        <div class="apropos-grid">
-            <div class="apropos-box">
-                <span class="section-label">À propos</span>
-                <h2>Une agence créative au service de votre vision</h2>
-                <div class="section-line"></div>
-                <p>Chez Eliel Poster, nous croyons que chaque projet mérite une identité unique. Notre mission est de transformer vos idées en solutions visuelles et digitales efficaces, adaptées à vos objectifs et à votre public.</p>
-                <p class="complement">Nous travaillons avec passion, rigueur et créativité afin d'offrir des résultats durables et impactants.</p>
-            </div>
-            <div class="hero-visual2">
-                <img src="assets/img/illustration-apropos.png" alt="Illustration femme digitale">
+        <!-- Hero centre -->
+        <div class="hero-center">
+            <h1 class="hero-titre">
+                Votre image décide<br>
+                si les clients vous<br>
+                <em class="hero-em">font confiance.</em>
+            </h1>
+            <p class="hero-sub">Nous créons des identités que l'on ne peut pas ignorer. Branding, web, multimédia — pour les entrepreneurs, artistes et marques qui veulent jouer dans la cour des grands.</p>
+            <div class="hero-actions">
+                <a href="#preuves" class="btn-primary">Voir nos réalisations</a>
+                <div class="btn-ghost-wrap">
+                    <a href="pages/devis.html" class="btn-ghost">Obtenir une identité premium</a>
+                    <span class="btn-tooltip">Devis gratuit · Réponse sous 24h</span>
+                </div>
             </div>
         </div>
-    </section>
 
-    <section id="services">
+        <!-- Proof bar -->
+        <div class="hero-proof-bar">
+            <div class="proof-item">
+                <span class="proof-num" data-count="50" data-suffix="+">0+</span>
+                <span class="proof-label">Projets livrés</span>
+            </div>
+            <div class="proof-divider"></div>
+            <div class="proof-item">
+                <span class="proof-num" data-count="96" data-suffix="%">0%</span>
+                <span class="proof-label">Clients satisfaits</span>
+            </div>
+            <div class="proof-divider"></div>
+            <div class="proof-item">
+                <span class="proof-num" data-count="48" data-suffix="h">0h</span>
+                <span class="proof-label">Délai moyen</span>
+            </div>
+            <div class="proof-divider"></div>
+            <div class="proof-item">
+                <span class="proof-num" data-count="3" data-suffix=" ans">0 ans</span>
+                <span class="proof-label">D'expérience</span>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- TECH LOGOS STRIP (fond sombre) -->
+<div class="trust-strip" aria-hidden="true">
+    <div class="trust-icons-track" id="marqueeTrack">
+        <div class="trust-lang-icon"><svg width="16" height="16" viewBox="0 0 24 24"><path d="M4 3l1.5 16.5L12 21l6.5-1.5L20 3H4z" fill="#e34c26"/><path d="M12 8.5H8.5l.2 2H12V8.5zM12 13.5H9l.3 3L12 17.5v-4z" fill="#fff"/></svg><span>HTML / CSS</span></div>
+        <div class="trust-lang-icon"><svg width="16" height="16" viewBox="0 0 24 24"><rect width="24" height="24" rx="3" fill="#f7df1e"/><path d="M7 18.5c.4.8 1 1.3 2 1.3 1.1 0 1.7-.5 1.7-1.3 0-.9-.7-1.2-1.8-1.7L8.3 16c-1.5-.6-2.5-1.4-2.5-3 0-1.5 1.1-2.6 2.9-2.6 1.3 0 2.2.4 2.8 1.5l-1.5 1c-.3-.6-.6-.8-1.2-.8-.6 0-1 .4-1 .8 0 .6.4.8 1.3 1.2l.7.3c1.7.7 2.8 1.5 2.8 3.2 0 1.8-1.4 2.8-3.3 2.8-1.9 0-3-.9-3.6-2.1L7 18.5z" fill="#000"/></svg><span>JavaScript</span></div>
+        <div class="trust-lang-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="#61dafb"><circle cx="12" cy="12" r="2.2"/><ellipse cx="12" cy="12" rx="10" ry="4" fill="none" stroke="#61dafb" stroke-width="1.5"/><ellipse cx="12" cy="12" rx="10" ry="4" fill="none" stroke="#61dafb" stroke-width="1.5" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="10" ry="4" fill="none" stroke="#61dafb" stroke-width="1.5" transform="rotate(120 12 12)"/></svg><span>React</span></div>
+        <div class="trust-lang-icon"><svg width="16" height="16" viewBox="0 0 24 24"><rect width="24" height="24" rx="3" fill="#3178c6"/><text x="4" y="16" font-size="8.5" font-weight="700" fill="#fff" font-family="sans-serif">TS</text></svg><span>TypeScript</span></div>
+        <div class="trust-lang-icon"><svg width="16" height="16" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" fill="none" stroke="#38bdf8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Tailwind CSS</span></div>
+        <div class="trust-lang-icon"><svg width="16" height="16" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" fill="none" stroke="#60a5fa" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Next.js</span></div>
+        <div class="trust-lang-icon"><svg width="16" height="16" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#21759b"/><path d="M12 6a6 6 0 1 0 0 12A6 6 0 0 0 12 6zm0 10.5a4.5 4.5 0 1 1 0-9 4.5 4.5 0 0 1 0 9z" fill="#fff"/></svg><span>WordPress</span></div>
+        <div class="trust-lang-icon"><svg width="16" height="16" viewBox="0 0 24 24"><rect width="24" height="24" rx="4" fill="#1e1e1e"/><path d="M8 6h3a4 4 0 0 1 0 8H8V6z" fill="#f24e1e"/><path d="M8 14h3a4 4 0 0 1 0 8H8v-8z" fill="#a259ff"/><path d="M8 14H5a4 4 0 0 1 0-8h3v8z" fill="#ff7262"/><circle cx="16" cy="10" r="3" fill="#1abcfe"/></svg><span>Figma</span></div>
+        <div class="trust-lang-icon"><svg width="16" height="16" viewBox="0 0 24 24"><rect width="24" height="24" rx="4" fill="#ff7c00"/><path d="M9 15.5H6.5l-.6 2H4l2.7-8h1.7l2.7 8h-1.5L9 15.5zm-2.2-1.2h1.9L7.7 11l-1 3.3z" fill="#fff"/></svg><span>Illustrator</span></div>
+        <div class="trust-lang-icon"><svg width="16" height="16" viewBox="0 0 24 24"><rect width="24" height="24" rx="4" fill="#001e36"/><path d="M5 17V7h3.2c1.5 0 2.7.9 2.7 2.7 0 1.8-1.2 2.7-2.7 2.7H6.7V17H5z" fill="#31a8ff"/></svg><span>Photoshop</span></div>
+        <div class="trust-lang-icon"><svg width="16" height="16" viewBox="0 0 24 24"><rect width="24" height="24" rx="4" fill="#0f0f2e"/><path d="M5 19V5h3c1.5 0 2.5.8 2.5 2.5S9.5 10 8 10h-1.5v2.5h2c2 0 3 1 3 2.5S10.5 17 8 19H5z" fill="#9999ff"/><path d="M14.5 19V5h3c2 0 3.5 2 3.5 7s-1.5 7-3.5 7h-3z" fill="#9999ff"/></svg><span>Premiere Pro</span></div>
+        <div class="trust-lang-icon"><svg width="16" height="16" viewBox="0 0 24 24"><rect width="24" height="24" rx="4" fill="#00005b"/><text x="3" y="15" font-size="8" font-weight="700" fill="#9999ff" font-family="sans-serif">Ae</text></svg><span>After Effects</span></div>
+        <!-- duplicate set for seamless loop -->
+        <div class="trust-lang-icon"><svg width="16" height="16" viewBox="0 0 24 24"><path d="M4 3l1.5 16.5L12 21l6.5-1.5L20 3H4z" fill="#e34c26"/><path d="M12 8.5H8.5l.2 2H12V8.5zM12 13.5H9l.3 3L12 17.5v-4z" fill="#fff"/></svg><span>HTML / CSS</span></div>
+        <div class="trust-lang-icon"><svg width="16" height="16" viewBox="0 0 24 24"><rect width="24" height="24" rx="3" fill="#f7df1e"/><path d="M7 18.5c.4.8 1 1.3 2 1.3 1.1 0 1.7-.5 1.7-1.3 0-.9-.7-1.2-1.8-1.7L8.3 16c-1.5-.6-2.5-1.4-2.5-3 0-1.5 1.1-2.6 2.9-2.6 1.3 0 2.2.4 2.8 1.5l-1.5 1c-.3-.6-.6-.8-1.2-.8-.6 0-1 .4-1 .8 0 .6.4.8 1.3 1.2l.7.3c1.7.7 2.8 1.5 2.8 3.2 0 1.8-1.4 2.8-3.3 2.8-1.9 0-3-.9-3.6-2.1L7 18.5z" fill="#000"/></svg><span>JavaScript</span></div>
+        <div class="trust-lang-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="#61dafb"><circle cx="12" cy="12" r="2.2"/><ellipse cx="12" cy="12" rx="10" ry="4" fill="none" stroke="#61dafb" stroke-width="1.5"/><ellipse cx="12" cy="12" rx="10" ry="4" fill="none" stroke="#61dafb" stroke-width="1.5" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="10" ry="4" fill="none" stroke="#61dafb" stroke-width="1.5" transform="rotate(120 12 12)"/></svg><span>React</span></div>
+        <div class="trust-lang-icon"><svg width="16" height="16" viewBox="0 0 24 24"><rect width="24" height="24" rx="3" fill="#3178c6"/><text x="4" y="16" font-size="8.5" font-weight="700" fill="#fff" font-family="sans-serif">TS</text></svg><span>TypeScript</span></div>
+        <div class="trust-lang-icon"><svg width="16" height="16" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" fill="none" stroke="#38bdf8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Tailwind CSS</span></div>
+        <div class="trust-lang-icon"><svg width="16" height="16" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" fill="none" stroke="#60a5fa" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Next.js</span></div>
+        <div class="trust-lang-icon"><svg width="16" height="16" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#21759b"/><path d="M12 6a6 6 0 1 0 0 12A6 6 0 0 0 12 6zm0 10.5a4.5 4.5 0 1 1 0-9 4.5 4.5 0 0 1 0 9z" fill="#fff"/></svg><span>WordPress</span></div>
+        <div class="trust-lang-icon"><svg width="16" height="16" viewBox="0 0 24 24"><rect width="24" height="24" rx="4" fill="#1e1e1e"/><path d="M8 6h3a4 4 0 0 1 0 8H8V6z" fill="#f24e1e"/><path d="M8 14h3a4 4 0 0 1 0 8H8v-8z" fill="#a259ff"/><path d="M8 14H5a4 4 0 0 1 0-8h3v8z" fill="#ff7262"/><circle cx="16" cy="10" r="3" fill="#1abcfe"/></svg><span>Figma</span></div>
+        <div class="trust-lang-icon"><svg width="16" height="16" viewBox="0 0 24 24"><rect width="24" height="24" rx="4" fill="#ff7c00"/><path d="M9 15.5H6.5l-.6 2H4l2.7-8h1.7l2.7 8h-1.5L9 15.5zm-2.2-1.2h1.9L7.7 11l-1 3.3z" fill="#fff"/></svg><span>Illustrator</span></div>
+        <div class="trust-lang-icon"><svg width="16" height="16" viewBox="0 0 24 24"><rect width="24" height="24" rx="4" fill="#001e36"/><path d="M5 17V7h3.2c1.5 0 2.7.9 2.7 2.7 0 1.8-1.2 2.7-2.7 2.7H6.7V17H5z" fill="#31a8ff"/></svg><span>Photoshop</span></div>
+        <div class="trust-lang-icon"><svg width="16" height="16" viewBox="0 0 24 24"><rect width="24" height="24" rx="4" fill="#0f0f2e"/><path d="M5 19V5h3c1.5 0 2.5.8 2.5 2.5S9.5 10 8 10h-1.5v2.5h2c2 0 3 1 3 2.5S10.5 17 8 19H5z" fill="#9999ff"/><path d="M14.5 19V5h3c2 0 3.5 2 3.5 7s-1.5 7-3.5 7h-3z" fill="#9999ff"/></svg><span>Premiere Pro</span></div>
+        <div class="trust-lang-icon"><svg width="16" height="16" viewBox="0 0 24 24"><rect width="24" height="24" rx="4" fill="#00005b"/><text x="3" y="15" font-size="8" font-weight="700" fill="#9999ff" font-family="sans-serif">Ae</text></svg><span>After Effects</span></div>
+    </div>
+</div>
+
+
+<!-- POSITIONNEMENT -->
+<section id="positionnement" class="positionnement-section">
+    <div class="pos-container">
+        <div class="pos-text">
+            <span class="section-label">Notre position</span>
+            <h2>Nous ne faisons pas du "joli".<br>Nous bâtissons des marques<br>qui vendent.</h2>
+            <p>Il existe des milliers d'agences. La plupart vous font un beau logo et passent à la suivante. Nous, on pense d'abord à ce que vos clients ressentent quand ils voient votre image — et on construit autour de ça.</p>
+            <p>Un client qui vous regarde a 3 secondes pour décider s'il vous fait confiance. Notre travail, c'est de gagner ces 3 secondes.</p>
+            <a href="pages/devis.html" class="btn-primary">Créer ma marque</a>
+        </div>
+        <div class="pos-pillars">
+            <div class="pillar reveal">
+                <div class="pillar-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+                <div><h3>Confiance avant tout</h3><p>Votre image doit rassurer avant même que vous parliez. Chaque décision visuelle est pensée pour déclencher la confiance.</p></div>
+            </div>
+            <div class="pillar reveal">
+                <div class="pillar-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+                <div><h3>Résultats mesurables</h3><p>Branding qui attire, web qui convertit, contenu qui engage. Pas des livrables — des outils commerciaux.</p></div>
+            </div>
+            <div class="pillar reveal">
+                <div class="pillar-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
+                <div><h3>Marché ivoirien d'abord</h3><p>Nous connaissons Abidjan, ses codes, ses consommateurs. Ce que nous faisons fonctionne ici — pas juste sur Behance.</p></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- RÉALISATIONS -->
+<section id="preuves" class="realisations-section">
+    <div class="section-header">
+        <span class="section-label">Portfolio sélectif</span>
+        <h2 class="section-title">Ce que nos clients ont obtenu</h2>
+        <p class="section-desc">Des projets réels et des explorations de design qui prouvent la polyvalence.</p>
+    </div>
+    <div class="case-grid">
+        <div class="case-card case-featured reveal">
+            <div class="case-visual" style="background: linear-gradient(135deg,#1a1a1a 0%,#2d0000 100%);">
+                <img src="assets/img/portfolio/abraham-gogo.png" alt="Abraham Gogo — Identité visuelle artiste" loading="lazy">
+                <div class="case-category-tag">Branding Artiste</div>
+            </div>
+            <div class="case-body">
+                <h3>Abraham Gogo</h3>
+                <p>Identité visuelle complète — logo, chartes, visuels promotionnels pour un artiste musical en pleine ascension.</p>
+                <div class="case-results">
+                    <span class="result-tag">Identité visuelle</span>
+                    <span class="result-tag">Direction artistique</span>
+                </div>
+            </div>
+        </div>
+        <div class="case-card reveal">
+            <div class="case-visual" style="background:linear-gradient(135deg,#0a0a1a 0%,#1a0030 100%);">
+                <img src="assets/img/portfolio/master-class.png" alt="Master Class — Branding événement" loading="lazy">
+                <div class="case-category-tag">Événementiel</div>
+            </div>
+            <div class="case-body">
+                <h3>Master Class CI</h3>
+                <p>Identité visuelle pour un événement de formation premium à Abidjan.</p>
+                <div class="case-results">
+                    <span class="result-tag">Logo & charte</span>
+                    <span class="result-tag">Flyers</span>
+                </div>
+            </div>
+        </div>
+        <div class="case-card case-cta-card reveal">
+            <div class="case-cta-inner">
+                <span class="case-cta-count">+48</span>
+                <p>autres projets livrés en branding, web et multimédia.</p>
+                <a href="pages/portfolio.html" class="btn-primary">Voir le portfolio complet</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- SERVICES -->
+<section id="services" class="services-section">
+    <div class="section-header">
         <span class="section-label">Ce que nous faisons</span>
-        <h2 class="section-title">Nos domaines d'expertise</h2>
-        <div class="section-line"></div>
-        <div class="services-grid">
-            <div class="service-card reveal">
-                <h3>Création de sites web</h3>
-                <p>Nous concevons des sites modernes, rapides et responsives, pensés pour offrir une excellente expérience utilisateur et valoriser votre image en ligne.</p>
-            </div>
-            <div class="service-card reveal">
-                <h3>Design graphique</h3>
-                <p>Logos, affiches, visuels pour les réseaux sociaux ou chartes graphiques : nous créons des supports visuels cohérents et professionnels.</p>
-            </div>
-            <div class="service-card reveal">
-                <h3>Contenus multimédias</h3>
-                <p>Montage vidéo, montage audio, clips promotionnels et contenus digitaux conçus pour capter l'attention et renforcer votre communication.</p>
-            </div>
+        <h2 class="section-title">Des services pensés pour vendre</h2>
+        <p class="section-desc">Chaque service renforce votre crédibilité et attire plus de clients.</p>
+    </div>
+    <div class="services-grid">
+        <div class="service-card reveal"><div class="card-top"><div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><span class="card-label">Identité</span></div><h3>Création de Logo</h3><p>Un logo mémorable, professionnel, adapté à votre marché.</p><a href="pages/devis.html" class="card-cta">Créer mon logo →</a></div>
+        <div class="service-card reveal"><div class="card-top"><div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M3 7V5a2 2 0 012-2h2M17 3h2a2 2 0 012 2v2M21 17v2a2 2 0 01-2 2h-2M7 21H5a2 2 0 01-2-2v-2"/></svg></div><span class="card-label">Branding</span></div><h3>Branding Complet</h3><p>Charte graphique, déclinaisons, positionnement cohérent.</p><a href="pages/devis.html" class="card-cta">Construire ma marque →</a></div>
+        <div class="service-card service-card--highlight reveal"><div class="card-top"><div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div><span class="card-label">Le plus demandé</span></div><h3>Création de Site Web</h3><p>Votre commercial 24h/24. Rapide, optimisé, conçu pour convertir.</p><a href="pages/devis.html" class="card-cta">Obtenir mon site →</a></div>
+        <div class="service-card reveal"><div class="card-top"><div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></div><span class="card-label">Expérience</span></div><h3>UI/UX Design</h3><p>Des interfaces que vos utilisateurs comprennent immédiatement.</p><a href="pages/devis.html" class="card-cta">Designer mon interface →</a></div>
+        <div class="service-card reveal"><div class="card-top"><div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div><span class="card-label">Print & Digital</span></div><h3>Flyers & Affiches</h3><p>Des visuels qui arrêtent le scroll et convertissent.</p><a href="pages/devis.html" class="card-cta">Commander mes visuels →</a></div>
+        <div class="service-card reveal"><div class="card-top"><div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg></div><span class="card-label">Vidéo</span></div><h3>Montage & Motion</h3><p>Vidéos qui captivent. Montage, étalonnage, motion design.</p><a href="pages/devis.html" class="card-cta">Produire ma vidéo →</a></div>
+    </div>
+</section>
+
+
+<!-- PROCESSUS -->
+<section id="processus" class="processus-section">
+    <div class="section-header">
+        <span class="section-label">Comment ça marche</span>
+        <h2 class="section-title">Du brief à la livraison : un process clair</h2>
+    </div>
+    <div class="process-steps">
+        <div class="process-step reveal"><div class="step-num">01</div><div class="step-content"><h3>Vous partagez votre vision</h3><p>Brief complet, écoute approfondie. On comprend votre marché et vos objectifs.</p></div></div>
+        <div class="process-arrow">→</div>
+        <div class="process-step reveal"><div class="step-num">02</div><div class="step-content"><h3>On conçoit sur mesure</h3><p>Pas de template. Chaque proposition est créée pour vous spécifiquement.</p></div></div>
+        <div class="process-arrow">→</div>
+        <div class="process-step reveal"><div class="step-num">03</div><div class="step-content"><h3>Révisions jusqu'à satisfaction</h3><p>On affine ensemble jusqu'au résultat exact que vous vouliez.</p></div></div>
+        <div class="process-arrow">→</div>
+        <div class="process-step reveal"><div class="step-num">04</div><div class="step-content"><h3>Livraison & suivi</h3><p>Fichiers complets, formats adaptés. Disponibles après livraison.</p></div></div>
+    </div>
+</section>
+
+
+<!-- TÉMOIGNAGES -->
+<section id="temoignages" class="temoignages-section">
+    <div class="section-header">
+        <span class="section-label">Ce qu'ils disent</span>
+        <h2 class="section-title">Des clients qui ont vu la différence</h2>
+    </div>
+    <div class="temoignages-grid">
+        <div class="temoignage-card temoignage-featured reveal">
+            <div class="temoignage-quote">"</div>
+            <p class="temoignage-text">Avant Eliel Poster, personne ne me prenait vraiment au sérieux comme artiste. Après la refonte de mon image, les gens perçoivent immédiatement le niveau. Le travail a tout changé.</p>
+            <div class="temoignage-author"><div class="author-avatar">AG</div><div><strong>Abraham Gogo</strong><span>Artiste Musical, Abidjan</span></div></div>
         </div>
-    </section>
-
-    <section id="approche">
-        <div class="approche-box">
-            <span class="section-label">Notre méthode</span>
-            <h2>Une méthode simple et efficace</h2>
-            <p>Nous analysons vos besoins, concevons des solutions sur mesure et vous accompagnons à chaque étape du projet, de l'idée à la livraison finale.</p>
-            <ul class="points-cles">
-                <li>Écoute et compréhension du besoin</li>
-                <li>Créativité et stratégie</li>
-                <li>Respect des délais</li>
-                <li>Suivi et accompagnement</li>
-            </ul>
+        <div class="temoignage-card reveal">
+            <div class="temoignage-quote">"</div>
+            <p class="temoignage-text">Délai tenu, résultat au-dessus de mes attentes. L'équipe a compris exactement ce que je voulais pour l'événement. Je recommande sans hésitation.</p>
+            <div class="temoignage-author"><div class="author-avatar">MC</div><div><strong>Organisateur</strong><span>Master Class CI</span></div></div>
         </div>
-    </section>
+        <div class="temoignage-card reveal">
+            <div class="temoignage-quote">"</div>
+            <p class="temoignage-text">Mon site livré en moins de 5 jours. Mes clients me complimentent dessus à chaque réunion. L'investissement s'est rentabilisé rapidement.</p>
+            <div class="temoignage-author"><div class="author-avatar">KD</div><div><strong>K. Diabaté</strong><span>Entrepreneur, Abidjan</span></div></div>
+        </div>
+    </div>
+    <div class="proof-mention">
+        <span>+50 clients satisfaits à Abidjan et en Côte d'Ivoire</span>
+        <a href="pages/portfolio.html">Voir toutes les réalisations →</a>
+    </div>
+</section>
 
-    
-    <section id="realisations">
-        <span class="section-label">Portfolio</span>
-        <h2 class="section-title">Ils nous ont fait confiance</h2>
-        <div class="section-line"></div>
-        <p>Découvrez quelques projets réalisés pour nos clients dans les domaines du web, du graphisme et du multimédia. Chaque réalisation reflète notre engagement pour la qualité et le détail.</p>
-        <br>
-        <a href="pages/portfolio.html" class="btn-primary">Découvrir le portfolio</a>
-    </section>
 
-    <section id="contact" class="cta">
-        <h2>Prêt à donner une nouvelle dimension à votre projet ?</h2>
-        <p>Parlons de votre idée et construisons ensemble une communication à votre image.</p>
+<!-- CTA FINAL -->
+<section class="cta-final">
+    <div class="cta-inner">
+        <span class="cta-tag">Prochaine étape</span>
+        <h2>Vous avez le talent.<br>Il vous manque peut-être l'image qui le prouve.</h2>
+        <p>Les clients ne voient pas votre valeur réelle — ils voient votre image en premier. Changeons ça.</p>
         <div class="cta-btns">
-            <a href="pages/devis.html" class="btn-hero">Demander un devis</a>
-            <a href="pages/contact.html" class="btn-hero-outline">Nous contacter</a>
+            <a href="pages/devis.html" class="btn-primary btn-large">Lancer mon projet maintenant</a>
+            <div class="btn-ghost-wrap">
+                <a href="pages/contact.html" class="btn-ghost" style="color:#aaa;border-color:#333;">Poser une question d'abord</a>
+                <span class="btn-tooltip" style="background:#333;color:#fff;">Je réponds sous 24h</span>
+            </div>
         </div>
-    </section>
+        <p class="cta-reassurance">Réponse sous 24h · Devis gratuit · Sans engagement</p>
+    </div>
+</section>
 
-    <footer>
-        <div>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <div class="footer-top">
+        <div class="footer-brand-block">
             <span class="footer-brand">Eliel <span>Poster</span></span>
-            <p>Agence de communication créative</p>
-            <p>Votre image, notre mission</p>
+            <p>Agence de communication créative à Abidjan. Branding, web, multimédia — pour les marques qui veulent dominer leur marché.</p>
+            <p class="footer-seo-text">Agence communication Abidjan · Création logo Côte d'Ivoire · Site web Abidjan</p>
         </div>
-        <div class="footer-contact">
-            <p>Contact : <a href="#" class="email-link" data-user="postereliel" data-domain="gmail.com">afficher l'adresse</a></p>
-            <p><a href="tel:+2250576224680">+225 0576 224 680</a></p>
+        <div class="footer-links">
+            <h4>Services</h4>
+            <a href="#services">Création de Logo</a>
+            <a href="#services">Branding Complet</a>
+            <a href="#services">Création Site Web</a>
+            <a href="#services">Montage Vidéo</a>
+            <a href="#services">Community Management</a>
         </div>
-    </footer>
+        <div class="footer-links">
+            <h4>Agence</h4>
+            <a href="pages/portfolio.html">Réalisations</a>
+            <a href="#temoignages">Témoignages</a>
+            <a href="pages/contact.html">Contact</a>
+            <a href="pages/devis.html">Demander un devis</a>
+        </div>
+        <div class="footer-contact-block">
+            <h4>Contact direct</h4>
+            <a href="tel:+2250576224680">+225 0576 224 680</a>
+            <a href="#" class="email-link" data-user="postereliel" data-domain="gmail.com">Afficher l'email</a>
+            <p>Abidjan, Côte d'Ivoire</p>
+            <a href="pages/devis.html" class="footer-cta-btn">Parler de mon projet</a>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; <span class="footer-annee"></span> Eliel Poster · Tous droits réservés · Abidjan, Côte d'Ivoire</p>
+    </div>
+</footer>
 
-
-    <script>
-        const hamburger   = document.getElementById('hamburger');
-        const mobileMenu  = document.getElementById('mobileMenu');
-        const overlay     = document.getElementById('menuOverlay');
-        const mobileLiens = document.querySelectorAll('.mobile-lien');
-
-        function ouvrirMenu() {
-            hamburger.classList.add('ouvert');
-            mobileMenu.classList.add('ouvert');
-            overlay.classList.add('ouvert');
-            hamburger.setAttribute('aria-expanded', 'true');
-            mobileMenu.setAttribute('aria-hidden', 'false');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function fermerMenu() {
-            hamburger.classList.remove('ouvert');
-            mobileMenu.classList.remove('ouvert');
-            overlay.classList.remove('ouvert');
-            hamburger.setAttribute('aria-expanded', 'false');
-            mobileMenu.setAttribute('aria-hidden', 'true');
-            document.body.style.overflow = '';
-        }
-
-        hamburger.addEventListener('click', () => {
-            hamburger.classList.contains('ouvert') ? fermerMenu() : ouvrirMenu();
-        });
-
-        overlay.addEventListener('click', fermerMenu);
-
-        mobileLiens.forEach(lien => lien.addEventListener('click', fermerMenu));
-
-        // Ombre entête au scroll
-        window.addEventListener('scroll', () => {
-            document.querySelector('.entete').classList.toggle('entete--scroll', window.scrollY > 30);
-        });
-
-        // Lien actif au scroll
-        const sections = document.querySelectorAll('section[id]');
-        const navLiens = document.querySelectorAll('nav ul li a');
-
-        window.addEventListener('scroll', () => {
-            let actif = '';
-            sections.forEach(s => {
-                if (window.scrollY >= s.offsetTop - 100) actif = s.id;
-            });
-            navLiens.forEach(a => {
-                a.classList.toggle('nav-actif', a.getAttribute('href') === '#' + actif);
-            });
-        });
-
-        // Reveal au scroll
-        const reveals = document.querySelectorAll('.reveal');
-        const observer = new IntersectionObserver(entries => {
-            entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('reveal--visible'); });
-        }, { threshold: 0.15 });
-        reveals.forEach(r => observer.observe(r));
-    </script>
-
-    <script>
-        document.querySelectorAll('.email-link').forEach(el => {
-            el.addEventListener('click', function(e) {
-                e.preventDefault();
-                const addr = this.dataset.user + '@' + this.dataset.domain;
-                if (this.tagName === 'A') {
-                    this.href = 'mailto:' + addr;
-                }
-                this.textContent = addr;
-            });
-        });
-    </script>
+<script src="assets/js/main.js"></script>
 </body>
 </html>

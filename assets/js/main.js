@@ -1,162 +1,164 @@
-/* ============================================================
-   ELIEL POSTER — main.js
-   Page d'accueil : navigation, animations, scroll
-   ============================================================ */
-
 document.addEventListener('DOMContentLoaded', () => {
 
-    /* ── 1. ENTÊTE : ombre au scroll ── */
-    const entete = document.querySelector('.entete');
+    // ---- THEME TOGGLE ----
+    const html = document.documentElement;
+    const savedTheme = localStorage.getItem('ep-theme') || 'light';
+    html.setAttribute('data-theme', savedTheme);
 
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 40) {
-            entete.classList.add('entete--scroll');
-        } else {
-            entete.classList.remove('entete--scroll');
-        }
-    });
-
-    /* ── 2. NAV : lien actif selon la section visible ── */
-    const sections  = document.querySelectorAll('section[id]');
-    const navLinks  = document.querySelectorAll('nav ul li a[href^="#"]');
-
-    const observerNav = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const id = entry.target.getAttribute('id');
-                navLinks.forEach(link => {
-                    link.classList.remove('nav-actif');
-                    if (link.getAttribute('href') === `#${id}`) {
-                        link.classList.add('nav-actif');
-                    }
-                });
-            }
-        });
-    }, { threshold: 0.4 });
-
-    sections.forEach(section => observerNav.observe(section));
-
-    /* ── 3. MENU MOBILE : hamburger toggle ── */
-    const burger = document.querySelector('.burger');
-    const navMenu = document.querySelector('nav');
-
-    if (burger && navMenu) {
-        burger.addEventListener('click', () => {
-            navMenu.classList.toggle('nav--ouvert');
-            burger.classList.toggle('burger--actif');
-        });
-
-        // Fermer le menu au clic sur un lien
-        navLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                navMenu.classList.remove('nav--ouvert');
-                burger.classList.remove('burger--actif');
-            });
-        });
+    function toggleTheme() {
+        const current = html.getAttribute('data-theme');
+        const next = current === 'dark' ? 'light' : 'dark';
+        html.setAttribute('data-theme', next);
+        localStorage.setItem('ep-theme', next);
     }
 
-    /* ── 4. SCROLL ANIMÉ : liens ancres ── */
+    document.querySelectorAll('#themeToggle, #themeToggleMobile').forEach(btn => {
+        btn?.addEventListener('click', toggleTheme);
+    });
+
+    // ---- NAVBAR SCROLL ----
+    const entete = document.querySelector('.entete');
+    window.addEventListener('scroll', () => {
+        entete?.classList.toggle('entete--scroll', window.scrollY > 40);
+    }, { passive: true });
+
+    // ---- MOBILE MENU ----
+    const hamburger  = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const overlay    = document.getElementById('menuOverlay');
+    const mobileLiens = document.querySelectorAll('.mobile-lien');
+
+    function ouvrirMenu() {
+        hamburger?.classList.add('ouvert');
+        mobileMenu?.classList.add('ouvert');
+        overlay?.classList.add('ouvert');
+        hamburger?.setAttribute('aria-expanded','true');
+        mobileMenu?.setAttribute('aria-hidden','false');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function fermerMenu() {
+        hamburger?.classList.remove('ouvert');
+        mobileMenu?.classList.remove('ouvert');
+        overlay?.classList.remove('ouvert');
+        hamburger?.setAttribute('aria-expanded','false');
+        mobileMenu?.setAttribute('aria-hidden','true');
+        document.body.style.overflow = '';
+    }
+
+    hamburger?.addEventListener('click', () => hamburger.classList.contains('ouvert') ? fermerMenu() : ouvrirMenu());
+    overlay?.addEventListener('click', fermerMenu);
+    mobileLiens.forEach(l => l.addEventListener('click', fermerMenu));
+
+    // ---- SMOOTH SCROLL ----
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
+        anchor.addEventListener('click', function(e) {
             const cible = document.querySelector(this.getAttribute('href'));
             if (cible) {
                 e.preventDefault();
-                const offset = entete.offsetHeight + 16;
-                const top = cible.getBoundingClientRect().top + window.scrollY - offset;
-                window.scrollTo({ top, behavior: 'smooth' });
+                const offset = (entete?.offsetHeight || 70) + 16;
+                window.scrollTo({ top: cible.getBoundingClientRect().top + window.scrollY - offset, behavior: 'smooth' });
             }
         });
     });
 
-    /* ── 5. REVEAL AU SCROLL : apparition des éléments ── */
-    const elementsReveal = document.querySelectorAll(
-        '.service-card, .apropos-box, .approche-box, .hero-content, .hero-visual, #realisations h2, #realisations p, #temoignages h2, #temoignages p, .cta h2, .cta p'
-    );
+    // ---- ACTIVE NAV ----
+    const sections = document.querySelectorAll('section[id]');
+    const navLiens = document.querySelectorAll('nav ul li a[href^="#"]');
 
-    elementsReveal.forEach(el => el.classList.add('reveal'));
-
-    const observerReveal = new IntersectionObserver((entries) => {
-        entries.forEach((entry, index) => {
+    new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
             if (entry.isIntersecting) {
-                // délai progressif pour les cartes de service
-                const delay = entry.target.closest('.services-grid')
-                    ? Array.from(entry.target.parentElement.children).indexOf(entry.target) * 120
-                    : 0;
-                setTimeout(() => {
-                    entry.target.classList.add('reveal--visible');
-                }, delay);
-                observerReveal.unobserve(entry.target);
+                const id = entry.target.id;
+                navLiens.forEach(a => a.classList.toggle('nav-actif', a.getAttribute('href') === `#${id}`));
             }
         });
-    }, { threshold: 0.15 });
-
-    elementsReveal.forEach(el => observerReveal.observe(el));
-
-    /* ── 6. COMPTEUR STATISTIQUES (si section stats présente) ── */
-    function animerCompteur(el) {
-        const cible  = parseInt(el.dataset.count, 10);
-        const duree  = 1800;
-        const pas    = Math.ceil(duree / cible);
-        let compteur = 0;
-
-        const timer = setInterval(() => {
-            compteur += Math.ceil(cible / 60);
-            if (compteur >= cible) {
-                compteur = cible;
-                clearInterval(timer);
-            }
-            el.textContent = compteur + (el.dataset.suffix || '');
-        }, pas);
-    }
-
-    const stats = document.querySelectorAll('[data-count]');
-    if (stats.length) {
-        const observerStats = new IntersectionObserver((entries) => {
+    }, { threshold: 0.35 }).observe && sections.forEach(s => {
+        new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    animerCompteur(entry.target);
-                    observerStats.unobserve(entry.target);
+                    const id = entry.target.id;
+                    navLiens.forEach(a => a.classList.toggle('nav-actif', a.getAttribute('href') === `#${id}`));
                 }
             });
-        }, { threshold: 0.6 });
-        stats.forEach(stat => observerStats.observe(stat));
-    }
-
-    /* ── 7. HERO : animation de la virgule de soulignement du h1 ── */
-    const heroH1 = document.querySelector('.hero-content h1');
-    if (heroH1) {
-        heroH1.classList.add('hero-titre-anime');
-    }
-
-    /* ── 8. POINTS CLÉS : activation hover clavier (accessibilité) ── */
-    document.querySelectorAll('.points-cles li').forEach(li => {
-        li.setAttribute('tabindex', '0');
-        li.addEventListener('keydown', e => {
-            if (e.key === 'Enter' || e.key === ' ') {
-                li.classList.toggle('actif');
-            }
-        });
+        }, { threshold: 0.35 }).observe(s);
     });
 
-    /* ── 9. BOUTONS : effet ripple au clic ── */
-    document.querySelectorAll('.btn-hero, .btn-hero-outline, .btn-primary, .btn-submit').forEach(btn => {
-        btn.addEventListener('click', function (e) {
+    // ---- COUNTER ANIMATION ----
+    function animerCompteur(el) {
+        const cible  = parseInt(el.dataset.count, 10);
+        const suffix = el.dataset.suffix || '';
+        const steps  = 55;
+        let val = 0;
+        const inc = Math.ceil(cible / steps);
+        const timer = setInterval(() => {
+            val = Math.min(val + inc, cible);
+            el.textContent = val + suffix;
+            if (val >= cible) clearInterval(timer);
+        }, 1600 / steps);
+    }
+
+    new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                animerCompteur(entry.target);
+                // unobserve after triggering
+                entry.target.removeAttribute('data-count');
+            }
+        });
+    }, { threshold: 0.5 }).observe && document.querySelectorAll('[data-count]').forEach(el => {
+        new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && entry.target.dataset.count) {
+                    animerCompteur(entry.target);
+                    entry.target.removeAttribute('data-count');
+                }
+            });
+        }, { threshold: 0.5 }).observe(el);
+    });
+
+    // ---- REVEAL ON SCROLL ----
+    const revealObs = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const siblings = [...(entry.target.parentElement?.children || [])].filter(c => c.classList.contains('reveal'));
+                const idx = siblings.indexOf(entry.target);
+                setTimeout(() => entry.target.classList.add('reveal--visible'), idx * 80);
+                revealObs.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.08 });
+
+    document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+
+    // ---- RIPPLE ----
+    document.querySelectorAll('.btn-primary, .btn-ghost, .btn-mobile-cta, .nav-cta, .footer-cta-btn').forEach(btn => {
+        btn.style.overflow = 'hidden';
+        btn.style.position = 'relative';
+        btn.addEventListener('click', function(e) {
             const ripple = document.createElement('span');
             ripple.classList.add('ripple');
             const rect = this.getBoundingClientRect();
             const size = Math.max(rect.width, rect.height);
-            ripple.style.width  = ripple.style.height = `${size}px`;
-            ripple.style.left   = `${e.clientX - rect.left - size / 2}px`;
-            ripple.style.top    = `${e.clientY - rect.top  - size / 2}px`;
+            ripple.style.cssText = `width:${size}px;height:${size}px;left:${e.clientX-rect.left-size/2}px;top:${e.clientY-rect.top-size/2}px;`;
             this.appendChild(ripple);
             setTimeout(() => ripple.remove(), 600);
         });
     });
 
-    /* ── 10. FOOTER : année automatique ── */
+    // ---- EMAIL OBFUSCATION ----
+    document.querySelectorAll('.email-link').forEach(el => {
+        el.style.cursor = 'pointer';
+        el.addEventListener('click', function(e) {
+            e.preventDefault();
+            const addr = this.dataset.user + '@' + this.dataset.domain;
+            if (this.tagName === 'A') this.href = 'mailto:' + addr;
+            this.textContent = addr;
+        });
+    });
+
+    // ---- FOOTER YEAR ----
     const annee = document.querySelector('.footer-annee');
-    if (annee) {
-        annee.textContent = new Date().getFullYear();
-    }
+    if (annee) annee.textContent = new Date().getFullYear();
 
 });

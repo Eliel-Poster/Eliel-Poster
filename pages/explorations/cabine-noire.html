@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cabine Noire — Salon de Coiffure Premium, Abidjan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Geist+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --noir: #0A0A08;
+  --or: #C9A84C;
+  --or-pale: #F5EDDA;
+  --creme: #F8F4EE;
+  --gris: #5A5A52;
+  --gris-clair: #E8E4DC;
+  --blanc: #FDFBF8;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--noir);
+  color: var(--creme);
+  font-family: 'Cormorant Garamond', serif;
+  cursor: none;
+  overflow-x: hidden;
+}
+
+/* Curseur custom */
+.cursor {
+  width: 8px; height: 8px;
+  background: var(--or);
+  border-radius: 50%;
+  position: fixed; top: 0; left: 0;
+  pointer-events: none; z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: transform 0.1s;
+}
+.cursor-ring {
+  width: 32px; height: 32px;
+  border: 1px solid rgba(201,168,76,0.4);
+  border-radius: 50%;
+  position: fixed; top: 0; left: 0;
+  pointer-events: none; z-index: 9998;
+  transform: translate(-50%, -50%);
+  transition: all 0.18s ease;
+}
+
+/* ---- NAV ---- */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 1.8rem 3rem;
+  mix-blend-mode: normal;
+}
+.nav-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.15rem; font-weight: 600;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--or);
+}
+.nav-links { display: flex; gap: 2.5rem; list-style: none; }
+.nav-links a {
+  font-family: 'Geist Mono', monospace;
+  font-size: 10px; font-weight: 300;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: rgba(248,244,238,0.5);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+.nav-links a:hover { color: var(--or); }
+.nav-rdv {
+  font-family: 'Geist Mono', monospace;
+  font-size: 10px; font-weight: 400;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--noir);
+  background: var(--or);
+  padding: 10px 22px;
+  text-decoration: none;
+  transition: background 0.3s, color 0.3s;
+}
+.nav-rdv:hover { background: var(--or-pale); color: var(--noir); }
+
+/* ---- HERO ---- */
+.hero {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  position: relative;
+  overflow: hidden;
+}
+.hero-left {
+  display: flex; flex-direction: column;
+  justify-content: flex-end;
+  padding: 8rem 3rem 5rem;
+  position: relative; z-index: 2;
+}
+.hero-tag {
+  font-family: 'Geist Mono', monospace;
+  font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--or); margin-bottom: 2.5rem;
+  display: flex; align-items: center; gap: 12px;
+}
+.hero-tag::before {
+  content: ''; display: block;
+  width: 32px; height: 1px; background: var(--or);
+}
+.hero-h1 {
+  font-size: clamp(3.5rem, 6vw, 6rem);
+  font-weight: 300; line-height: 1.0;
+  letter-spacing: -0.01em;
+  margin-bottom: 2rem;
+}
+.hero-h1 em { font-style: italic; color: var(--or); }
+.hero-sub {
+  font-size: 1.05rem; font-weight: 300;
+  color: rgba(248,244,238,0.55);
+  max-width: 360px; line-height: 1.8;
+  margin-bottom: 3rem;
+}
+.hero-actions { display: flex; gap: 1rem; align-items: center; }
+.btn-or {
+  font-family: 'Geist Mono', monospace;
+  font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase;
+  background: var(--or); color: var(--noir);
+  padding: 14px 28px; text-decoration: none;
+  transition: background 0.3s;
+}
+.btn-or:hover { background: var(--or-pale); }
+.btn-ghost-or {
+  font-family: 'Geist Mono', monospace;
+  font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--or); border-bottom: 1px solid var(--or);
+  padding-bottom: 2px; text-decoration: none;
+  transition: opacity 0.3s;
+}
+.btn-ghost-or:hover { opacity: 0.6; }
+
+.hero-right {
+  position: relative; overflow: hidden;
+}
+.hero-image-placeholder {
+  width: 100%; height: 100%;
+  background:
+    linear-gradient(180deg, transparent 40%, var(--noir) 100%),
+    repeating-linear-gradient(
+      45deg,
+      rgba(201,168,76,0.03) 0px,
+      rgba(201,168,76,0.03) 1px,
+      transparent 1px,
+      transparent 40px
+    ),
+    linear-gradient(135deg, #1a1510 0%, #0d0c09 50%, #1a1209 100%);
+  display: flex; align-items: center; justify-content: center;
+}
+.hero-image-placeholder::after {
+  content: 'CABINE NOIRE';
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 11px; font-weight: 300;
+  letter-spacing: 0.4em; text-transform: uppercase;
+  color: rgba(201,168,76,0.18);
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+}
+.hero-stats {
+  position: absolute; right: 3rem; bottom: 5rem;
+  display: flex; flex-direction: column; gap: 2rem;
+}
+.stat-item { text-align: right; }
+.stat-num {
+  font-size: 2.5rem; font-weight: 300;
+  color: var(--or); line-height: 1;
+  letter-spacing: -0.02em;
+}
+.stat-label {
+  font-family: 'Geist Mono', monospace;
+  font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase;
+  color: rgba(248,244,238,0.4); margin-top: 4px;
+}
+
+/* ---- BANDE DEFILANTE ---- */
+.ticker {
+  background: var(--or); padding: 10px 0;
+  overflow: hidden; white-space: nowrap;
+}
+.ticker-inner {
+  display: inline-block;
+  animation: ticker 20s linear infinite;
+}
+.ticker-text {
+  font-family: 'Geist Mono', monospace;
+  font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--noir); padding: 0 3rem;
+}
+@keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+/* ---- SECTION ABOUT ---- */
+.about {
+  padding: 7rem 3rem;
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 6rem; align-items: center;
+  max-width: 1200px; margin: 0 auto;
+}
+.about-num {
+  font-family: 'Geist Mono', monospace;
+  font-size: 9px; letter-spacing: 0.2em;
+  color: var(--or); margin-bottom: 2rem;
+}
+.about-h2 {
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  font-weight: 300; line-height: 1.15;
+  margin-bottom: 2rem;
+}
+.about-h2 em { font-style: italic; color: var(--or); }
+.about-p {
+  font-size: 1rem; font-weight: 300;
+  color: rgba(248,244,238,0.6);
+  line-height: 1.9; margin-bottom: 1rem;
+}
+.about-right { display: flex; flex-direction: column; gap: 1px; }
+.about-item {
+  display: flex; align-items: flex-start; gap: 1.5rem;
+  padding: 1.5rem 0;
+  border-bottom: 1px solid rgba(201,168,76,0.12);
+}
+.about-item-num {
+  font-family: 'Geist Mono', monospace;
+  font-size: 9px; color: var(--or);
+  padding-top: 4px; flex-shrink: 0;
+}
+.about-item-title { font-size: 1.1rem; font-weight: 400; margin-bottom: 0.4rem; }
+.about-item-desc { font-size: 0.88rem; font-weight: 300; color: rgba(248,244,238,0.5); line-height: 1.7; }
+
+/* ---- SERVICES ---- */
+.services { padding: 7rem 3rem; background: #0E0E0B; }
+.services-header {
+  max-width: 1200px; margin: 0 auto 4rem;
+  display: flex; align-items: flex-end; justify-content: space-between;
+}
+.section-label {
+  font-family: 'Geist Mono', monospace;
+  font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--or); margin-bottom: 1rem;
+}
+.section-h2 {
+  font-size: clamp(2rem, 3.5vw, 2.8rem);
+  font-weight: 300; line-height: 1.1;
+}
+.section-h2 em { font-style: italic; color: var(--or); }
+.services-grid {
+  max-width: 1200px; margin: 0 auto;
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 1px; background: rgba(201,168,76,0.1);
+}
+.service-card {
+  background: #0E0E0B; padding: 2.5rem 2rem;
+  transition: background 0.3s;
+}
+.service-card:hover { background: #141410; }
+.service-card-num {
+  font-family: 'Geist Mono', monospace;
+  font-size: 9px; color: var(--or);
+  margin-bottom: 2rem; letter-spacing: 0.12em;
+}
+.service-card-title {
+  font-size: 1.4rem; font-weight: 400;
+  margin-bottom: 1rem; line-height: 1.3;
+}
+.service-card-desc {
+  font-size: 0.88rem; font-weight: 300;
+  color: rgba(248,244,238,0.5); line-height: 1.8;
+  margin-bottom: 1.5rem;
+}
+.service-price {
+  font-family: 'Geist Mono', monospace;
+  font-size: 11px; color: var(--or);
+  letter-spacing: 0.1em;
+}
+
+/* ---- TARIFS ---- */
+.tarifs { padding: 7rem 3rem; }
+.tarifs-inner { max-width: 1200px; margin: 0 auto; }
+.tarifs-header { margin-bottom: 4rem; }
+.tarifs-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+.tarif-card {
+  border: 1px solid rgba(201,168,76,0.15);
+  padding: 2.5rem 2rem;
+  position: relative;
+  transition: border-color 0.3s;
+}
+.tarif-card:hover { border-color: rgba(201,168,76,0.4); }
+.tarif-card.featured { border-color: var(--or); }
+.tarif-featured-label {
+  position: absolute; top: -1px; left: 2rem;
+  font-family: 'Geist Mono', monospace;
+  font-size: 9px; letter-spacing: 0.12em;
+  background: var(--or); color: var(--noir);
+  padding: 4px 12px; text-transform: uppercase;
+}
+.tarif-name { font-size: 0.85rem; font-weight: 300; color: rgba(248,244,238,0.5); margin-bottom: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; font-family: 'Geist Mono', monospace; font-size: 10px; }
+.tarif-price { font-size: 2.8rem; font-weight: 300; color: var(--or); line-height: 1; margin-bottom: 0.4rem; }
+.tarif-price span { font-size: 1rem; color: rgba(248,244,238,0.4); }
+.tarif-desc { font-size: 0.85rem; font-weight: 300; color: rgba(248,244,238,0.4); margin-bottom: 2rem; line-height: 1.7; }
+.tarif-items { list-style: none; display: flex; flex-direction: column; gap: 0.8rem; margin-bottom: 2rem; }
+.tarif-items li { font-size: 0.88rem; font-weight: 300; color: rgba(248,244,238,0.65); display: flex; gap: 10px; }
+.tarif-items li::before { content: '—'; color: var(--or); flex-shrink: 0; }
+.tarif-cta {
+  display: block; text-align: center;
+  font-family: 'Geist Mono', monospace;
+  font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase;
+  padding: 12px; text-decoration: none;
+  transition: all 0.3s;
+}
+.tarif-card.featured .tarif-cta { background: var(--or); color: var(--noir); }
+.tarif-card:not(.featured) .tarif-cta { border: 1px solid rgba(201,168,76,0.3); color: var(--or); }
+.tarif-card:not(.featured) .tarif-cta:hover { border-color: var(--or); background: rgba(201,168,76,0.08); }
+
+/* ---- TEMOIGNAGES ---- */
+.temoignages { padding: 7rem 3rem; background: #0E0E0B; }
+.temoignages-inner { max-width: 1200px; margin: 0 auto; }
+.temo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 4rem; }
+.temo-card {
+  border: 1px solid rgba(201,168,76,0.1);
+  padding: 2.5rem 2rem;
+}
+.temo-text {
+  font-size: 1.05rem; font-weight: 300;
+  font-style: italic; line-height: 1.85;
+  color: rgba(248,244,238,0.8); margin-bottom: 2rem;
+}
+.temo-author { display: flex; align-items: center; gap: 1rem; }
+.temo-avatar {
+  width: 44px; height: 44px; border-radius: 50%;
+  background: linear-gradient(135deg, #2a1f0a, #1a140a);
+  border: 1px solid rgba(201,168,76,0.2);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Geist Mono', monospace; font-size: 11px; color: var(--or);
+}
+.temo-name { font-size: 0.95rem; font-weight: 400; margin-bottom: 2px; }
+.temo-role { font-family: 'Geist Mono', monospace; font-size: 9px; color: var(--or); letter-spacing: 0.12em; text-transform: uppercase; }
+
+/* ---- CTA FINAL ---- */
+.cta-section {
+  padding: 8rem 3rem;
+  text-align: center;
+  position: relative; overflow: hidden;
+}
+.cta-section::before {
+  content: 'RESERVATION';
+  position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 18vw; font-weight: 600;
+  color: rgba(201,168,76,0.03);
+  white-space: nowrap; pointer-events: none;
+  letter-spacing: 0.1em;
+}
+.cta-label { font-family: 'Geist Mono', monospace; font-size: 9px; letter-spacing: 0.2em; color: var(--or); margin-bottom: 2rem; text-transform: uppercase; }
+.cta-h2 { font-size: clamp(2.5rem, 5vw, 4.5rem); font-weight: 300; line-height: 1.1; margin-bottom: 2.5rem; }
+.cta-h2 em { font-style: italic; color: var(--or); }
+.cta-btn {
+  font-family: 'Geist Mono', monospace;
+  font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
+  background: var(--or); color: var(--noir);
+  padding: 18px 42px; text-decoration: none;
+  display: inline-block; transition: background 0.3s;
+}
+.cta-btn:hover { background: var(--or-pale); }
+.cta-note { font-family: 'Geist Mono', monospace; font-size: 9px; color: rgba(248,244,238,0.3); margin-top: 1.5rem; letter-spacing: 0.12em; }
+
+/* ---- FOOTER ---- */
+footer {
+  border-top: 1px solid rgba(201,168,76,0.12);
+  padding: 3rem;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.footer-logo { font-size: 1rem; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--or); }
+.footer-info { font-family: 'Geist Mono', monospace; font-size: 9px; color: rgba(248,244,238,0.35); letter-spacing: 0.12em; text-align: center; line-height: 2; }
+.footer-credit { font-family: 'Geist Mono', monospace; font-size: 9px; color: rgba(248,244,238,0.25); letter-spacing: 0.1em; text-align: right; }
+.footer-credit a { color: var(--or); text-decoration: none; }
+
+/* ---- CONCEPT TAG ---- */
+.concept-badge {
+  position: fixed; bottom: 2rem; left: 2rem; z-index: 200;
+  font-family: 'Geist Mono', monospace;
+  font-size: 8px; letter-spacing: 0.14em; text-transform: uppercase;
+  background: rgba(201,168,76,0.12); color: var(--or);
+  border: 1px solid rgba(201,168,76,0.2);
+  padding: 6px 12px;
+}
+
+/* ---- RESPONSIVE ---- */
+@media (max-width: 900px) {
+  .hero { grid-template-columns: 1fr; }
+  .hero-right { height: 40vh; }
+  .hero-stats { display: none; }
+  .about { grid-template-columns: 1fr; gap: 3rem; }
+  .services-grid { grid-template-columns: 1fr; }
+  .tarifs-grid { grid-template-columns: 1fr; }
+  .temo-grid { grid-template-columns: 1fr; }
+  nav { padding: 1.5rem 1.5rem; }
+  .nav-links { display: none; }
+  footer { flex-direction: column; gap: 1.5rem; text-align: center; }
+}
+
+/* ---- ANIMATIONS ---- */
+.reveal {
+  opacity: 0; transform: translateY(24px);
+  transition: opacity 0.8s cubic-bezier(0.16,1,0.3,1), transform 0.8s cubic-bezier(0.16,1,0.3,1);
+}
+.reveal.visible { opacity: 1; transform: none; }
+</style>
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+<div class="concept-badge">Concept Project — Eliel Poster</div>
+
+<nav>
+  <div class="nav-logo">Cabine Noire</div>
+  <ul class="nav-links">
+    <li><a href="#about">L'espace</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#tarifs">Tarifs</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="#contact" class="nav-rdv">Reserver</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-tag">Salon premium — Abidjan, Cocody</div>
+    <h1 class="hero-h1">
+      L'art de<br>
+      la coupe,<br>
+      <em>au detail pres.</em>
+    </h1>
+    <p class="hero-sub">Un espace ou chaque coupe est une signature. Pour les hommes qui comprennent que leur image est leur premier message.</p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-or">Prendre rendez-vous</a>
+      <a href="#services" class="btn-ghost-or">Nos services</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-image-placeholder"></div>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <div class="stat-num">7</div>
+        <div class="stat-label">Ans d'experience</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">4.9</div>
+        <div class="stat-label">Avis Google</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">1200+</div>
+        <div class="stat-label">Clients reguliers</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="ticker">
+  <div class="ticker-inner">
+    <span class="ticker-text">Coupe classique</span>
+    <span class="ticker-text">Degrade americain</span>
+    <span class="ticker-text">Barbe sculptee</span>
+    <span class="ticker-text">Soin du cuir chevelu</span>
+    <span class="ticker-text">Coupe enfant</span>
+    <span class="ticker-text">Salon premium Abidjan</span>
+    <span class="ticker-text">Coupe classique</span>
+    <span class="ticker-text">Degrade americain</span>
+    <span class="ticker-text">Barbe sculptee</span>
+    <span class="ticker-text">Soin du cuir chevelu</span>
+    <span class="ticker-text">Coupe enfant</span>
+    <span class="ticker-text">Salon premium Abidjan</span>
+  </div>
+</div>
+
+<section id="about" class="about">
+  <div class="about-left reveal">
+    <div class="about-num">01 — L'espace</div>
+    <h2 class="about-h2">Un salon pense comme<br>un <em>cabinet prive.</em></h2>
+    <p class="about-p">Cabine Noire n'est pas un salon ordinaire. C'est un espace ou le temps s'arrete — musique choisie, eclairage etudié, chaque detail pense pour que vous repartiez different.</p>
+    <p class="about-p">Situe au coeur de Cocody, nous accueillons sur rendez-vous uniquement. Parce que votre temps compte autant que votre coupe.</p>
+  </div>
+  <div class="about-right reveal">
+    <div class="about-item">
+      <div class="about-item-num">01</div>
+      <div>
+        <div class="about-item-title">Sur rendez-vous uniquement</div>
+        <div class="about-item-desc">Pas d'attente. Vous arrivez, on vous attend. Votre heure vous appartient.</div>
+      </div>
+    </div>
+    <div class="about-item">
+      <div class="about-item-num">02</div>
+      <div>
+        <div class="about-item-title">Produits selectionnes</div>
+        <div class="about-item-desc">Uniquement des marques professionnelles. Ce qui touche votre cuir chevelu a ete choisi avec soin.</div>
+      </div>
+    </div>
+    <div class="about-item">
+      <div class="about-item-num">03</div>
+      <div>
+        <div class="about-item-title">Barbers certifies</div>
+        <div class="about-item-desc">Chaque coiffeur a suivi une formation avancee. Pas d'apprentis — uniquement des experts.</div>
+      </div>
+    </div>
+    <div class="about-item">
+      <div class="about-item-num">04</div>
+      <div>
+        <div class="about-item-title">Confidentialite totale</div>
+        <div class="about-item-desc">Votre espace est le votre pendant votre passage. Discreción et respect sont notre standard.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="services" class="services">
+  <div class="services-header reveal">
+    <div>
+      <div class="section-label">02 — Ce que nous faisons</div>
+      <h2 class="section-h2">Nos <em>services</em></h2>
+    </div>
+    <a href="#tarifs" class="btn-ghost-or">Voir les tarifs</a>
+  </div>
+  <div class="services-grid">
+    <div class="service-card reveal">
+      <div class="service-card-num">001</div>
+      <h3 class="service-card-title">Coupe Signature</h3>
+      <p class="service-card-desc">La coupe de base repensee. Consultation, coupe adaptee a votre morphologie, finitions rasoir, cire de finition.</p>
+      <div class="service-price">A partir de 3 500 XOF</div>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-card-num">002</div>
+      <h3 class="service-card-title">Degrade & Sculpture</h3>
+      <p class="service-card-desc">Degrade bas, moyen ou haut. Lignes nettes au rasoir. Pour ceux dont la precison n'est pas une option.</p>
+      <div class="service-price">A partir de 5 000 XOF</div>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-card-num">003</div>
+      <h3 class="service-card-title">Barbe Classique</h3>
+      <p class="service-card-desc">Taille, dessin des contours, rasage a la creme chaude. Votre barbe encadre votre visage — elle merite ce soin.</p>
+      <div class="service-price">A partir de 2 500 XOF</div>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-card-num">004</div>
+      <h3 class="service-card-title">Le Complet</h3>
+      <p class="service-card-desc">Coupe + barbe + soin du cuir chevelu. La formule pour ceux qui ne font pas les choses a moitie.</p>
+      <div class="service-price">A partir de 9 000 XOF</div>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-card-num">005</div>
+      <h3 class="service-card-title">Soin Capillaire</h3>
+      <p class="service-card-desc">Shampooing professionnel, masque hydratant, massage du cuir chevelu. Ce que vos cheveux attendent.</p>
+      <div class="service-price">A partir de 4 000 XOF</div>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-card-num">006</div>
+      <h3 class="service-card-title">Evenement & VIP</h3>
+      <p class="service-card-desc">Mariages, ceremonies, deplacements. Nous nous deployons ou vous etes. Disponibilite sur reservation.</p>
+      <div class="service-price">Sur devis</div>
+    </div>
+  </div>
+</section>
+
+<section id="tarifs" class="tarifs">
+  <div class="tarifs-inner">
+    <div class="tarifs-header reveal">
+      <div class="section-label">03 — Formules</div>
+      <h2 class="section-h2">Tarifs <em>transparents</em></h2>
+    </div>
+    <div class="tarifs-grid">
+      <div class="tarif-card reveal">
+        <div class="tarif-name">Passage unique</div>
+        <div class="tarif-price">3 500 <span>XOF</span></div>
+        <div class="tarif-desc">Pour decouvrir l'espace sans engagement. La coupe de base, faite avec soin.</div>
+        <ul class="tarif-items">
+          <li>Consultation morphologie</li>
+          <li>Coupe signature</li>
+          <li>Finitions rasoir</li>
+          <li>Cire de finition</li>
+        </ul>
+        <a href="#contact" class="tarif-cta">Reserver</a>
+      </div>
+      <div class="tarif-card featured reveal">
+        <div class="tarif-featured-label">Le plus choisi</div>
+        <div class="tarif-name">Formule complete</div>
+        <div class="tarif-price">9 000 <span>XOF</span></div>
+        <div class="tarif-desc">La formule pour ceux qui savent que les details font la difference.</div>
+        <ul class="tarif-items">
+          <li>Coupe + degrade</li>
+          <li>Barbe sculptee</li>
+          <li>Rasage creme chaude</li>
+          <li>Soin cuir chevelu</li>
+          <li>Cire de finition premium</li>
+        </ul>
+        <a href="#contact" class="tarif-cta">Reserver</a>
+      </div>
+      <div class="tarif-card reveal">
+        <div class="tarif-name">Abonnement mensuel</div>
+        <div class="tarif-price">28 000 <span>XOF/mois</span></div>
+        <div class="tarif-desc">4 passages par mois. Priorite de reservation. Pour les habitues qui ne transigent pas sur leur image.</div>
+        <ul class="tarif-items">
+          <li>4 formules completes</li>
+          <li>Reservation prioritaire</li>
+          <li>Produit capillaire offert</li>
+          <li>Disponibilite weekend</li>
+          <li>Historique de coupe</li>
+        </ul>
+        <a href="#contact" class="tarif-cta">Souscrire</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="temoignages">
+  <div class="temoignages-inner">
+    <div class="reveal">
+      <div class="section-label">04 — Ce qu'ils disent</div>
+      <h2 class="section-h2">Paroles de <em>clients</em></h2>
+    </div>
+    <div class="temo-grid">
+      <div class="temo-card reveal">
+        <p class="temo-text">"Depuis que j'ai trouve Cabine Noire, je ne suis plus alle ailleurs. Pas parce qu'il n'y a pas d'autres salons — mais parce que la difference de niveau est trop grande pour revenir en arriere."</p>
+        <div class="temo-author">
+          <div class="temo-avatar">KA</div>
+          <div>
+            <div class="temo-name">Kofi Asante</div>
+            <div class="temo-role">Directeur commercial, Abidjan</div>
+          </div>
+        </div>
+      </div>
+      <div class="temo-card reveal">
+        <p class="temo-text">"Mon mariage approchait. Je voulais etre parfait. Ils ont pris le temps d'ecouter exactement ce que je voulais — et le resultat etait mieux que ce que j'avais imagine."</p>
+        <div class="temo-author">
+          <div class="temo-avatar">JB</div>
+          <div>
+            <div class="temo-name">Jean-Baptiste Kone</div>
+            <div class="temo-role">Entrepreneur, Cocody</div>
+          </div>
+        </div>
+      </div>
+      <div class="temo-card reveal">
+        <p class="temo-text">"L'espace est calme. Pas de bruit inutile, pas d'attente. Je viens, on s'occupe de moi, je repars. C'est precisement ce que je voulais — du respect du temps."</p>
+        <div class="temo-author">
+          <div class="temo-avatar">ML</div>
+          <div>
+            <div class="temo-name">Marc-Antoine Loba</div>
+            <div class="temo-role">Medecin, Plateau</div>
+          </div>
+        </div>
+      </div>
+      <div class="temo-card reveal">
+        <p class="temo-text">"Je recommande systematiquement a mes collegues. Pas parce qu'on me le demande — parce que quand on trouve un endroit a ce niveau a Abidjan, ca se partage."</p>
+        <div class="temo-author">
+          <div class="temo-avatar">DT</div>
+          <div>
+            <div class="temo-name">David Toure</div>
+            <div class="temo-role">Ingenieur, Marcory</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="cta-section">
+  <div class="cta-label">Reservations</div>
+  <h2 class="cta-h2 reveal">Votre prochaine<br>coupe commence <em>ici.</em></h2>
+  <a href="tel:+2250700000000" class="cta-btn">Appeler pour reserver</a>
+  <p class="cta-note">Lundi — Samedi, 9h — 20h · Dimanche sur demande · Cocody, Abidjan</p>
+</section>
+
+<footer>
+  <div class="footer-logo">Cabine Noire</div>
+  <div class="footer-info">
+    Cocody, Abidjan, Cote d'Ivoire<br>
+    +225 07 00 00 00 00 · cabine@noire.ci
+  </div>
+  <div class="footer-credit">
+    Design par <a href="#">Eliel Poster</a><br>
+    Concept Project 2025
+  </div>
+</footer>
+
+<script>
+// Curseur
+const cursor = document.getElementById('cursor');
+const ring = document.getElementById('cursorRing');
+document.addEventListener('mousemove', e => {
+  cursor.style.left = e.clientX + 'px';
+  cursor.style.top = e.clientY + 'px';
+  setTimeout(() => {
+    ring.style.left = e.clientX + 'px';
+    ring.style.top = e.clientY + 'px';
+  }, 60);
+});
+
+// Scroll reveal
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>

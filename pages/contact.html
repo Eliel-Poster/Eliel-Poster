@@ -1,288 +1,231 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact — Eliel Poster | Agence Créative Abidjan</title>
+    <meta name="description" content="Contactez Eliel Poster pour discuter de votre projet de branding, site web ou multimédia à Abidjan. Réponse sous 24h, appel découverte gratuit.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&family=Poppins:wght@600;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap">
     <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="stylesheet" href="../assets/css/contact.css">
-    <link rel="shortcut icon" href="../favicon.svg" type="image/x-icon">
-    <title>Nous contacter — Eliel Poster</title>
-    <meta name="description" content="Contactez Eliel Poster pour discuter de votre projet. Appel découverte gratuit, sans engagement.">
+    <link rel="icon" href="../favicon.svg" type="image/svg+xml">
 </head>
 <body>
 
-    <div class="entete">
-        <div class="logo">
-            <a href="../index.html">
-                <img src="../assets/img/logo.png" alt="Logo Eliel Poster">
-            </a>
-        </div>
-        <nav>
-            <ul>
-                <li><a href="../index.html#accueil">Accueil</a></li>
-                <li><a href="../index.html#apropos">À propos</a></li>
-                <li><a href="../index.html#services">Services</a></li>
-                <li><a href="portfolio.html">Réalisations</a></li>
-                <li><a href="contact.html" class="nav-actif">Contact</a></li>
-            </ul>
-        </nav>
-        <button class="hamburger" id="hamburger" aria-label="Ouvrir le menu" aria-expanded="false">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
-    </div>
-
-    <div class="menu-overlay" id="menuOverlay"></div>
-
-
-    <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+<div class="entete" id="entete">
+    <div class="logo"><a href="../index.html"><img src="../assets/img/logo.png" alt="Eliel Poster"></a></div>
+    <nav>
         <ul>
-            <li><a href="../index.html#accueil" class="mobile-lien">Accueil</a></li>
-            <li><a href="../index.html#apropos" class="mobile-lien">À propos</a></li>
-            <li><a href="../index.html#services" class="mobile-lien">Services</a></li>
-            <li><a href="portfolio.html" class="mobile-lien">Réalisations</a></li>
-            <li><a href="contact.html" class="mobile-lien">Contact</a></li>
+            <li><a href="../index.html#accueil">Accueil</a></li>
+            <li><a href="portfolio.html">Réalisations</a></li>
+            <li><a href="../index.html#services">Services</a></li>
+            <li><a href="../index.html#temoignages">Clients</a></li>
+            <li><a href="contact.html" class="nav-actif">Contact</a></li>
         </ul>
-        <a href="devis.html" class="btn-mobile-cta">Demander un devis</a>
+    </nav>
+    <div style="display:flex;align-items:center;gap:0.8rem;">
+        <button class="theme-toggle" id="themeToggle" aria-label="Changer le thème">
+            <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+            <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        </button>
+        <a href="devis.html" class="nav-cta">Parler de mon projet</a>
     </div>
+    <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+</div>
 
-    <section class="contact-hero">
-        <p class="section-label">Parlons de votre projet</p>
-        <h1>Nous contacter</h1>
-        <p>Nous sommes disponibles pour répondre à toutes vos questions et vous accompagner dans vos projets de communication.</p>
-    </section>
+<div class="menu-overlay" id="menuOverlay"></div>
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <ul>
+        <li><a href="../index.html#accueil" class="mobile-lien">Accueil</a></li>
+        <li><a href="portfolio.html" class="mobile-lien">Réalisations</a></li>
+        <li><a href="../index.html#services" class="mobile-lien">Services</a></li>
+        <li><a href="../index.html#temoignages" class="mobile-lien">Clients</a></li>
+        <li><a href="contact.html" class="mobile-lien">Contact</a></li>
+    </ul>
+    <a href="devis.html" class="btn-mobile-cta">Parler de mon projet</a>
+</div>
 
-    <section class="contact-section">
-        <div class="contact-grid">
+
+<section class="page-hero">
+    <div class="page-hero-inner">
+        <span class="section-label">Parlons de votre projet</span>
+        <h1>Un projet en tête ?<br>On est <em class="hero-em">disponibles.</em></h1>
+        <p>Chaque grande marque a commencé par une conversation. La vôtre peut commencer maintenant.</p>
+    </div>
+</section>
 
 
-            <div class="contact-infos">
+<section class="contact-section">
+    <div class="contact-grid">
 
-                <div class="contact-intro">
-                    <h2>Discutons de votre projet, ensemble.</h2>
-                    <p>Que vous ayez une idée précise ou que vous cherchiez simplement à explorer les possibilités, nous sommes là pour vous orienter avec clarté et bienveillance.</p>
+        <div class="contact-infos">
+            <div class="contact-intro">
+                <h2>Discutons.<br>Sans pression.</h2>
+                <p>Que vous ayez une idée précise ou que vous cherchiez encore votre direction, on vous aide à y voir clair — gratuitement, sans engagement.</p>
+            </div>
+
+            <div class="contact-coordonnees">
+                <a href="tel:+2250576224680" class="coord-item">
+                    <div class="coord-icone">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.5 19.79 19.79 0 0 1 1.58 4.87a2 2 0 0 1 2-2.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                    </div>
+                    <div class="coord-texte">
+                        <span class="coord-label">Appelez directement</span>
+                        <strong>+225 0576 224 680</strong>
+                    </div>
+                </a>
+                <div class="coord-item" style="cursor:pointer;" id="emailReveal">
+                    <div class="coord-icone">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                    </div>
+                    <div class="coord-texte">
+                        <span class="coord-label">Email</span>
+                        <strong class="email-link" data-user="postereliel" data-domain="gmail.com">Afficher l'adresse</strong>
+                    </div>
                 </div>
+                <div class="coord-item">
+                    <div class="coord-icone">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                    </div>
+                    <div class="coord-texte">
+                        <span class="coord-label">Localisation</span>
+                        <strong>Abidjan, Côte d'Ivoire</strong>
+                    </div>
+                </div>
+            </div>
 
-                <div class="contact-coordonnees">
-
-                    <a href="tel:+2250576224680" class="coord-item">
-                        <div class="coord-icone">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.5 19.79 19.79 0 0 1 1.58 4.87a2 2 0 0 1 2-2.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-                        </div>
-                        <div class="coord-texte">
-                            <span class="coord-label">Appelez</span>
-                            <strong>+225 0576 224 680</strong>
-                        </div>
+            <div class="contact-reseaux">
+                <p class="reseaux-label">Suivez notre travail</p>
+                <div class="reseaux-liens">
+                    <a href="https://www.instagram.com/elielposter/" target="_blank" rel="noopener noreferrer" class="reseau-item">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+                        <span>Instagram</span>
                     </a>
-
-                    <div class="coord-item coord-no-link" >
-                        <div class="coord-icone">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-                        </div>
-                        <div class="coord-texte">
-                            <span class="coord-label">Email</span>
-                            <strong class="email-link" data-user="postereliel" data-domain="gmail.com">afficher l'adresse</strong>
-                        </div>
-                    </div>
-
-                    <div class="coord-item coord-no-link">
-                        <div class="coord-icone">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
-                        </div>
-                        <div class="coord-texte">
-                            <span class="coord-label">Localisation</span>
-                            <strong>Côte d'Ivoire, Abidjan</strong>
-                        </div>
-                    </div>
-
+                    <a href="https://www.linkedin.com/company/eliel-poster/" target="_blank" rel="noopener noreferrer" class="reseau-item">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+                        <span>LinkedIn</span>
+                    </a>
+                    <a href="https://www.facebook.com/share/17pBStHqo6/" target="_blank" rel="noopener noreferrer" class="reseau-item">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+                        <span>Facebook</span>
+                    </a>
                 </div>
-
-
-                <div class="contact-reseaux">
-                    <p class="reseaux-label">Suivez-nous</p>
-                    <div class="reseaux-liens">
-
-                        <a href="https://www.instagram.com/elielposter/" target="_blank" rel="noopener noreferrer" class="reseau-item" aria-label="Instagram">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/>
-                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
-                                <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/>
-                            </svg>
-                            <span>Instagram</span>
-                        </a>
-
-                        <a href="https://www.linkedin.com/company/eliel-poster/" target="_blank" rel="noopener noreferrer" class="reseau-item" aria-label="LinkedIn">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
-                                <rect width="4" height="12" x="2" y="9"/>
-                                <circle cx="4" cy="4" r="2"/>
-                            </svg>
-                            <span>LinkedIn</span>
-                        </a>
-
-                        <a href="https://www.facebook.com/share/17pBStHqo6/" target="_blank" rel="noopener noreferrer" class="reseau-item" aria-label="Facebook">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
-                            </svg>
-                            <span>Facebook</span>
-                        </a>
-
-                    </div>
-                </div>
-
-                <div class="contact-dispo">
-                    <div class="dispo-dot"></div>
-                    <p>Disponible du lundi au vendredi · 8h – 18h GMT</p>
-                </div>
-
             </div>
 
-
-            <div class="contact-rdv">
-
-                <div class="rdv-card">
-
-                    <div class="rdv-header">
-                        <div class="rdv-badge">Appel découverte</div>
-                        <div class="rdv-duree">10 min</div>
-                    </div>
-
-                    <h3>Réservez un appel visio</h3>
-                    <p class="rdv-intro">Planifions une conversation stratégique qui constitue la première étape pour faire évoluer votre communication et renforcer votre image de marque. Cet échange est sans engagement.</p>
-
-                    <div class="rdv-objectif">
-                        <span class="rdv-objectif-label">Objectif</span>
-                        <p>Comprendre vos besoins, vos enjeux et vous proposer une orientation claire et adaptée.</p>
-                    </div>
-
-                    <div class="rdv-garanties">
-                        <div class="rdv-garantie"><span>✓</span> Gratuit &amp; sans engagement</div>
-                        <div class="rdv-garantie"><span>✓</span> Réponse adaptée à votre situation</div>
-                        <div class="rdv-garantie"><span>✓</span> Conseil immédiat et concret</div>
-                    </div>
-
-                    <button type="button" class="btn-rdv" id="btnRdv">
-                        Je prends rendez-vous
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-                    </button>
-
-                    <p class="rdv-note">Vous serez redirigé vers votre messagerie pour convenir d'un créneau.</p>
-
-                </div>
-
-                <div class="contact-rapide">
-                    <p>Vous préférez un message rapide ?</p>
-                    <a href="devis.html" class="btn-outline">Remplir le formulaire de devis</a>
-                </div>
-
+            <div class="contact-dispo">
+                <div class="dispo-dot"></div>
+                <p>Disponible du lundi au vendredi · 8h – 18h GMT</p>
             </div>
-
         </div>
-    </section>
 
-    <footer>
-        <div>
+        <div class="contact-rdv">
+            <div class="rdv-card">
+                <div class="rdv-header">
+                    <div class="rdv-badge">Appel découverte</div>
+                    <div class="rdv-duree">10 min · Gratuit</div>
+                </div>
+                <h3>Réservez un appel</h3>
+                <p class="rdv-intro">Un échange de 10 minutes pour comprendre votre projet et vous dire honnêtement si on peut vous aider — et comment. Sans engagement.</p>
+                <div class="rdv-garanties">
+                    <div class="rdv-garantie"><span>✓</span> Gratuit & sans engagement</div>
+                    <div class="rdv-garantie"><span>✓</span> Conseil concret sur votre situation</div>
+                    <div class="rdv-garantie"><span>✓</span> Réponse sous 24h garantie</div>
+                </div>
+                <button type="button" class="btn-rdv btn-primary" id="btnRdv">
+                    Je prends rendez-vous
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                </button>
+                <p class="rdv-note">Vous serez redirigé vers votre messagerie pour convenir d'un créneau.</p>
+            </div>
+            <div class="contact-rapide">
+                <p>Vous préférez un devis direct ?</p>
+                <a href="devis.html" class="btn-ghost">Remplir le formulaire de devis →</a>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+<section class="contact-mini-cta">
+    <div class="mini-cta-inner">
+        <p>"Les agences qui choisissent leurs clients n'ont pas moins de travail.<br>Elles ont de meilleurs clients."</p>
+        <a href="devis.html" class="btn-primary">Lancer mon projet</a>
+    </div>
+</section>
+
+
+<footer class="footer">
+    <div class="footer-top">
+        <div class="footer-brand-block">
             <span class="footer-brand">Eliel <span>Poster</span></span>
-            <p>Agence de communication créative</p>
-            <p>Votre image, notre mission</p>
+            <p>Agence de communication créative à Abidjan. Branding, web, multimédia.</p>
         </div>
-        <div class="footer-contact">
-            <p>Contact : <a href="#" class="email-link" data-user="postereliel" data-domain="gmail.com">afficher l'adresse</a></p>
-            <p><a href="tel:+2250576224680">+225 0576 224 680</a></p>
+        <div class="footer-links">
+            <h4>Services</h4>
+            <a href="../index.html#services">Création de Logo</a>
+            <a href="../index.html#services">Branding Complet</a>
+            <a href="../index.html#services">Création Site Web</a>
+            <a href="../index.html#services">Montage Vidéo</a>
         </div>
-    </footer>
+        <div class="footer-links">
+            <h4>Agence</h4>
+            <a href="portfolio.html">Réalisations</a>
+            <a href="contact.html">Contact</a>
+            <a href="devis.html">Demander un devis</a>
+        </div>
+        <div class="footer-contact-block">
+            <h4>Contact direct</h4>
+            <a href="tel:+2250576224680">+225 0576 224 680</a>
+            <a href="#" class="email-link" data-user="postereliel" data-domain="gmail.com">Afficher l'email</a>
+            <a href="devis.html" class="footer-cta-btn">Parler de mon projet</a>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; <span class="footer-annee"></span> Eliel Poster · Abidjan, Côte d'Ivoire</p>
+    </div>
+</footer>
 
-    <style>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const html = document.documentElement;
+    html.setAttribute('data-theme', localStorage.getItem('ep-theme') || 'light');
+    document.getElementById('themeToggle')?.addEventListener('click', () => {
+        const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        html.setAttribute('data-theme', next);
+        localStorage.setItem('ep-theme', next);
+    });
 
-        .contact-reseaux {
-            margin-top: 1.5rem;
-        }
-        .reseaux-label {
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            color: var(--couleur-texte-secondaire, #888);
-            margin-bottom: 0.75rem;
-            font-weight: 600;
-        }
-        .reseaux-liens {
-            display: flex;
-            gap: 0.75rem;
-            flex-wrap: wrap;
-        }
-        .reseau-item {
-            display: flex;
-            align-items: center;
-            gap: 0.45rem;
-            padding: 0.5rem 0.85rem;
-            border: 1px solid var(--couleur-bordure, #e0e0e0);
-            border-radius: 8px;
-            text-decoration: none;
-            color: inherit;
-            font-size: 0.875rem;
-            font-weight: 500;
-            transition: border-color 0.2s, background 0.2s, color 0.2s;
-        }
-        .reseau-item:hover {
-            border-color: currentColor;
-            background: var(--couleur-accent, #111);
-            color: #fff;
-        }
-    </style>
+    const entete = document.querySelector('.entete');
+    window.addEventListener('scroll', () => entete?.classList.toggle('entete--scroll', window.scrollY > 40), { passive: true });
 
-    <script>
-        const hamburger   = document.getElementById('hamburger');
-        const mobileMenu  = document.getElementById('mobileMenu');
-        const overlay     = document.getElementById('menuOverlay');
-        const mobileLiens = document.querySelectorAll('.mobile-lien');
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const overlay = document.getElementById('menuOverlay');
+    function ouvrirMenu() { hamburger.classList.add('ouvert'); mobileMenu.classList.add('ouvert'); overlay.classList.add('ouvert'); document.body.style.overflow = 'hidden'; }
+    function fermerMenu() { hamburger.classList.remove('ouvert'); mobileMenu.classList.remove('ouvert'); overlay.classList.remove('ouvert'); document.body.style.overflow = ''; }
+    hamburger?.addEventListener('click', () => hamburger.classList.contains('ouvert') ? fermerMenu() : ouvrirMenu());
+    overlay?.addEventListener('click', fermerMenu);
+    document.querySelectorAll('.mobile-lien').forEach(l => l.addEventListener('click', fermerMenu));
 
-        function ouvrirMenu() {
-            hamburger.classList.add('ouvert');
-            mobileMenu.classList.add('ouvert');
-            overlay.classList.add('ouvert');
-            hamburger.setAttribute('aria-expanded', 'true');
-            mobileMenu.setAttribute('aria-hidden', 'false');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function fermerMenu() {
-            hamburger.classList.remove('ouvert');
-            mobileMenu.classList.remove('ouvert');
-            overlay.classList.remove('ouvert');
-            hamburger.setAttribute('aria-expanded', 'false');
-            mobileMenu.setAttribute('aria-hidden', 'true');
-            document.body.style.overflow = '';
-        }
-
-        hamburger.addEventListener('click', () => {
-            hamburger.classList.contains('ouvert') ? fermerMenu() : ouvrirMenu();
+    document.querySelectorAll('.email-link').forEach(el => {
+        el.style.cursor = 'pointer';
+        el.addEventListener('click', function(e) {
+            e.preventDefault();
+            const addr = this.dataset.user + '@' + this.dataset.domain;
+            if (this.tagName === 'A') this.href = 'mailto:' + addr;
+            this.textContent = addr;
         });
+    });
 
-        overlay.addEventListener('click', fermerMenu);
-        mobileLiens.forEach(lien => lien.addEventListener('click', fermerMenu));
+    document.getElementById('btnRdv')?.addEventListener('click', () => {
+        window.location.href = 'mailto:postereliel@gmail.com?subject=Demande%20d%27appel%20d%C3%A9couverte&body=Bonjour%2C%20je%20souhaite%20r%C3%A9server%20un%20appel%20d%C3%A9couverte.%20Voici%20mon%20projet%20%3A%20';
+    });
 
-        window.addEventListener('scroll', () => {
-            document.querySelector('.entete').classList.toggle('entete--scroll', window.scrollY > 30);
-        });
-    </script>
-
-    <script src="../assets/js/contact.js"></script>
-
-    <script>
-        document.querySelectorAll('.email-link').forEach(el => {
-            el.addEventListener('click', function(e) {
-                e.preventDefault();
-                const addr = this.dataset.user + '@' + this.dataset.domain;
-                if (this.tagName === 'A') {
-                    this.href = 'mailto:' + addr;
-                }
-                this.textContent = addr;
-            });
-        });
-    </script>
+    document.querySelector('.footer-annee').textContent = new Date().getFullYear();
+});
+</script>
 </body>
 </html>

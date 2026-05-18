@@ -1,282 +1,254 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demander un devis — Eliel Poster | Agence Créative Abidjan</title>
+    <meta name="description" content="Demandez un devis gratuit à Eliel Poster pour votre logo, site web, branding ou multimédia à Abidjan. Réponse sous 24h, sans engagement.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&family=Poppins:wght@600;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap">
     <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="stylesheet" href="../assets/css/devis.css">
-    <link rel="shortcut icon" href="../favicon.svg" type="image/x-icon">
-    <title>Demander un devis — Eliel Poster</title>
-    <meta name="description" content="Demandez un devis à Eliel Poster. Décrivez votre projet et recevez une réponse adaptée à vos besoins.">
+    <link rel="icon" href="../favicon.svg" type="image/svg+xml">
 </head>
 <body>
 
-    <div class="entete">
-        <div class="logo">
-            <a href="../index.html">
-                <img src="../assets/img/logo.png" alt="Logo Eliel Poster">
-            </a>
-        </div>
-        <nav>
-            <ul>
-                <li><a href="../index.html#accueil">Accueil</a></li>
-                <li><a href="../index.html#apropos">À propos</a></li>
-                <li><a href="../index.html#services">Services</a></li>
-                <li><a href="portfolio.html">Réalisations</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
-        <button class="hamburger" id="hamburger" aria-label="Ouvrir le menu" aria-expanded="false">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
-    </div>
-
-    <div class="menu-overlay" id="menuOverlay"></div>
-
-
-    <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+<div class="entete" id="entete">
+    <div class="logo"><a href="../index.html"><img src="../assets/img/logo.png" alt="Eliel Poster"></a></div>
+    <nav>
         <ul>
-            <li><a href="../index.html#accueil" class="mobile-lien">Accueil</a></li>
-            <li><a href="../index.html#apropos" class="mobile-lien">À propos</a></li>
-            <li><a href="../index.html#services" class="mobile-lien">Services</a></li>
-            <li><a href="portfolio.html" class="mobile-lien">Réalisations</a></li>
-            <li><a href="contact.html" class="mobile-lien">Contact</a></li>
+            <li><a href="../index.html#accueil">Accueil</a></li>
+            <li><a href="portfolio.html">Réalisations</a></li>
+            <li><a href="../index.html#services">Services</a></li>
+            <li><a href="../index.html#temoignages">Clients</a></li>
+            <li><a href="contact.html">Contact</a></li>
         </ul>
-        <a href="devis.html" class="btn-mobile-cta">Demander un devis</a>
+    </nav>
+    <div style="display:flex;align-items:center;gap:0.8rem;">
+        <button class="theme-toggle" id="themeToggle" aria-label="Changer le thème">
+            <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+            <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        </button>
+        <a href="devis.html" class="nav-cta nav-actif">Demander un devis</a>
     </div>
+    <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+</div>
 
-    <section class="devis-hero">
-        <div class="devis-hero-content">
-            <p class="section-label">Nouvelle collaboration</p>
-            <h1>Demandez votre devis</h1>
-            <p>Décrivez-nous votre projet. Nous vous répondons sous 24h avec une proposition personnalisée et gratuite.</p>
+<div class="menu-overlay" id="menuOverlay"></div>
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <ul>
+        <li><a href="../index.html#accueil" class="mobile-lien">Accueil</a></li>
+        <li><a href="portfolio.html" class="mobile-lien">Réalisations</a></li>
+        <li><a href="../index.html#services" class="mobile-lien">Services</a></li>
+        <li><a href="contact.html" class="mobile-lien">Contact</a></li>
+    </ul>
+    <a href="devis.html" class="btn-mobile-cta">Demander un devis</a>
+</div>
+
+
+<section class="page-hero page-hero--dark">
+    <div class="page-hero-inner">
+        <span class="section-label" style="color:var(--rouge-vif);">Nouvelle collaboration</span>
+        <h1 style="color:#fff;">Votre projet<br>mérite une <em class="hero-em">vraie réponse.</em></h1>
+        <p style="color:#aaa;">Remplissez ce formulaire. On analyse votre besoin et on vous revient sous 24h avec une proposition claire, chiffrée, sans surprise.</p>
+        <div class="devis-badges">
+            <div class="devis-badge"><span>✓</span> Devis gratuit</div>
+            <div class="devis-badge"><span>✓</span> Sans engagement</div>
+            <div class="devis-badge"><span>✓</span> Réponse sous 24h</div>
         </div>
-        <div class="devis-hero-badges">
-            <div class="badge"><span>✓</span> Gratuit</div>
-            <div class="badge"><span>✓</span> Sans engagement</div>
-            <div class="badge"><span>✓</span> Réponse sous 24h</div>
-        </div>
-    </section>
+    </div>
+</section>
 
-    <section class="devis-section">
-        <div class="devis-grid">
 
-            <aside class="devis-infos">
-                <div class="info-bloc">
-                    <h3>Ce que vous obtenez</h3>
-                    <ul class="info-liste">
-                        <li>
-                            <div class="info-icone">01</div>
-                            <div>
-                                <strong>Analyse de votre besoin</strong>
-                                <p>Nous étudions votre projet en détail pour vous proposer la solution la plus adaptée.</p>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="info-icone">02</div>
-                            <div>
-                                <strong>Proposition sur mesure</strong>
-                                <p>Un devis clair, détaillé et sans surprise, adapté à votre budget.</p>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="info-icone">03</div>
-                            <div>
-                                <strong>Accompagnement complet</strong>
-                                <p>De la conception à la livraison, nous restons à vos côtés.</p>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-                <div class="info-contact">
-                    <p class="info-label">Ou contactez-nous directement</p>
-                    <a href="tel:+2250576224680" class="info-lien">
-                        <span class="info-lien-icone">📞</span>
-                        +225 0576 224 680
-                    </a>
-                    <div class="info-lien"  style="cursor:pointer;">
-                        <span class="info-lien-icone">✉️</span>
-                        <span class="email-link" data-user="postereliel" data-domain="gmail.com">afficher l'adresse</span>
-                    </div>
-                </div>
-            </aside>
+<section class="devis-section">
+    <div class="devis-grid">
 
-            <div class="devis-form-wrap">
-                <div id="message-devis"></div>
-
-                <form id="formDevis" class="devis-form">
-
-                    <fieldset class="form-etape">
-                        <legend>Vos coordonnées</legend>
-                        <div class="form-row">
-                            <div class="input-box">
-                                <label for="nom">Nom <span class="requis">*</span></label>
-                                <input type="text" id="nom" name="nom" placeholder="Votre nom" required>
-                            </div>
-                            <div class="input-box">
-                                <label for="prenoms">Prénoms <span class="requis">*</span></label>
-                                <input type="text" id="prenoms" name="prenoms" placeholder="Vos prénoms" required>
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="input-box">
-                                <label for="email">Email <span class="requis">*</span></label>
-                                <input type="email" id="email" name="email" placeholder="votre@email.com" required>
-                            </div>
-                            <div class="input-box">
-                                <label for="telephone">Téléphone <span class="requis">*</span></label>
-                                <input type="tel" id="telephone" name="telephone" placeholder="+225 XX XX XX XX XX" required>
-                            </div>
-                        </div>
-                        <div class="input-box">
-                            <label for="entreprise">Entreprise / Organisation</label>
-                            <input type="text" id="entreprise" name="entreprise" placeholder="Nom de votre structure (optionnel)">
-                        </div>
-                    </fieldset>
-
-                    <fieldset class="form-etape">
-                        <legend>Votre projet</legend>
-                        <div class="input-box">
-                            <label for="service">Type de service souhaité <span class="requis">*</span></label>
-                            <select id="service" name="service" required>
-                                <option value="">Choisissez un service</option>
-                                <option value="site-web">Création de site web</option>
-                                <option value="design-graphique">Design graphique</option>
-                                <option value="contenu-multimedia">Contenus multimédias</option>
-                                <option value="identite-visuelle">Identité visuelle complète</option>
-                                <option value="reseaux-sociaux">Gestion réseaux sociaux</option>
-                                <option value="autre">Autre / Combiné</option>
-                            </select>
-                        </div>
-                        <div class="input-box">
-                            <label>Budget estimé <span class="requis">*</span></label>
-                            <div class="budget-group">
-                                <label class="budget-item">
-                                    <input type="radio" name="budget" value="moins-100k" required>
-                                    <span>Moins de 100 000 F</span>
-                                </label>
-                                <label class="budget-item">
-                                    <input type="radio" name="budget" value="100k-300k">
-                                    <span>100 000 – 300 000 F</span>
-                                </label>
-                                <label class="budget-item">
-                                    <input type="radio" name="budget" value="300k-500k">
-                                    <span>300 000 – 500 000 F</span>
-                                </label>
-                                <label class="budget-item">
-                                    <input type="radio" name="budget" value="plus-500k">
-                                    <span>Plus de 500 000 F</span>
-                                </label>
-                            </div>
-                        </div>
-                        <div class="input-box">
-                            <label for="delai">Délai souhaité</label>
-                            <select id="delai" name="delai">
-                                <option value="">Choisissez un délai</option>
-                                <option value="urgent">Urgent (moins de 2 semaines)</option>
-                                <option value="1mois">1 mois</option>
-                                <option value="2-3mois">2 à 3 mois</option>
-                                <option value="flexible">Flexible</option>
-                            </select>
-                        </div>
-                        <div class="input-box">
-                            <label for="description">Description du projet <span class="requis">*</span></label>
-                            <textarea id="description" name="description" rows="5" placeholder="Décrivez votre projet..." required></textarea>
-                        </div>
-                        <div class="input-box">
-                            <label for="comment">Comment avez-vous connu Eliel Poster ?</label>
-                            <select id="comment" name="comment">
-                                <option value="">Choisissez une option</option>
-                                <option value="bouche-oreille">Bouche à oreille</option>
-                                <option value="reseaux-sociaux">Réseaux sociaux</option>
-                                <option value="google">Recherche Google</option>
-                                <option value="recommandation">Recommandation</option>
-                                <option value="autre">Autre</option>
-                            </select>
-                        </div>
-                    </fieldset>
-
-                    <button type="submit" class="btn-submit btn-devis">
-                        Envoyer ma demande de devis
-                        <span class="btn-fleche">→</span>
-                    </button>
-
-                    <p class="form-note">* Champs obligatoires. Vos données sont confidentielles.</p>
-
-                </form>
+        <aside class="devis-infos">
+            <div class="info-bloc">
+                <h3>Ce que vous obtenez</h3>
+                <ul class="info-liste">
+                    <li>
+                        <div class="info-num">01</div>
+                        <div><strong>Analyse de votre besoin</strong><p>On étudie votre projet en détail pour proposer la solution la plus adaptée à votre marché.</p></div>
+                    </li>
+                    <li>
+                        <div class="info-num">02</div>
+                        <div><strong>Proposition sur mesure</strong><p>Un devis clair, détaillé, sans surprise — adapté à votre budget et à vos objectifs.</p></div>
+                    </li>
+                    <li>
+                        <div class="info-num">03</div>
+                        <div><strong>Accompagnement complet</strong><p>De la conception à la livraison finale, on reste disponibles et réactifs.</p></div>
+                    </li>
+                </ul>
             </div>
 
-        </div>
-    </section>
+            <div class="info-contact-direct">
+                <p class="info-label">Ou contactez directement</p>
+                <a href="tel:+2250576224680" class="info-lien">
+                    <div class="info-lien-icone"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.5 19.79 19.79 0 0 1 1.58 4.87a2 2 0 0 1 2-2.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+                    +225 0576 224 680
+                </a>
+                <div class="info-lien" style="cursor:pointer;">
+                    <div class="info-lien-icone"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></div>
+                    <span class="email-link" data-user="postereliel" data-domain="gmail.com">Afficher l'adresse</span>
+                </div>
+            </div>
 
-    <footer>
-        <div>
+            <div class="info-temoignage">
+                <div class="temoignage-quote-sm">"</div>
+                <p>Réponse dans la journée, proposition claire, livraison en avance. Exactement ce qu'on attend d'une agence sérieuse.</p>
+                <strong>— Client satisfait, Abidjan</strong>
+            </div>
+        </aside>
+
+        <div class="devis-form-wrap">
+            <div id="message-devis" class="form-message" style="display:none;"></div>
+
+            <form id="formDevis" class="devis-form">
+                <fieldset class="form-etape">
+                    <legend>Vos coordonnées</legend>
+                    <div class="form-row">
+                        <div class="input-box"><label for="nom">Nom <span class="requis">*</span></label><input type="text" id="nom" name="nom" placeholder="Votre nom" required></div>
+                        <div class="input-box"><label for="prenoms">Prénoms <span class="requis">*</span></label><input type="text" id="prenoms" name="prenoms" placeholder="Vos prénoms" required></div>
+                    </div>
+                    <div class="form-row">
+                        <div class="input-box"><label for="email">Email <span class="requis">*</span></label><input type="email" id="email" name="email" placeholder="votre@email.com" required></div>
+                        <div class="input-box"><label for="telephone">Téléphone <span class="requis">*</span></label><input type="tel" id="telephone" name="telephone" placeholder="+225 XX XX XX XX" required></div>
+                    </div>
+                    <div class="input-box"><label for="entreprise">Entreprise / Organisation</label><input type="text" id="entreprise" name="entreprise" placeholder="Nom de votre structure (optionnel)"></div>
+                </fieldset>
+
+                <fieldset class="form-etape">
+                    <legend>Votre projet</legend>
+                    <div class="input-box">
+                        <label for="service">Type de service <span class="requis">*</span></label>
+                        <select id="service" name="service" required>
+                            <option value="">Choisissez un service</option>
+                            <option value="logo">Création de logo</option>
+                            <option value="branding">Branding complet</option>
+                            <option value="site-web">Création de site web</option>
+                            <option value="ui-ux">UI/UX Design</option>
+                            <option value="flyers">Flyers & affiches</option>
+                            <option value="video">Montage vidéo</option>
+                            <option value="cover">Cover musicale</option>
+                            <option value="animation">Animation vidéo</option>
+                            <option value="community">Community management</option>
+                            <option value="autre">Autre / Combiné</option>
+                        </select>
+                    </div>
+                    <div class="input-box">
+                        <label>Budget estimé <span class="requis">*</span></label>
+                        <div class="budget-group">
+                            <label class="budget-item"><input type="radio" name="budget" value="moins-100k" required><span>Moins de 100 000 F</span></label>
+                            <label class="budget-item"><input type="radio" name="budget" value="100k-300k"><span>100 000 – 300 000 F</span></label>
+                            <label class="budget-item"><input type="radio" name="budget" value="300k-500k"><span>300 000 – 500 000 F</span></label>
+                            <label class="budget-item"><input type="radio" name="budget" value="plus-500k"><span>Plus de 500 000 F</span></label>
+                        </div>
+                    </div>
+                    <div class="input-box">
+                        <label for="delai">Délai souhaité</label>
+                        <select id="delai" name="delai">
+                            <option value="">Choisissez un délai</option>
+                            <option value="urgent">Urgent (moins de 2 semaines)</option>
+                            <option value="1mois">1 mois</option>
+                            <option value="2-3mois">2 à 3 mois</option>
+                            <option value="flexible">Flexible</option>
+                        </select>
+                    </div>
+                    <div class="input-box"><label for="description">Décrivez votre projet <span class="requis">*</span></label><textarea id="description" name="description" rows="5" placeholder="Qu'est-ce que vous voulez créer ? Quel est l'objectif ? Qui sont vos clients cibles ?" required></textarea></div>
+                    <div class="input-box">
+                        <label for="comment">Comment avez-vous connu Eliel Poster ?</label>
+                        <select id="comment" name="comment">
+                            <option value="">Choisissez une option</option>
+                            <option value="bouche-oreille">Bouche à oreille</option>
+                            <option value="instagram">Instagram</option>
+                            <option value="facebook">Facebook</option>
+                            <option value="google">Recherche Google</option>
+                            <option value="recommandation">Recommandation</option>
+                            <option value="autre">Autre</option>
+                        </select>
+                    </div>
+                </fieldset>
+
+                <button type="submit" class="btn-primary btn-submit">
+                    Envoyer ma demande de devis
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                </button>
+                <p class="form-note">* Champs obligatoires. Vos données restent confidentielles.</p>
+            </form>
+        </div>
+
+    </div>
+</section>
+
+
+<footer class="footer">
+    <div class="footer-top">
+        <div class="footer-brand-block">
             <span class="footer-brand">Eliel <span>Poster</span></span>
-            <p>Agence de communication créative</p>
-            <p>Votre image, notre mission</p>
+            <p>Agence de communication créative à Abidjan. Branding, web, multimédia.</p>
         </div>
-        <div class="footer-contact">
-            <p>Contact : <a href="#" class="email-link" data-user="postereliel" data-domain="gmail.com">afficher l'adresse</a></p>
-            <p><a href="tel:+2250576224680">+225 0576 224 680</a></p>
+        <div class="footer-links">
+            <h4>Services</h4>
+            <a href="../index.html#services">Création de Logo</a>
+            <a href="../index.html#services">Branding Complet</a>
+            <a href="../index.html#services">Création Site Web</a>
         </div>
-    </footer>
+        <div class="footer-links">
+            <h4>Agence</h4>
+            <a href="portfolio.html">Réalisations</a>
+            <a href="contact.html">Contact</a>
+            <a href="devis.html">Demander un devis</a>
+        </div>
+        <div class="footer-contact-block">
+            <h4>Contact direct</h4>
+            <a href="tel:+2250576224680">+225 0576 224 680</a>
+            <a href="#" class="email-link" data-user="postereliel" data-domain="gmail.com">Afficher l'email</a>
+            <a href="devis.html" class="footer-cta-btn">Parler de mon projet</a>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; <span class="footer-annee"></span> Eliel Poster · Abidjan, Côte d'Ivoire</p>
+    </div>
+</footer>
 
-    <script>
-        const hamburger   = document.getElementById('hamburger');
-        const mobileMenu  = document.getElementById('mobileMenu');
-        const overlay     = document.getElementById('menuOverlay');
-        const mobileLiens = document.querySelectorAll('.mobile-lien');
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script src="../assets/js/devis.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const html = document.documentElement;
+    html.setAttribute('data-theme', localStorage.getItem('ep-theme') || 'light');
+    document.getElementById('themeToggle')?.addEventListener('click', () => {
+        const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        html.setAttribute('data-theme', next);
+        localStorage.setItem('ep-theme', next);
+    });
 
-        function ouvrirMenu() {
-            hamburger.classList.add('ouvert');
-            mobileMenu.classList.add('ouvert');
-            overlay.classList.add('ouvert');
-            hamburger.setAttribute('aria-expanded', 'true');
-            mobileMenu.setAttribute('aria-hidden', 'false');
-            document.body.style.overflow = 'hidden';
-        }
+    const entete = document.querySelector('.entete');
+    window.addEventListener('scroll', () => entete?.classList.toggle('entete--scroll', window.scrollY > 40), { passive: true });
 
-        function fermerMenu() {
-            hamburger.classList.remove('ouvert');
-            mobileMenu.classList.remove('ouvert');
-            overlay.classList.remove('ouvert');
-            hamburger.setAttribute('aria-expanded', 'false');
-            mobileMenu.setAttribute('aria-hidden', 'true');
-            document.body.style.overflow = '';
-        }
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const overlay = document.getElementById('menuOverlay');
+    function ouvrirMenu() { hamburger.classList.add('ouvert'); mobileMenu.classList.add('ouvert'); overlay.classList.add('ouvert'); document.body.style.overflow = 'hidden'; }
+    function fermerMenu() { hamburger.classList.remove('ouvert'); mobileMenu.classList.remove('ouvert'); overlay.classList.remove('ouvert'); document.body.style.overflow = ''; }
+    hamburger?.addEventListener('click', () => hamburger.classList.contains('ouvert') ? fermerMenu() : ouvrirMenu());
+    overlay?.addEventListener('click', fermerMenu);
+    document.querySelectorAll('.mobile-lien').forEach(l => l.addEventListener('click', fermerMenu));
 
-        hamburger.addEventListener('click', () => {
-            hamburger.classList.contains('ouvert') ? fermerMenu() : ouvrirMenu();
+    document.querySelectorAll('.email-link').forEach(el => {
+        el.style.cursor = 'pointer';
+        el.addEventListener('click', function(e) {
+            e.preventDefault();
+            const addr = this.dataset.user + '@' + this.dataset.domain;
+            if (this.tagName === 'A') this.href = 'mailto:' + addr;
+            this.textContent = addr;
         });
+    });
 
-        overlay.addEventListener('click', fermerMenu);
-        mobileLiens.forEach(lien => lien.addEventListener('click', fermerMenu));
-
-        window.addEventListener('scroll', () => {
-            document.querySelector('.entete').classList.toggle('entete--scroll', window.scrollY > 30);
-        });
-    </script>
-
-    <!-- EmailJS AVANT devis.js -->
-    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-    <script src="../assets/js/devis.js"></script>
-
-    <script>
-        document.querySelectorAll('.email-link').forEach(el => {
-            el.addEventListener('click', function(e) {
-                e.preventDefault();
-                const addr = this.dataset.user + '@' + this.dataset.domain;
-                if (this.tagName === 'A') {
-                    this.href = 'mailto:' + addr;
-                }
-                this.textContent = addr;
-            });
-        });
-    </script>
+    document.querySelector('.footer-annee').textContent = new Date().getFullYear();
+});
+</script>
 </body>
 </html>

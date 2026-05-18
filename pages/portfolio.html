@@ -1,206 +1,442 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio — Eliel Poster | Réalisations Branding & Web Abidjan</title>
+    <meta name="description" content="Découvrez les réalisations d'Eliel Poster : logos, branding, sites web et explorations de design pour nos clients à Abidjan et en Côte d'Ivoire.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&family=Poppins:wght@600;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap">
     <link rel="stylesheet" href="../assets/css/style.css">
-    <link rel="stylesheet" href="../assets/css/portfolio.css">
-    <link rel="shortcut icon" href="../favicon.svg" type="image/x-icon">
-    <title>Portfolio — Eliel Poster</title>
-    <meta name="description" content="Découvrez les réalisations d'Eliel Poster : sites web, design graphique et contenus multimédias pour nos clients.">
+    <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+    <style>
+        /* portfolio page styles */
+        .portfolio-hero { padding:10rem 6% 5rem; background:var(--bg); border-bottom:1px solid var(--border); }
+        .portfolio-hero-inner { max-width:700px; display:flex; flex-direction:column; gap:1.2rem; }
+        .portfolio-hero-inner h1 { font-size:clamp(2.4rem,5vw,4rem); }
+        .portfolio-stats { display:flex; align-items:center; gap:0; background:var(--bg-alt); border:1px solid var(--border); border-radius:var(--radius-lg); padding:1.4rem 2rem; max-width:520px; margin-top:1rem; }
+        .stat-item { display:flex; flex-direction:column; align-items:center; flex:1; gap:0.3rem; }
+        .stat-item strong { font-family:var(--font-titre); font-size:2rem; font-weight:800; color:var(--rouge); line-height:1; }
+        .stat-item span { font-size:0.75rem; color:var(--fg-muted); text-align:center; }
+        .stat-divider { width:1px; height:40px; background:var(--border); flex-shrink:0; }
+
+        .portfolio-filtres { padding:1.5rem 6%; background:var(--bg-alt); border-bottom:1px solid var(--border); position:sticky; top:70px; z-index:90; backdrop-filter:blur(10px); }
+        .filtres-inner { max-width:1200px; margin:0 auto; display:flex; align-items:center; gap:0.5rem; flex-wrap:wrap; }
+        .filtre-btn { padding:0.45rem 1.1rem; border-radius:var(--radius-pill); border:1.5px solid var(--border); background:var(--bg-card); font-family:var(--font-corps); font-size:0.8rem; font-weight:500; color:var(--fg-muted); cursor:pointer; transition:all var(--transition); }
+        .filtre-btn:hover { border-color:var(--rouge); color:var(--rouge); }
+        .filtre-btn.filtre-actif { background:var(--rouge); border-color:var(--rouge); color:#fff; }
+        .filtre-badge { font-size:0.6rem; background:rgba(255,255,255,0.25); padding:0.1rem 0.4rem; border-radius:10px; margin-left:0.3rem; }
+        .filtre-actif .filtre-badge { background:rgba(255,255,255,0.3); }
+
+        .portfolio-section { padding:5rem 6%; background:var(--bg); }
+        .projets-grid { max-width:1200px; margin:0 auto; display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; }
+
+        .projet-card { border-radius:var(--radius-lg); overflow:hidden; background:var(--bg-card); border:1px solid var(--border); transition:transform var(--transition), box-shadow var(--transition); }
+        .projet-card:hover { transform:translateY(-5px); box-shadow:0 16px 48px rgba(0,0,0,0.12); }
+        .projet-card--large { grid-column:span 2; }
+
+        .projet-visuel { position:relative; overflow:hidden; background:var(--gris-fonce); }
+        .projet-visuel img { width:100%; height:100%; object-fit:cover; transition:transform 0.5s ease; display:block; }
+        .projet-card:hover .projet-visuel img { transform:scale(1.04); }
+
+        .projet-visuel-tall { aspect-ratio:16/10; }
+        .projet-visuel-sq   { aspect-ratio:4/3; }
+        .projet-card--large .projet-visuel { aspect-ratio:16/9; }
+
+        .projet-overlay { position:absolute; inset:0; background:linear-gradient(to top, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.15) 60%, transparent 100%); display:flex; flex-direction:column; justify-content:flex-end; padding:1.8rem; opacity:0; transition:opacity 0.35s ease; }
+        .projet-card:hover .projet-overlay { opacity:1; }
+        .projet-overlay-tag { font-size:0.68rem; font-weight:600; text-transform:uppercase; letter-spacing:0.1em; color:var(--rouge-vif); margin-bottom:0.4rem; }
+        .projet-overlay h3 { color:#fff; font-size:1.1rem; margin-bottom:0.4rem; }
+        .projet-overlay p { color:rgba(255,255,255,0.7); font-size:0.82rem; margin-bottom:1rem; line-height:1.5; }
+        .btn-projet { display:inline-flex; align-items:center; gap:0.3rem; background:var(--rouge); color:#fff; font-size:0.78rem; font-weight:500; padding:0.45rem 1rem; border-radius:var(--radius-pill); transition:all var(--transition); align-self:flex-start; }
+        .btn-projet:hover { background:var(--rouge-sombre); }
+
+        .projet-meta { padding:1.4rem; display:flex; flex-direction:column; gap:0.5rem; }
+        .projet-meta-top { display:flex; align-items:center; justify-content:space-between; }
+        .projet-cat { font-size:0.68rem; font-weight:600; text-transform:uppercase; letter-spacing:0.1em; color:var(--rouge); background:var(--rouge-pale); padding:0.2rem 0.6rem; border-radius:var(--radius-pill); }
+        [data-theme="dark"] .projet-cat { background:rgba(198,40,40,0.15); }
+        .projet-annee { font-size:0.72rem; color:var(--fg-muted); }
+        .projet-titre { font-size:1rem; margin:0; }
+        .projet-desc { font-size:0.84rem; margin:0; }
+
+        .projet-card--exploration { border-style:solid; border-color:var(--border); position:relative; }
+        .exploration-badge { position:absolute; top:1rem; right:1rem; z-index:10; background:rgba(0,0,0,0.7); color:#fff; font-size:0.65rem; font-weight:500; padding:0.3rem 0.6rem; border-radius:var(--radius-pill); backdrop-filter:blur(8px); letter-spacing:0.05em; }
+
+        /* Mockup placeholders with real-looking preview colors */
+        .mockup-cabine { background:linear-gradient(135deg,#0A0A08 0%,#1a1208 100%); aspect-ratio:16/10; position:relative; overflow:hidden; display:flex; align-items:center; justify-content:center; }
+        .mockup-baro { background:linear-gradient(135deg,#F9F7F4 0%,#E8E5E0 100%); aspect-ratio:16/10; position:relative; overflow:hidden; display:flex; align-items:center; justify-content:center; }
+        .mockup-wara { background:linear-gradient(135deg,#1C1008 0%,#2D1A00 100%); aspect-ratio:16/10; position:relative; overflow:hidden; display:flex; align-items:center; justify-content:center; }
+        .mockup-soleil { background:linear-gradient(135deg,#EFF6F8 0%,#D4EAF0 100%); aspect-ratio:16/10; position:relative; overflow:hidden; display:flex; align-items:center; justify-content:center; }
+        .mockup-volta { background:linear-gradient(135deg,#0A0A14 0%,#141430 100%); aspect-ratio:16/10; position:relative; overflow:hidden; display:flex; align-items:center; justify-content:center; }
+
+        .mockup-label { font-family:'Syne',sans-serif; font-weight:800; letter-spacing:-0.03em; }
+        .mockup-sub   { font-family:'DM Sans',sans-serif; font-weight:300; letter-spacing:0.15em; text-transform:uppercase; font-size:0.6em; margin-top:0.3em; opacity:0.6; }
+
+        .portfolio-cta { padding:8rem 6%; background:var(--noir); text-align:center; position:relative; overflow:hidden; }
+        [data-theme="dark"] .portfolio-cta { background:#000; }
+        .portfolio-cta::before { content:''; position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:700px; height:400px; background:radial-gradient(ellipse at center,rgba(198,40,40,0.1) 0%,transparent 70%); pointer-events:none; }
+        .portfolio-cta-inner { position:relative; z-index:1; max-width:600px; margin:0 auto; display:flex; flex-direction:column; align-items:center; gap:1.5rem; }
+        .portfolio-cta-inner h2 { color:#fff; font-size:clamp(1.8rem,3.5vw,2.8rem); }
+        .portfolio-cta-inner p { color:#888; font-size:1rem; }
+
+        @media (max-width:900px) { .projets-grid { grid-template-columns:1fr 1fr; } .projet-card--large { grid-column:1/-1; } }
+        @media (max-width:580px) { .projets-grid { grid-template-columns:1fr; } .portfolio-filtres { position:static; } }
+    </style>
 </head>
 <body>
 
-    <div class="entete">
-        <div class="logo">
-            <a href="../index.html">
-                <img src="../assets/img/logo.png" alt="Logo Eliel Poster">
-            </a>
-        </div>
-        <nav>
-            <ul>
-                <li><a href="../index.html#accueil">Accueil</a></li>
-                <li><a href="../index.html#apropos">À propos</a></li>
-                <li><a href="../index.html#services">Services</a></li>
-                <li><a href="portfolio.html" class="nav-actif">Réalisations</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
-        <button class="hamburger" id="hamburger" aria-label="Ouvrir le menu" aria-expanded="false">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
-    </div>
-
-    <!-- Overlay sombre -->
-    <div class="menu-overlay" id="menuOverlay"></div>
-
-    <!-- Menu mobile -->
-    <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+<div class="entete" id="entete">
+    <div class="logo"><a href="../index.html"><img src="../assets/img/logo.png" alt="Eliel Poster"></a></div>
+    <nav>
         <ul>
-            <li><a href="../index.html#accueil" class="mobile-lien">Accueil</a></li>
-            <li><a href="../index.html#apropos" class="mobile-lien">À propos</a></li>
-            <li><a href="../index.html#services" class="mobile-lien">Services</a></li>
-            <li><a href="portfolio.html" class="mobile-lien">Réalisations</a></li>
-            <li><a href="contact.html" class="mobile-lien">Contact</a></li>
+            <li><a href="../index.html#accueil">Accueil</a></li>
+            <li><a href="portfolio.html" class="nav-actif">Réalisations</a></li>
+            <li><a href="../index.html#services">Services</a></li>
+            <li><a href="../index.html#temoignages">Clients</a></li>
+            <li><a href="contact.html">Contact</a></li>
         </ul>
-        <a href="devis.html" class="btn-mobile-cta">Demander un devis</a>
+    </nav>
+    <div style="display:flex;align-items:center;gap:0.8rem;">
+        <button class="theme-toggle" id="themeToggle" aria-label="Changer le thème">
+            <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+            <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        </button>
+        <a href="devis.html" class="nav-cta">Parler de mon projet</a>
     </div>
+    <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+</div>
 
- <!--HERO -->
-    <section class="portfolio-hero">
-        <div class="portfolio-hero-inner">
-            <p class="section-label">Nos travaux</p>
-            <h1>Notre <em>portfolio</em></h1>
-            <p>Chaque projet est une histoire. Découvrez comment nous avons accompagné nos clients dans la construction d'une image forte, cohérente et mémorable.</p>
-        </div>
-        <div class="portfolio-stats">
-            <div class="stat-item">
-                <strong data-count="48" data-suffix="+">15+</strong>
-                <span>Projets livrés</span>
-            </div>
-            <div class="stat-item">
-                <strong data-count="32" data-suffix="+">25+</strong>
-                <span>Clients satisfaits</span>
-            </div>
-            <div class="stat-item">
-                <strong data-count="3" data-suffix=" ans">5 ans</strong>
-                <span>D'expérience</span>
-            </div>
-        </div>
-    </section>
+<div class="menu-overlay" id="menuOverlay"></div>
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <ul>
+        <li><a href="../index.html" class="mobile-lien">Accueil</a></li>
+        <li><a href="portfolio.html" class="mobile-lien">Réalisations</a></li>
+        <li><a href="../index.html#services" class="mobile-lien">Services</a></li>
+        <li><a href="contact.html" class="mobile-lien">Contact</a></li>
+    </ul>
+    <a href="devis.html" class="btn-mobile-cta">Parler de mon projet</a>
+</div>
 
 
-
-
-    <!-- GRILLE PROJETS -->
-    <section class="portfolio-section">
-        <div class="projets-grid" id="projetsGrid">
-
-           <!-- Projet 1 — grand -->
-<article class="projet-card projet-card--large" data-categorie="web">
-    <div class="projet-visuel">
-        <div class="projet-placeholder">
-            <img src="../assets/img/portfolio/abraham-gogo.png" alt="Portfolio Abraham Dogo">
-            <span>Abraham Dogo – Portfolio professionnel</span>
-        </div>
-        <div class="projet-overlay">
-            <span class="projet-tag">Client : Abraham Dogo</span>
-            <h3>Portfolio professionnel</h3>
-            <p>
-                Nous avons conçu le portfolio professionnel d’Abraham Dogo afin de valoriser son image, ses compétences et ses réalisations à travers une plateforme moderne, claire et impactante.
-                <br><br>
-                Le site propose une navigation fluide, un design soigné et une présentation stratégique de son profil pour renforcer sa crédibilité et attirer de nouvelles opportunités.
-            </p>
-            <a href="https://abrahamdogo.netlify.app/" target="_blank" class="btn-projet">Voir le site →</a>
-        </div>
+<section class="portfolio-hero">
+    <div class="portfolio-hero-inner">
+        <span class="section-label">Nos travaux</span>
+        <h1>Ce que nous avons<br>construit <em class="hero-em">ensemble.</em></h1>
+        <p>Projets clients réels et explorations de design — la preuve concrète de notre polyvalence.</p>
     </div>
-    <div class="projet-meta">
-        <span class="projet-categorie">Site web</span>
-        <h3 class="projet-titre">Portfolio professionnel</h3>
-        <p class="projet-desc">
-            Conception complète d’un portfolio moderne avec design optimisé et expérience utilisateur fluide.
-        </p>
+    <div class="portfolio-stats">
+        <div class="stat-item"><strong class="proof-num" data-count="50" data-suffix="+">0+</strong><span>Projets livrés</span></div>
+        <div class="stat-divider"></div>
+        <div class="stat-item"><strong class="proof-num" data-count="96" data-suffix="%">0%</strong><span>Clients satisfaits</span></div>
+        <div class="stat-divider"></div>
+        <div class="stat-item"><strong class="proof-num" data-count="3" data-suffix=" ans">0 ans</strong><span>D'expérience</span></div>
     </div>
-</article>
+</section>
 
-<!-- Projet 2 -->
-           <article class="projet-card" data-categorie="communication">
-                <div class="projet-visuel">
-                    <div class="projet-placeholder" style="background: linear-gradient(135deg, #102e6e 0%, #1c4596 100%);">
-                        <span>Comm.</span>
-                    <img src="../assets/img/portfolio/master-class.png" alt="Master class">
-                    </div>
-                    <div class="projet-overlay">
-                        <span class="projet-tag">Affiche Événementielle</span>
-                        <h3>Master Class d'Adoration</h3>
-                        <p>Affiche promotionnelle pour la formation de David Eliakim (Divine Production).</p>
-                        <a href="../assets/img/portfolio/master-class.png" class="btn-projet">Voir le projet →</a>
+
+<div class="portfolio-filtres">
+    <div class="filtres-inner">
+        <button class="filtre-btn filtre-actif" data-filtre="tous">Tous <span class="filtre-badge">10</span></button>
+        <button class="filtre-btn" data-filtre="web">Web <span class="filtre-badge">3</span></button>
+        <button class="filtre-btn" data-filtre="branding">Branding <span class="filtre-badge">3</span></button>
+        <button class="filtre-btn" data-filtre="communication">Communication <span class="filtre-badge">2</span></button>
+        <button class="filtre-btn" data-filtre="exploration">Exploration design <span class="filtre-badge">5</span></button>
+    </div>
+</div>
+
+
+<section class="portfolio-section">
+    <div class="projets-grid" id="projetsGrid">
+
+        <!-- PROJETS RÉELS -->
+        <article class="projet-card projet-card--large" data-categorie="web">
+            <div class="projet-visuel">
+                <img src="../assets/img/portfolio/abraham-gogo.png" alt="Portfolio Abraham Dogo" loading="lazy">
+                <div class="projet-overlay">
+                    <span class="projet-overlay-tag">Site web · Portfolio</span>
+                    <h3>Abraham Dogo</h3>
+                    <p>Portfolio professionnel — design moderne, navigation fluide, présentation stratégique du profil.</p>
+                    <a href="https://abrahamdogo.netlify.app/" target="_blank" rel="noopener noreferrer" class="btn-projet">Voir le site →</a>
+                </div>
+            </div>
+            <div class="projet-meta">
+                <div class="projet-meta-top"><span class="projet-cat">Site web</span><span class="projet-annee">2025</span></div>
+                <h3 class="projet-titre">Portfolio professionnel — Abraham Dogo</h3>
+                <p class="projet-desc">Conception complète d'un portfolio moderne avec design optimisé et présentation stratégique.</p>
+            </div>
+        </article>
+
+        <article class="projet-card" data-categorie="communication">
+            <div class="projet-visuel projet-visuel-sq">
+                <img src="../assets/img/portfolio/master-class.png" alt="Master Class d'Adoration" loading="lazy">
+                <div class="projet-overlay">
+                    <span class="projet-overlay-tag">Communication · Événement</span>
+                    <h3>Master Class d'Adoration</h3>
+                    <p>Affiche événementielle — Studio Divine Production. Événement du 02 Avril 2026.</p>
+                </div>
+            </div>
+            <div class="projet-meta">
+                <div class="projet-meta-top"><span class="projet-cat">Communication</span><span class="projet-annee">2025</span></div>
+                <h3 class="projet-titre">Affiche Master Class d'Adoration</h3>
+                <p class="projet-desc">Conception graphique de l'affiche événementielle — Divine Production.</p>
+            </div>
+        </article>
+
+        <article class="projet-card" data-categorie="branding">
+            <div class="projet-visuel projet-visuel-sq" style="background:linear-gradient(135deg,#1a1a1a 0%,#2d0000 100%);display:flex;align-items:center;justify-content:center;">
+                <div style="text-align:center;padding:2rem;">
+                    <div style="font-family:Syne,sans-serif;font-size:2.8rem;font-weight:800;color:#c62828;letter-spacing:-0.04em;line-height:1;">AG</div>
+                    <div style="font-family:'DM Sans',sans-serif;font-size:0.55rem;color:#888;letter-spacing:0.25em;text-transform:uppercase;margin-top:0.5rem;">Abraham Gogo</div>
+                </div>
+                <div class="projet-overlay">
+                    <span class="projet-overlay-tag">Branding · Artiste</span>
+                    <h3>Abraham Gogo</h3>
+                    <p>Identité visuelle complète — logo, chartes, visuels promotionnels.</p>
+                </div>
+            </div>
+            <div class="projet-meta">
+                <div class="projet-meta-top"><span class="projet-cat">Branding</span><span class="projet-annee">2024</span></div>
+                <h3 class="projet-titre">Identité visuelle — Abraham Gogo</h3>
+                <p class="projet-desc">Logo, charte graphique et direction artistique pour un artiste musical.</p>
+            </div>
+        </article>
+
+
+        <!-- EXPLORATIONS DE DESIGN -->
+        <article class="projet-card projet-card--exploration" data-categorie="exploration">
+            <span class="exploration-badge">Exploration de design</span>
+            <div class="mockup-cabine projet-visuel">
+                <div style="text-align:center;">
+                    <div class="mockup-label" style="font-size:2.2rem;color:#C9A84C;">CABINE<br>NOIRE</div>
+                    <div class="mockup-sub" style="color:#C9A84C;">Salon Premium · Abidjan</div>
+                </div>
+                <div class="projet-overlay">
+                    <span class="projet-overlay-tag">Exploration · Luxe & Beauté</span>
+                    <h3>Cabine Noire</h3>
+                    <p>Site ultra-premium pour salon coiffure. Curseur custom, direction artistique noir & or.</p>
+                    <a href="explorations/cabine-noire.html" target="_blank" class="btn-projet">Voir l'exploration →</a>
+                </div>
+            </div>
+            <div class="projet-meta">
+                <div class="projet-meta-top"><span class="projet-cat" style="background:rgba(201,168,76,0.15);color:#C9A84C;">Exploration</span><span class="projet-annee">2025</span></div>
+                <h3 class="projet-titre">Cabine Noire — Salon Premium</h3>
+                <p class="projet-desc">Direction artistique luxe. Typographie Cormorant, noir profond, or chaud.</p>
+            </div>
+        </article>
+
+        <article class="projet-card projet-card--exploration" data-categorie="exploration">
+            <span class="exploration-badge">Exploration de design</span>
+            <div class="mockup-baro projet-visuel">
+                <div style="text-align:center;">
+                    <div class="mockup-label" style="font-size:2rem;color:#111;letter-spacing:-0.06em;">BARO<br>ARCHITECTURE</div>
+                    <div class="mockup-sub" style="color:#8B6F4E;">Abidjan · CI</div>
+                </div>
+                <div class="projet-overlay" style="background:linear-gradient(to top,rgba(17,17,16,0.85) 0%,transparent 100%);">
+                    <span class="projet-overlay-tag">Exploration · Architecture</span>
+                    <h3>Baro Architecture</h3>
+                    <p>Cabinet d'architecture — minimalisme structurel, grille béton, esthétique éditoriale.</p>
+                    <a href="explorations/baro-architecture.html" target="_blank" class="btn-projet">Voir l'exploration →</a>
+                </div>
+            </div>
+            <div class="projet-meta">
+                <div class="projet-meta-top"><span class="projet-cat" style="background:rgba(139,111,78,0.15);color:#8B6F4E;">Exploration</span><span class="projet-annee">2025</span></div>
+                <h3 class="projet-titre">Baro Architecture</h3>
+                <p class="projet-desc">Identité web pour cabinet d'architecture. Blanc béton, typographie Playfair.</p>
+            </div>
+        </article>
+
+        <article class="projet-card projet-card--exploration projet-card--large" data-categorie="exploration">
+            <span class="exploration-badge">Exploration de design</span>
+            <div class="mockup-wara projet-visuel" style="aspect-ratio:16/9;">
+                <div style="text-align:center;">
+                    <div class="mockup-label" style="font-size:3rem;color:#D4A849;">WARA</div>
+                    <div class="mockup-sub" style="color:#D4A849;">Restaurant · Terroir Ivoirien</div>
+                    <div style="margin-top:1rem;display:flex;gap:0.5rem;justify-content:center;">
+                        <span style="width:8px;height:8px;border-radius:50%;background:#D4A849;opacity:0.4;"></span>
+                        <span style="width:8px;height:8px;border-radius:50%;background:#D4A849;opacity:0.8;"></span>
+                        <span style="width:8px;height:8px;border-radius:50%;background:#D4A849;opacity:0.4;"></span>
                     </div>
                 </div>
-                <div class="projet-meta">
-                    <span class="projet-categorie">Communication Visuelle</span>
-                    <h3 class="projet-titre">Affiche Master Class d'Adoration</h3>
-                    <p class="projet-desc">Conception graphique de l'affiche pour la master class du 02 Avril 2026 au Studio Divine Production.</p>
+                <div class="projet-overlay">
+                    <span class="projet-overlay-tag">Exploration · Gastronomie</span>
+                    <h3>Wara Restaurant</h3>
+                    <p>Site gastronomique — terroir ivoirien revisité. Animations d'entrée, menu immersif.</p>
+                    <a href="explorations/wara-restaurant.html" target="_blank" class="btn-projet">Voir l'exploration →</a>
                 </div>
-            </article>
-    </section>
-
-        <!-- CTA FINAL -->
-    <section class="portfolio-cta">
-        <div class="portfolio-cta-inner">
-            <h2>Votre projet sera notre prochain chef-d'œuvre.</h2>
-            <p>Discutons de vos besoins et construisons ensemble quelque chose d'unique et d'impactant.</p>
-            <div class="cta-btns">
-                <a href="devis.html" class="btn-hero">Demander un devis</a>
-                <a href="contact.html" class="btn-hero-outline">Nous contacter</a>
             </div>
+            <div class="projet-meta">
+                <div class="projet-meta-top"><span class="projet-cat" style="background:rgba(212,168,73,0.15);color:#D4A849;">Exploration</span><span class="projet-annee">2025</span></div>
+                <h3 class="projet-titre">Wara Restaurant — Gastronomie Ivoirienne</h3>
+                <p class="projet-desc">Expérience web immersive pour restaurant premium. Dark ambiance, or chaud, typographie éditoriale.</p>
+            </div>
+        </article>
+
+        <article class="projet-card projet-card--exploration" data-categorie="exploration">
+            <span class="exploration-badge">Exploration de design</span>
+            <div class="mockup-soleil projet-visuel">
+                <div style="text-align:center;">
+                    <div class="mockup-label" style="font-size:1.8rem;color:#0B7A8E;letter-spacing:-0.02em;">SOLEIL<br>CLINIQUE</div>
+                    <div class="mockup-sub" style="color:#0B7A8E;">Centre Médical · Abidjan</div>
+                </div>
+                <div class="projet-overlay" style="background:linear-gradient(to top,rgba(0,60,80,0.85) 0%,transparent 100%);">
+                    <span class="projet-overlay-tag">Exploration · Santé</span>
+                    <h3>Soleil Clinique</h3>
+                    <p>Centre médical — design rassurant, bleu médical, UX orientée patient.</p>
+                    <a href="explorations/soleil-clinique.html" target="_blank" class="btn-projet">Voir l'exploration →</a>
+                </div>
+            </div>
+            <div class="projet-meta">
+                <div class="projet-meta-top"><span class="projet-cat" style="background:rgba(11,122,142,0.12);color:#0B7A8E;">Exploration</span><span class="projet-annee">2025</span></div>
+                <h3 class="projet-titre">Soleil Clinique</h3>
+                <p class="projet-desc">Interface médicale premium — confiance, clarté, accessibilité.</p>
+            </div>
+        </article>
+
+        <article class="projet-card projet-card--exploration" data-categorie="exploration">
+            <span class="exploration-badge">Exploration de design</span>
+            <div class="mockup-volta projet-visuel">
+                <div style="text-align:center;">
+                    <div class="mockup-label" style="font-size:2.2rem;color:#7C6EFA;letter-spacing:-0.05em;">VOLTA<br>STUDIO</div>
+                    <div class="mockup-sub" style="color:#7C6EFA;">Creative Studio · Digital</div>
+                </div>
+                <div class="projet-overlay">
+                    <span class="projet-overlay-tag">Exploration · Studio Créatif</span>
+                    <h3>Volta Studio</h3>
+                    <p>Studio créatif digital — violet électrique, dark mode, interactions premium.</p>
+                    <a href="explorations/volta-studio.html" target="_blank" class="btn-projet">Voir l'exploration →</a>
+                </div>
+            </div>
+            <div class="projet-meta">
+                <div class="projet-meta-top"><span class="projet-cat" style="background:rgba(124,110,250,0.12);color:#7C6EFA;">Exploration</span><span class="projet-annee">2025</span></div>
+                <h3 class="projet-titre">Volta Studio — Studio Créatif</h3>
+                <p class="projet-desc">Identité web dark pour studio digital. Violet, typographie expressive, motion.</p>
+            </div>
+        </article>
+
+    </div>
+</section>
+
+
+<section class="portfolio-cta">
+    <div class="portfolio-cta-inner">
+        <span class="cta-tag">Prochaine étape</span>
+        <h2>Votre marque sera<br>notre prochain travail.</h2>
+        <p>On construit ensemble quelque chose que vos clients ne pourront pas ignorer.</p>
+        <div class="cta-btns" style="display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;">
+            <a href="devis.html" class="btn-primary btn-large">Lancer mon projet</a>
+            <a href="contact.html" class="btn-ghost" style="color:#aaa;border-color:#333;">Poser une question</a>
         </div>
-    </section>  
-    
-    <footer>
-        <div>
+        <p style="font-size:0.78rem;color:#555;">Devis gratuit · Réponse sous 24h · Sans engagement</p>
+    </div>
+</section>
+
+
+<footer class="footer">
+    <div class="footer-top">
+        <div class="footer-brand-block">
             <span class="footer-brand">Eliel <span>Poster</span></span>
-            <p>Agence de communication créative</p>
-            <p>Votre image, notre mission</p>
+            <p>Agence de communication créative à Abidjan. Branding, web, multimédia.</p>
         </div>
-        <div class="footer-contact">
-            <p>Contact : <a href="#" class="email-link" data-user="postereliel" data-domain="gmail.com">afficher l'adresse</a></p>
-            <p><a href="tel:+2250576224680">+225 0576 224 680</a></p>
+        <div class="footer-links">
+            <h4>Services</h4>
+            <a href="../index.html#services">Création de Logo</a>
+            <a href="../index.html#services">Branding Complet</a>
+            <a href="../index.html#services">Création Site Web</a>
         </div>
-    </footer>
+        <div class="footer-links">
+            <h4>Agence</h4>
+            <a href="portfolio.html">Réalisations</a>
+            <a href="contact.html">Contact</a>
+            <a href="devis.html">Demander un devis</a>
+        </div>
+        <div class="footer-contact-block">
+            <h4>Contact direct</h4>
+            <a href="tel:+2250576224680">+225 0576 224 680</a>
+            <a href="#" class="email-link" data-user="postereliel" data-domain="gmail.com">Afficher l'email</a>
+            <a href="devis.html" class="footer-cta-btn">Parler de mon projet</a>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; <span class="footer-annee"></span> Eliel Poster · Abidjan, Côte d'Ivoire</p>
+    </div>
+</footer>
 
-    <script>
-        const hamburger   = document.getElementById('hamburger');
-        const mobileMenu  = document.getElementById('mobileMenu');
-        const overlay     = document.getElementById('menuOverlay');
-        const mobileLiens = document.querySelectorAll('.mobile-lien');
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const html = document.documentElement;
+    const saved = localStorage.getItem('ep-theme') || 'light';
+    html.setAttribute('data-theme', saved);
 
-        function ouvrirMenu() {
-            hamburger.classList.add('ouvert');
-            mobileMenu.classList.add('ouvert');
-            overlay.classList.add('ouvert');
-            hamburger.setAttribute('aria-expanded', 'true');
-            mobileMenu.setAttribute('aria-hidden', 'false');
-            document.body.style.overflow = 'hidden';
-        }
+    function toggleTheme() {
+        const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        html.setAttribute('data-theme', next);
+        localStorage.setItem('ep-theme', next);
+    }
+    document.querySelectorAll('#themeToggle').forEach(b => b?.addEventListener('click', toggleTheme));
 
-        function fermerMenu() {
-            hamburger.classList.remove('ouvert');
-            mobileMenu.classList.remove('ouvert');
-            overlay.classList.remove('ouvert');
-            hamburger.setAttribute('aria-expanded', 'false');
-            mobileMenu.setAttribute('aria-hidden', 'true');
-            document.body.style.overflow = '';
-        }
+    const entete = document.querySelector('.entete');
+    window.addEventListener('scroll', () => entete?.classList.toggle('entete--scroll', window.scrollY > 40), { passive: true });
 
-        hamburger.addEventListener('click', () => {
-            hamburger.classList.contains('ouvert') ? fermerMenu() : ouvrirMenu();
-        });
+    const hamburger  = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const overlay    = document.getElementById('menuOverlay');
+    function ouvrirMenu() { hamburger.classList.add('ouvert'); mobileMenu.classList.add('ouvert'); overlay.classList.add('ouvert'); document.body.style.overflow='hidden'; }
+    function fermerMenu() { hamburger.classList.remove('ouvert'); mobileMenu.classList.remove('ouvert'); overlay.classList.remove('ouvert'); document.body.style.overflow=''; }
+    hamburger?.addEventListener('click', () => hamburger.classList.contains('ouvert') ? fermerMenu() : ouvrirMenu());
+    overlay?.addEventListener('click', fermerMenu);
 
-        overlay.addEventListener('click', fermerMenu);
-        mobileLiens.forEach(lien => lien.addEventListener('click', fermerMenu));
-
-        window.addEventListener('scroll', () => {
-            document.querySelector('.entete').classList.toggle('entete--scroll', window.scrollY > 30);
-        });
-    </script>
-
-    <script>
-        document.querySelectorAll('.email-link').forEach(el => {
-            el.addEventListener('click', function(e) {
-                e.preventDefault();
-                const addr = this.dataset.user + '@' + this.dataset.domain;
-                if (this.tagName === 'A') {
-                    this.href = 'mailto:' + addr;
-                }
-                this.textContent = addr;
+    // Filtres
+    document.querySelectorAll('.filtre-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            document.querySelectorAll('.filtre-btn').forEach(f => f.classList.remove('filtre-actif'));
+            btn.classList.add('filtre-actif');
+            const filtre = btn.dataset.filtre;
+            document.querySelectorAll('.projet-card').forEach(card => {
+                const show = filtre === 'tous' || card.dataset.categorie === filtre;
+                card.style.opacity = show ? '1' : '0.15';
+                card.style.transform = show ? '' : 'scale(0.97)';
+                card.style.pointerEvents = show ? 'all' : 'none';
+                card.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
             });
         });
-    </script>
+    });
+
+    // Counters
+    document.querySelectorAll('[data-count]').forEach(el => {
+        new IntersectionObserver(entries => {
+            entries.forEach(e => {
+                if (e.isIntersecting && e.target.dataset.count) {
+                    const cible = parseInt(e.target.dataset.count,10);
+                    const suffix = e.target.dataset.suffix || '';
+                    let v = 0;
+                    const inc = Math.ceil(cible/50);
+                    const t = setInterval(() => { v = Math.min(v+inc,cible); e.target.textContent = v+suffix; if(v>=cible)clearInterval(t); }, 30);
+                    e.target.removeAttribute('data-count');
+                }
+            });
+        }, {threshold:0.5}).observe(el);
+    });
+
+    // Reveal
+    document.querySelectorAll('.projet-card').forEach((el,i) => {
+        el.style.opacity='0';
+        el.style.transform='translateY(20px)';
+        new IntersectionObserver(entries => {
+            entries.forEach(e => {
+                if(e.isIntersecting) {
+                    setTimeout(() => { el.style.transition='opacity 0.5s ease, transform 0.5s ease'; el.style.opacity='1'; el.style.transform=''; }, i*60);
+                }
+            });
+        }, {threshold:0.08}).observe(el);
+    });
+
+    document.querySelectorAll('.email-link').forEach(el => {
+        el.addEventListener('click', function(e) { e.preventDefault(); const a=this.dataset.user+'@'+this.dataset.domain; if(this.tagName==='A')this.href='mailto:'+a; this.textContent=a; });
+    });
+
+    document.querySelectorAll('.footer-annee').forEach(el => el.textContent = new Date().getFullYear());
+});
+</script>
 </body>
 </html>

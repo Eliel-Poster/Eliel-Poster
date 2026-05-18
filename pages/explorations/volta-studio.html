@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Volta Studio — Production Musicale, Abidjan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Archivo:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --noir: #080808;
+  --blanc: #F2F2F0;
+  --rouge: #E8220A;
+  --rouge-sombre: #9A1608;
+  --gris-fonce: #1A1A1A;
+  --gris: #888880;
+  --gris-clair: #2A2A28;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--noir);
+  color: var(--blanc);
+  font-family: 'Archivo', sans-serif;
+  overflow-x: hidden;
+}
+
+/* NAV */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 1.4rem 3rem;
+  background: rgba(8,8,8,0.95);
+  border-bottom: 1px solid rgba(242,242,240,0.06);
+}
+.nav-logo {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.6rem; letter-spacing: 0.08em;
+  color: var(--blanc);
+}
+.nav-logo span { color: var(--rouge); }
+.nav-links { display: flex; gap: 3rem; list-style: none; }
+.nav-links a {
+  font-size: 11px; font-weight: 300;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--gris); text-decoration: none; transition: color 0.3s;
+}
+.nav-links a:hover { color: var(--blanc); }
+.nav-book {
+  font-size: 11px; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  background: var(--rouge); color: var(--blanc);
+  padding: 11px 24px; text-decoration: none;
+  transition: background 0.3s;
+}
+.nav-book:hover { background: var(--rouge-sombre); }
+
+/* HERO */
+.hero {
+  min-height: 100vh;
+  display: flex; flex-direction: column;
+  justify-content: flex-end;
+  padding: 2rem 3rem 3rem;
+  position: relative; overflow: hidden;
+}
+.hero-bg {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse at 80% 20%, rgba(232,34,10,0.08) 0%, transparent 50%),
+    linear-gradient(180deg, rgba(8,8,8,0.3) 0%, rgba(8,8,8,0.7) 60%, rgba(8,8,8,1) 100%),
+    repeating-linear-gradient(
+      90deg,
+      rgba(242,242,240,0.015) 0px, rgba(242,242,240,0.015) 1px,
+      transparent 1px, transparent 60px
+    );
+}
+.hero-waveform {
+  position: absolute; bottom: 200px; left: 0; right: 0;
+  height: 120px; display: flex; align-items: center;
+  padding: 0 3rem; gap: 3px; opacity: 0.15;
+}
+.wave-bar {
+  flex: 1; background: var(--blanc); border-radius: 1px;
+  animation: wavePulse 1.8s ease-in-out infinite;
+}
+@keyframes wavePulse {
+  0%, 100% { transform: scaleY(0.3); }
+  50% { transform: scaleY(1); }
+}
+.hero-content { position: relative; z-index: 2; }
+.hero-label {
+  font-size: 10px; font-weight: 400; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--rouge); margin-bottom: 1.5rem;
+  display: flex; align-items: center; gap: 12px;
+}
+.hero-label::after { content: ''; flex: 1; max-width: 60px; height: 1px; background: var(--rouge); }
+.hero-h1 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(5rem, 14vw, 14rem);
+  line-height: 0.88; letter-spacing: 0.02em;
+  color: var(--blanc);
+}
+.hero-h1 span { color: var(--rouge); }
+.hero-bottom {
+  margin-top: 3rem;
+  display: flex; align-items: flex-end; justify-content: space-between;
+  border-top: 1px solid rgba(242,242,240,0.08); padding-top: 2rem;
+}
+.hero-desc {
+  font-size: 1rem; font-weight: 300; font-style: italic;
+  color: var(--gris); max-width: 380px; line-height: 1.8;
+}
+.hero-actions { display: flex; gap: 1rem; align-items: center; }
+.btn-rouge {
+  font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase;
+  background: var(--rouge); color: var(--blanc);
+  padding: 14px 30px; text-decoration: none; transition: background 0.3s;
+}
+.btn-rouge:hover { background: var(--rouge-sombre); }
+.btn-ghost {
+  font-size: 11px; font-weight: 400; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--gris); border: 1px solid rgba(242,242,240,0.15);
+  padding: 14px 30px; text-decoration: none; transition: all 0.3s;
+}
+.btn-ghost:hover { border-color: rgba(242,242,240,0.4); color: var(--blanc); }
+.hero-scroll {
+  font-size: 9px; font-weight: 300; letter-spacing: 0.14em; text-transform: uppercase;
+  color: rgba(242,242,240,0.2); display: flex; align-items: center; gap: 8px;
+}
+.hero-scroll::before { content: ''; width: 1px; height: 40px; background: rgba(242,242,240,0.15); }
+
+/* CLIENTS TICKER */
+.clients-bar {
+  background: var(--gris-fonce);
+  border-top: 1px solid rgba(242,242,240,0.06);
+  border-bottom: 1px solid rgba(242,242,240,0.06);
+  padding: 1rem 0; overflow: hidden;
+}
+.clients-inner {
+  display: flex; gap: 0;
+  animation: clientsScroll 18s linear infinite;
+  width: max-content;
+}
+.client-name {
+  font-size: 10px; font-weight: 400; letter-spacing: 0.2em; text-transform: uppercase;
+  color: rgba(242,242,240,0.25); padding: 0 3rem;
+  border-right: 1px solid rgba(242,242,240,0.06);
+  white-space: nowrap;
+}
+@keyframes clientsScroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+/* STUDIOS */
+.studios { padding: 7rem 3rem; }
+.studios-header {
+  display: flex; align-items: flex-end; justify-content: space-between;
+  margin-bottom: 4rem; padding-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(242,242,240,0.08);
+}
+.section-tag {
+  font-size: 9px; font-weight: 400; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--rouge); margin-bottom: 0.8rem;
+}
+.section-h2 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(2.5rem, 5vw, 4rem); letter-spacing: 0.04em; line-height: 1;
+}
+.section-h2 span { color: var(--rouge); }
+.studios-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; }
+.studio-card {
+  background: var(--gris-fonce); position: relative;
+  overflow: hidden; cursor: pointer;
+}
+.studio-card:first-child { grid-row: span 2; }
+.studio-visual {
+  height: 320px; position: relative; overflow: hidden;
+  display: flex; align-items: flex-end; padding: 1.5rem;
+}
+.studio-card:first-child .studio-visual { height: 100%; min-height: 500px; }
+.s1 { background: linear-gradient(170deg, #1A1208 0%, #080808 100%); }
+.s2 { background: linear-gradient(170deg, #120808 0%, #080808 100%); }
+.s3 { background: linear-gradient(170deg, #0A0A14 0%, #080808 100%); }
+.studio-visual::before {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(to bottom, transparent 40%, rgba(8,8,8,0.9) 100%);
+}
+.studio-num {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 8rem; color: rgba(242,242,240,0.04);
+  position: absolute; top: 1rem; right: 1.5rem;
+  line-height: 1;
+}
+.studio-info { position: relative; z-index: 1; }
+.studio-type {
+  font-size: 9px; font-weight: 400; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--rouge); margin-bottom: 0.5rem;
+}
+.studio-name {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2rem; letter-spacing: 0.04em; line-height: 1;
+}
+.studio-details {
+  background: var(--gris-fonce); padding: 1.5rem;
+  display: flex; gap: 2rem;
+  border-top: 1px solid rgba(242,242,240,0.06);
+}
+.studio-detail-item { display: flex; flex-direction: column; gap: 3px; }
+.detail-label { font-size: 8px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gris); font-weight: 400; }
+.detail-val { font-size: 12px; font-weight: 600; }
+
+/* SERVICES */
+.services { padding: 7rem 3rem; background: var(--gris-fonce); }
+.services-inner { max-width: 1200px; margin: 0 auto; }
+.services-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: rgba(242,242,240,0.04); margin-top: 4rem; }
+.service-card {
+  background: var(--gris-fonce); padding: 2rem 1.5rem;
+  transition: background 0.3s;
+}
+.service-card:hover { background: #222220; }
+.service-num { font-family: 'Bebas Neue', sans-serif; font-size: 2rem; color: rgba(232,34,10,0.2); margin-bottom: 1.2rem; line-height: 1; }
+.service-name { font-size: 0.95rem; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: 0.8rem; }
+.service-desc { font-size: 0.82rem; font-weight: 300; color: var(--gris); line-height: 1.75; margin-bottom: 1.5rem; }
+.service-price { font-size: 10px; font-weight: 400; letter-spacing: 0.1em; color: var(--rouge); text-transform: uppercase; }
+
+/* ARTISTES */
+.artistes { padding: 7rem 3rem; }
+.artistes-inner { max-width: 1200px; margin: 0 auto; }
+.artistes-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; margin-top: 4rem; }
+.artiste-card {
+  position: relative; overflow: hidden;
+  background: var(--gris-fonce);
+}
+.artiste-visual {
+  height: 360px;
+  display: flex; align-items: flex-end; padding: 1.5rem;
+  position: relative;
+}
+.ar1 { background: linear-gradient(170deg, #200A08 0%, #0A0808 100%); }
+.ar2 { background: linear-gradient(170deg, #0A1420 0%, #080A14 100%); }
+.ar3 { background: linear-gradient(170deg, #141A08 0%, #0A0C08 100%); }
+.artiste-visual::before {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(to bottom, transparent 30%, rgba(8,8,8,0.85) 100%);
+}
+.artiste-initial {
+  position: absolute; top: 1.5rem; right: 1.5rem;
+  width: 48px; height: 48px; background: rgba(232,34,10,0.15);
+  border: 1px solid rgba(232,34,10,0.3);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Bebas Neue', sans-serif; font-size: 1.4rem; color: var(--rouge);
+}
+.artiste-info { position: relative; z-index: 1; }
+.artiste-genre {
+  font-size: 8px; font-weight: 400; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--rouge); margin-bottom: 4px;
+}
+.artiste-name { font-family: 'Bebas Neue', sans-serif; font-size: 1.8rem; letter-spacing: 0.04em; line-height: 1; }
+.artiste-detail { font-size: 10px; font-weight: 300; color: var(--gris); margin-top: 4px; }
+
+/* PROCESS */
+.process { padding: 7rem 3rem; border-top: 1px solid rgba(242,242,240,0.06); }
+.process-inner { max-width: 1200px; margin: 0 auto; }
+.process-steps {
+  display: grid; grid-template-columns: repeat(5, 1fr);
+  gap: 0; margin-top: 4rem;
+  counter-reset: steps;
+}
+.process-step {
+  padding: 2rem;
+  border-right: 1px solid rgba(242,242,240,0.06);
+  position: relative;
+}
+.process-step:last-child { border-right: none; }
+.step-num {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 3.5rem; color: rgba(232,34,10,0.12);
+  line-height: 1; margin-bottom: 1.2rem;
+}
+.step-title { font-size: 0.88rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 0.7rem; }
+.step-desc { font-size: 0.8rem; font-weight: 300; color: var(--gris); line-height: 1.75; }
+
+/* CTA */
+.booking-cta {
+  padding: 8rem 3rem; background: var(--rouge);
+  text-align: center; position: relative; overflow: hidden;
+}
+.booking-cta::before {
+  content: 'BOOK';
+  position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 30vw; color: rgba(0,0,0,0.1);
+  line-height: 1; white-space: nowrap;
+  pointer-events: none;
+}
+.cta-label { font-size: 10px; font-weight: 400; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(8,8,8,0.5); margin-bottom: 2rem; }
+.cta-h2 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(3rem, 8vw, 7rem); line-height: 0.9;
+  color: var(--noir); margin-bottom: 3rem; letter-spacing: 0.02em;
+}
+.cta-btn {
+  font-size: 12px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase;
+  background: var(--noir); color: var(--blanc);
+  padding: 18px 42px; text-decoration: none; display: inline-block;
+  transition: background 0.3s;
+}
+.cta-btn:hover { background: #111; }
+.cta-note { font-size: 10px; font-weight: 300; color: rgba(8,8,8,0.4); margin-top: 1.5rem; letter-spacing: 0.1em; }
+
+/* FOOTER */
+footer {
+  background: #040404;
+  border-top: 1px solid rgba(242,242,240,0.06);
+  padding: 3rem;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.footer-logo { font-family: 'Bebas Neue', sans-serif; font-size: 1.4rem; letter-spacing: 0.08em; color: var(--blanc); }
+.footer-logo span { color: var(--rouge); }
+.footer-info { font-size: 10px; font-weight: 300; color: rgba(242,242,240,0.25); letter-spacing: 0.1em; text-align: center; line-height: 2.2; }
+.footer-credit { font-size: 10px; font-weight: 300; color: rgba(242,242,240,0.15); text-align: right; line-height: 2; }
+.footer-credit span { color: var(--rouge); }
+
+.concept-badge {
+  position: fixed; bottom: 2rem; left: 2rem; z-index: 200;
+  font-size: 8px; font-weight: 400; letter-spacing: 0.14em; text-transform: uppercase;
+  background: rgba(232,34,10,0.1); color: var(--rouge);
+  border: 1px solid rgba(232,34,10,0.2); padding: 6px 12px;
+}
+
+.reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.7s cubic-bezier(0.16,1,0.3,1), transform 0.7s cubic-bezier(0.16,1,0.3,1); }
+.reveal.visible { opacity: 1; transform: none; }
+
+@media (max-width: 900px) {
+  nav { padding: 1.2rem 1.5rem; }
+  .nav-links { display: none; }
+  .hero { padding: 1.5rem 1.5rem 2.5rem; }
+  .hero-bottom { flex-direction: column; gap: 2rem; }
+  .studios-grid { grid-template-columns: 1fr; }
+  .studio-card:first-child { grid-row: auto; }
+  .studio-card:first-child .studio-visual { min-height: 300px; }
+  .services-grid { grid-template-columns: 1fr 1fr; }
+  .artistes-grid { grid-template-columns: 1fr; }
+  .process-steps { grid-template-columns: 1fr 1fr; }
+  footer { flex-direction: column; gap: 1.5rem; text-align: center; }
+}
+</style>
+</head>
+<body>
+<div class="concept-badge">Concept Project — Eliel Poster</div>
+
+<nav>
+  <div class="nav-logo">Volta <span>Studio</span></div>
+  <ul class="nav-links">
+    <li><a href="#studios">Studios</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#artistes">Artistes</a></li>
+    <li><a href="#booking">Booking</a></li>
+  </ul>
+  <a href="#booking" class="nav-book">Reserver un studio</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-waveform" id="waveform"></div>
+  <div class="hero-content">
+    <div class="hero-label">Studio de production — Abidjan</div>
+    <h1 class="hero-h1">
+      VOLTA<br><span>STUDIO</span>
+    </h1>
+    <div class="hero-bottom">
+      <p class="hero-desc">L'endroit ou les sons ivoiriens deviennent des references. Studios professionnels, ingénieurs de son certifies, equipement de niveau international.</p>
+      <div class="hero-actions">
+        <a href="#booking" class="btn-rouge">Reserver une session</a>
+        <a href="#studios" class="btn-ghost">Voir nos studios</a>
+        <div class="hero-scroll">Decouvrir</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="clients-bar">
+  <div class="clients-inner">
+    <span class="client-name">Afro Hip-Hop</span>
+    <span class="client-name">Coupé-Décalé</span>
+    <span class="client-name">Trap Ivoirien</span>
+    <span class="client-name">Afrobeats CI</span>
+    <span class="client-name">Gospel Moderne</span>
+    <span class="client-name">R&B Abidjan</span>
+    <span class="client-name">Spoken Word</span>
+    <span class="client-name">Production Film & TV</span>
+    <span class="client-name">Jingles Radio & Pub</span>
+    <span class="client-name">Afro Hip-Hop</span>
+    <span class="client-name">Coupé-Décalé</span>
+    <span class="client-name">Trap Ivoirien</span>
+    <span class="client-name">Afrobeats CI</span>
+    <span class="client-name">Gospel Moderne</span>
+    <span class="client-name">R&B Abidjan</span>
+    <span class="client-name">Spoken Word</span>
+    <span class="client-name">Production Film & TV</span>
+    <span class="client-name">Jingles Radio & Pub</span>
+  </div>
+</div>
+
+<section id="studios" class="studios">
+  <div class="studios-header reveal">
+    <div>
+      <div class="section-tag">Nos espaces</div>
+      <h2 class="section-h2">3 Studios.<br><span>Un seul standard.</span></h2>
+    </div>
+    <a href="#booking" class="btn-rouge">Reserver</a>
+  </div>
+  <div class="studios-grid">
+    <div class="studio-card reveal">
+      <div class="studio-visual s1">
+        <div class="studio-num">A</div>
+        <div class="studio-info">
+          <div class="studio-type">Studio principal</div>
+          <div class="studio-name">Studio Alpha</div>
+        </div>
+      </div>
+      <div class="studio-details">
+        <div class="studio-detail-item"><span class="detail-label">Surface</span><span class="detail-val">80m²</span></div>
+        <div class="studio-detail-item"><span class="detail-label">Live room</span><span class="detail-val">40m²</span></div>
+        <div class="studio-detail-item"><span class="detail-label">Console</span><span class="detail-val">SSL 4000</span></div>
+        <div class="studio-detail-item"><span class="detail-label">Tarif</span><span class="detail-val">75K XOF/h</span></div>
+      </div>
+    </div>
+    <div class="studio-card reveal">
+      <div class="studio-visual s2">
+        <div class="studio-num">B</div>
+        <div class="studio-info">
+          <div class="studio-type">Mixage & Mastering</div>
+          <div class="studio-name">Studio Beta</div>
+        </div>
+      </div>
+      <div class="studio-details">
+        <div class="studio-detail-item"><span class="detail-label">Surface</span><span class="detail-val">50m²</span></div>
+        <div class="studio-detail-item"><span class="detail-label">Focale</span><span class="detail-val">Genelec 8351</span></div>
+        <div class="studio-detail-item"><span class="detail-label">Tarif</span><span class="detail-val">50K XOF/h</span></div>
+      </div>
+    </div>
+    <div class="studio-card reveal">
+      <div class="studio-visual s3">
+        <div class="studio-num">C</div>
+        <div class="studio-info">
+          <div class="studio-type">Voix & Podcast</div>
+          <div class="studio-name">Studio Cabine</div>
+        </div>
+      </div>
+      <div class="studio-details">
+        <div class="studio-detail-item"><span class="detail-label">Surface</span><span class="detail-val">20m²</span></div>
+        <div class="studio-detail-item"><span class="detail-label">Micro</span><span class="detail-val">Neumann U87</span></div>
+        <div class="studio-detail-item"><span class="detail-label">Tarif</span><span class="detail-val">25K XOF/h</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="services" class="services">
+  <div class="services-inner">
+    <div class="reveal">
+      <div class="section-tag">Ce que nous faisons</div>
+      <h2 class="section-h2">Services <span>professionnels</span></h2>
+    </div>
+    <div class="services-grid">
+      <div class="service-card reveal">
+        <div class="service-num">01</div>
+        <div class="service-name">Enregistrement</div>
+        <div class="service-desc">Voix, instruments, groupes. Prise de son en live room traitee acoustiquement.</div>
+        <div class="service-price">A partir de 25 000 XOF / heure</div>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-num">02</div>
+        <div class="service-name">Mixage</div>
+        <div class="service-desc">Equilibre, espace, dynamique. Chaque element a sa place dans le mix final.</div>
+        <div class="service-price">A partir de 75 000 XOF / titre</div>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-num">03</div>
+        <div class="service-name">Mastering</div>
+        <div class="service-desc">Finalisation aux normes Spotify, Apple Music, streaming international.</div>
+        <div class="service-price">A partir de 40 000 XOF / titre</div>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-num">04</div>
+        <div class="service-name">Production</div>
+        <div class="service-desc">Beatmaking, arrangement, composition. Du projet a la chanson complete.</div>
+        <div class="service-price">Sur devis</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="artistes" class="artistes">
+  <div class="artistes-inner">
+    <div class="reveal">
+      <div class="section-tag">Ils ont enregistre ici</div>
+      <h2 class="section-h2">Artistes <span>du catalogue</span></h2>
+    </div>
+    <div class="artistes-grid">
+      <div class="artiste-card reveal">
+        <div class="artiste-visual ar1">
+          <div class="artiste-initial">JM</div>
+          <div class="artiste-info">
+            <div class="artiste-genre">Afrobeats · Trap CI</div>
+            <div class="artiste-name">Jah Melo</div>
+            <div class="artiste-detail">3 EP enregistres — 2021 a 2024</div>
+          </div>
+        </div>
+      </div>
+      <div class="artiste-card reveal">
+        <div class="artiste-visual ar2">
+          <div class="artiste-initial">DK</div>
+          <div class="artiste-info">
+            <div class="artiste-genre">Gospel · R&B</div>
+            <div class="artiste-name">Divine Koffi</div>
+            <div class="artiste-detail">Album complet — 2023</div>
+          </div>
+        </div>
+      </div>
+      <div class="artiste-card reveal">
+        <div class="artiste-visual ar3">
+          <div class="artiste-initial">LA</div>
+          <div class="artiste-info">
+            <div class="artiste-genre">Hip-Hop · Spoken Word</div>
+            <div class="artiste-name">Les Ancres</div>
+            <div class="artiste-detail">Collectif — 5 membres — 2022-2024</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="process">
+  <div class="process-inner">
+    <div class="reveal">
+      <div class="section-tag">Comment ca se passe</div>
+      <h2 class="section-h2">Du brief au <span>master final</span></h2>
+    </div>
+    <div class="process-steps">
+      <div class="process-step reveal">
+        <div class="step-num">01</div>
+        <div class="step-title">Brief artistique</div>
+        <div class="step-desc">Vous nous parlez de votre projet, vos references, ce que vous voulez obtenir.</div>
+      </div>
+      <div class="process-step reveal">
+        <div class="step-num">02</div>
+        <div class="step-title">Choix du studio</div>
+        <div class="step-desc">On vous oriente vers le bon espace selon votre budget et vos besoins.</div>
+      </div>
+      <div class="process-step reveal">
+        <div class="step-num">03</div>
+        <div class="step-title">Session d'enregistrement</div>
+        <div class="step-desc">Prise de son avec notre ingenieur attitré. Confort et performance optimaux.</div>
+      </div>
+      <div class="process-step reveal">
+        <div class="step-num">04</div>
+        <div class="step-title">Mixage & Mastering</div>
+        <div class="step-desc">Traitement professionnel du son. 2 rounds de retouches inclus.</div>
+      </div>
+      <div class="process-step reveal">
+        <div class="step-num">05</div>
+        <div class="step-title">Livraison des fichiers</div>
+        <div class="step-desc">WAV 24bit, MP3 320kbps, stems separes. Pret pour la distribution.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="booking" class="booking-cta">
+  <div class="cta-label">Reservations & Sessions</div>
+  <h2 class="cta-h2 reveal">VOTRE SON<br>COMMENCE ICI.</h2>
+  <a href="tel:+2250700000000" class="cta-btn">Reserver une session</a>
+  <p class="cta-note">Disponible 7j/7 — Devis gratuit en 2h — Abidjan Marcory</p>
+</section>
+
+<footer>
+  <div class="footer-logo">Volta <span>Studio</span></div>
+  <div class="footer-info">
+    Marcory, Abidjan · Cote d'Ivoire<br>
+    +225 07 00 00 00 00 · booking@volta-studio.ci
+  </div>
+  <div class="footer-credit">Design par <span>Eliel Poster</span><br>Concept Project 2025</div>
+</footer>
+
+<script>
+// Waveform generee dynamiquement
+const wf = document.getElementById('waveform');
+const heights = [15,30,60,45,80,55,70,35,90,50,75,40,65,25,85,45,60,30,95,55,70,40,80,35,65,50,75,20,85,60,45,90,30,70,55,40,80,65,25,75,50,35,90,60,45,80];
+heights.forEach((h, i) => {
+  const bar = document.createElement('div');
+  bar.className = 'wave-bar';
+  bar.style.height = h + '%';
+  bar.style.animationDelay = (i * 0.04) + 's';
+  bar.style.animationDuration = (1.4 + Math.random() * 0.8) + 's';
+  wf.appendChild(bar);
+});
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>

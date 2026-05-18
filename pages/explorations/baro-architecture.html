@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Baro Architecture — Cabinet d'Architecture, Abidjan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --blanc: #F9F7F4;
+  --noir: #111110;
+  --beton: #E8E5E0;
+  --beton-fonce: #C8C4BC;
+  --terre: #8B6F4E;
+  --gris: #6B6860;
+  --ligne: rgba(17,17,16,0.1);
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--blanc);
+  color: var(--noir);
+  font-family: 'Playfair Display', serif;
+  overflow-x: hidden;
+}
+
+/* NAV */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 1.8rem 3rem;
+  background: rgba(249,247,244,0.95);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--ligne);
+}
+.nav-logo {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px; font-weight: 400;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--noir);
+}
+.nav-logo span { color: var(--terre); }
+.nav-links { display: flex; gap: 3rem; list-style: none; }
+.nav-links a {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px; font-weight: 300;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--gris); text-decoration: none;
+  transition: color 0.3s;
+}
+.nav-links a:hover { color: var(--noir); }
+.nav-contact {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--noir); text-decoration: none;
+  border-bottom: 1px solid var(--noir);
+  padding-bottom: 1px;
+  transition: color 0.3s, border-color 0.3s;
+}
+.nav-contact:hover { color: var(--terre); border-color: var(--terre); }
+
+/* HERO */
+.hero {
+  min-height: 100vh;
+  padding: 9rem 3rem 5rem;
+  display: grid;
+  grid-template-rows: 1fr auto;
+  position: relative;
+}
+.hero-grid-bg {
+  position: absolute; inset: 0; pointer-events: none;
+  background-image:
+    linear-gradient(var(--ligne) 1px, transparent 1px),
+    linear-gradient(90deg, var(--ligne) 1px, transparent 1px);
+  background-size: 80px 80px;
+}
+.hero-content { position: relative; z-index: 1; padding-top: 4rem; }
+.hero-eyebrow {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px; letter-spacing: 0.24em; text-transform: uppercase;
+  color: var(--terre); margin-bottom: 3rem;
+}
+.hero-h1 {
+  font-size: clamp(3rem, 7vw, 7rem);
+  font-weight: 400; line-height: 1.0;
+  letter-spacing: -0.02em;
+  max-width: 16ch;
+}
+.hero-h1 em { font-style: italic; color: var(--terre); }
+.hero-bottom {
+  position: relative; z-index: 1;
+  display: grid; grid-template-columns: 1fr 1fr 1fr;
+  gap: 3rem; align-items: end;
+  border-top: 1px solid var(--ligne);
+  padding-top: 2.5rem;
+}
+.hero-desc {
+  font-family: 'DM Mono', monospace;
+  font-size: 12px; font-weight: 300;
+  color: var(--gris); line-height: 1.9;
+  grid-column: 1;
+}
+.hero-stats-row {
+  display: flex; gap: 3rem;
+  grid-column: 2 / 4; justify-content: flex-end;
+}
+.hero-stat { text-align: right; }
+.hero-stat-num {
+  font-size: 2.8rem; font-weight: 400;
+  color: var(--noir); line-height: 1;
+}
+.hero-stat-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px; color: var(--gris);
+  letter-spacing: 0.1em; text-transform: uppercase;
+  margin-top: 4px;
+}
+.hero-cta {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--noir); text-decoration: none;
+  display: inline-flex; align-items: center; gap: 12px;
+  border: 1px solid var(--noir); padding: 14px 24px;
+  transition: background 0.3s, color 0.3s;
+  margin-top: 1.5rem;
+}
+.hero-cta:hover { background: var(--noir); color: var(--blanc); }
+.hero-cta-arrow { font-size: 14px; transition: transform 0.3s; }
+.hero-cta:hover .hero-cta-arrow { transform: translateX(4px); }
+
+/* PROJETS */
+.projets { padding: 6rem 3rem; }
+.projets-header {
+  display: flex; align-items: flex-end; justify-content: space-between;
+  margin-bottom: 4rem; padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--ligne);
+}
+.section-eyebrow {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--terre); margin-bottom: 0.8rem;
+}
+.section-h2 { font-size: clamp(1.8rem, 3vw, 2.5rem); font-weight: 400; }
+.section-h2 em { font-style: italic; color: var(--terre); }
+.voir-tous {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--gris); text-decoration: none;
+  border-bottom: 1px solid var(--beton-fonce);
+  padding-bottom: 1px;
+  transition: color 0.3s;
+}
+.voir-tous:hover { color: var(--noir); }
+
+.projets-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 1.5px;
+  background: var(--beton);
+}
+.projet-card {
+  background: var(--blanc);
+  position: relative; overflow: hidden;
+  cursor: pointer;
+}
+.projet-card.large { grid-column: span 2; }
+.projet-img {
+  height: 360px;
+  position: relative; overflow: hidden;
+}
+.projet-card.large .projet-img { height: 520px; }
+.projet-placeholder {
+  width: 100%; height: 100%;
+  transition: transform 0.8s cubic-bezier(0.16,1,0.3,1);
+}
+.projet-card:hover .projet-placeholder { transform: scale(1.04); }
+.p1 { background: linear-gradient(135deg, #D4C9B8 0%, #B8AD9E 100%); }
+.p2 { background: linear-gradient(135deg, #C4BFBA 0%, #A09893 100%); }
+.p3 { background: linear-gradient(145deg, #BCC0C4 0%, #9EA4AA 100%); }
+.projet-inner-label {
+  position: absolute; bottom: 1.5rem; left: 1.5rem;
+  font-family: 'DM Mono', monospace;
+  font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase;
+  color: rgba(17,17,16,0.5);
+  background: rgba(249,247,244,0.8);
+  padding: 4px 10px;
+}
+.projet-info { padding: 1.5rem; border-top: 1px solid var(--ligne); }
+.projet-num {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px; color: var(--terre); letter-spacing: 0.1em;
+  margin-bottom: 0.5rem;
+}
+.projet-title { font-size: 1.2rem; font-weight: 400; margin-bottom: 0.3rem; }
+.projet-location {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px; color: var(--gris); letter-spacing: 0.1em;
+}
+
+/* PHILOSOPHIE */
+.philosophie {
+  padding: 8rem 3rem;
+  border-top: 1px solid var(--ligne);
+  border-bottom: 1px solid var(--ligne);
+  background: var(--beton);
+}
+.philosophie-inner {
+  max-width: 1200px; margin: 0 auto;
+  display: grid; grid-template-columns: 280px 1fr;
+  gap: 8rem; align-items: start;
+}
+.philo-left { position: sticky; top: 8rem; }
+.philo-eyebrow { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--terre); margin-bottom: 1.5rem; }
+.philo-h2 { font-size: 2rem; font-weight: 400; line-height: 1.2; }
+.philo-h2 em { font-style: italic; color: var(--terre); }
+.philo-right { display: flex; flex-direction: column; gap: 0; }
+.philo-item {
+  padding: 2.5rem 0;
+  border-bottom: 1px solid var(--beton-fonce);
+  display: grid; grid-template-columns: 60px 1fr;
+  gap: 2rem; align-items: start;
+}
+.philo-num { font-family: 'DM Mono', monospace; font-size: 9px; color: var(--terre); padding-top: 6px; }
+.philo-item-title { font-size: 1.35rem; font-weight: 400; margin-bottom: 0.8rem; line-height: 1.2; }
+.philo-item-title em { font-style: italic; color: var(--terre); }
+.philo-item-text { font-family: 'DM Mono', monospace; font-size: 12px; font-weight: 300; color: var(--gris); line-height: 1.9; }
+
+/* EQUIPE */
+.equipe { padding: 7rem 3rem; }
+.equipe-inner { max-width: 1200px; margin: 0 auto; }
+.equipe-header { margin-bottom: 4rem; }
+.equipe-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+.membre-card { }
+.membre-photo {
+  height: 320px; margin-bottom: 1.5rem;
+  position: relative; overflow: hidden;
+}
+.membre-placeholder {
+  width: 100%; height: 100%;
+  display: flex; align-items: flex-end; padding: 1.5rem;
+  position: relative;
+}
+.m1 { background: linear-gradient(170deg, #C8C0B4 0%, #A09680 100%); }
+.m2 { background: linear-gradient(170deg, #B4BEC8 0%, #7A8A96 100%); }
+.m3 { background: linear-gradient(170deg, #C4C8B4 0%, #8A9678 100%); }
+.membre-initials {
+  width: 48px; height: 48px;
+  background: rgba(249,247,244,0.8);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'DM Mono', monospace; font-size: 12px;
+  color: var(--noir); font-weight: 400;
+}
+.membre-name { font-size: 1.2rem; font-weight: 400; margin-bottom: 0.3rem; }
+.membre-role { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--terre); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.8rem; }
+.membre-bio { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--gris); line-height: 1.8; }
+
+/* CONTACT CTA */
+.contact-cta {
+  padding: 8rem 3rem;
+  background: var(--noir); color: var(--blanc);
+  display: grid; grid-template-columns: 1fr auto;
+  gap: 4rem; align-items: center;
+}
+.contact-h2 { font-size: clamp(2.5rem, 5vw, 4.5rem); font-weight: 400; line-height: 1.05; }
+.contact-h2 em { font-style: italic; color: var(--beton); }
+.contact-right { display: flex; flex-direction: column; gap: 1.5rem; align-items: flex-end; }
+.contact-info { font-family: 'DM Mono', monospace; font-size: 11px; color: rgba(249,247,244,0.5); text-align: right; line-height: 2; }
+.contact-btn {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--noir); background: var(--blanc);
+  padding: 16px 32px; text-decoration: none;
+  transition: background 0.3s;
+  white-space: nowrap;
+}
+.contact-btn:hover { background: var(--beton); }
+
+/* FOOTER */
+footer {
+  padding: 2.5rem 3rem;
+  border-top: 1px solid var(--ligne);
+  display: flex; align-items: center; justify-content: space-between;
+}
+.footer-logo { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--noir); }
+.footer-mid { font-family: 'DM Mono', monospace; font-size: 9px; color: var(--gris); letter-spacing: 0.1em; }
+.footer-credit { font-family: 'DM Mono', monospace; font-size: 9px; color: var(--beton-fonce); letter-spacing: 0.08em; }
+.footer-credit span { color: var(--terre); }
+
+.concept-badge {
+  position: fixed; bottom: 2rem; left: 2rem; z-index: 200;
+  font-family: 'DM Mono', monospace;
+  font-size: 8px; letter-spacing: 0.14em; text-transform: uppercase;
+  background: rgba(139,111,78,0.1); color: var(--terre);
+  border: 1px solid rgba(139,111,78,0.2);
+  padding: 6px 12px;
+}
+
+/* REVEAL */
+.reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.8s cubic-bezier(0.16,1,0.3,1), transform 0.8s cubic-bezier(0.16,1,0.3,1); }
+.reveal.visible { opacity: 1; transform: none; }
+
+@media (max-width: 900px) {
+  nav { padding: 1.5rem; }
+  .nav-links { display: none; }
+  .hero { padding: 7rem 1.5rem 3rem; }
+  .hero-bottom { grid-template-columns: 1fr; }
+  .hero-stats-row { justify-content: flex-start; }
+  .projets { padding: 4rem 1.5rem; }
+  .projets-grid { grid-template-columns: 1fr; }
+  .projet-card.large { grid-column: span 1; }
+  .philosophie-inner { grid-template-columns: 1fr; gap: 3rem; }
+  .philo-left { position: static; }
+  .equipe-grid { grid-template-columns: 1fr; }
+  .contact-cta { grid-template-columns: 1fr; }
+  .contact-right { align-items: flex-start; }
+  footer { flex-direction: column; gap: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="concept-badge">Concept Project — Eliel Poster</div>
+
+<nav>
+  <div class="nav-logo">Baro <span>Architecture</span></div>
+  <ul class="nav-links">
+    <li><a href="#projets">Projets</a></li>
+    <li><a href="#philosophie">Philosophie</a></li>
+    <li><a href="#equipe">Equipe</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="#contact" class="nav-contact">Demarrer un projet</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-grid-bg"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Cabinet d'architecture — Abidjan, Cote d'Ivoire</div>
+    <h1 class="hero-h1">Batir ce qui<br>dure. <em>Penser<br>ce qui marque.</em></h1>
+  </div>
+  <div class="hero-bottom">
+    <div>
+      <p class="hero-desc">Nous concevons des espaces qui resistent au temps et portent l'identite de ceux qui les habitent. Architecture residentielle, commerciale et institutionnelle.</p>
+      <a href="#projets" class="hero-cta">Decouvrir nos projets <span class="hero-cta-arrow">→</span></a>
+    </div>
+    <div class="hero-stats-row">
+      <div class="hero-stat">
+        <div class="hero-stat-num">14</div>
+        <div class="hero-stat-label">Annees d'exercice</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">68</div>
+        <div class="hero-stat-label">Projets livres</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">3</div>
+        <div class="hero-stat-label">Prix nationaux</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projets" class="projets">
+  <div class="projets-header reveal">
+    <div>
+      <div class="section-eyebrow">Realisations</div>
+      <h2 class="section-h2">Projets <em>selectionnes</em></h2>
+    </div>
+    <a href="#" class="voir-tous">Voir tous les projets</a>
+  </div>
+  <div class="projets-grid">
+    <div class="projet-card large reveal">
+      <div class="projet-img">
+        <div class="projet-placeholder p1"></div>
+        <div class="projet-inner-label">Cocody, 2024</div>
+      </div>
+      <div class="projet-info">
+        <div class="projet-num">001</div>
+        <div class="projet-title">Residence Harmattan</div>
+        <div class="projet-location">Cocody Riviera Golf — Abidjan</div>
+      </div>
+    </div>
+    <div class="projet-card reveal">
+      <div class="projet-img">
+        <div class="projet-placeholder p2"></div>
+        <div class="projet-inner-label">Plateau, 2023</div>
+      </div>
+      <div class="projet-info">
+        <div class="projet-num">002</div>
+        <div class="projet-title">Tour Kossou</div>
+        <div class="projet-location">Plateau Centre — Abidjan</div>
+      </div>
+    </div>
+    <div class="projet-card reveal">
+      <div class="projet-img">
+        <div class="projet-placeholder p3"></div>
+        <div class="projet-inner-label">Bingerville, 2023</div>
+      </div>
+      <div class="projet-info">
+        <div class="projet-num">003</div>
+        <div class="projet-title">Villa Lagune</div>
+        <div class="projet-location">Bingerville — Grand Abidjan</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="philosophie" class="philosophie">
+  <div class="philosophie-inner">
+    <div class="philo-left reveal">
+      <div class="philo-eyebrow">Notre approche</div>
+      <h2 class="philo-h2">Une <em>philosophie</em> du bati</h2>
+    </div>
+    <div class="philo-right">
+      <div class="philo-item reveal">
+        <div class="philo-num">01</div>
+        <div>
+          <h3 class="philo-item-title">Le lieu avant <em>le batiment</em></h3>
+          <p class="philo-item-text">Chaque projet commence par une ecoute du terrain. La lumiere, le vent, le sol, les voisinages — tout parle avant que nous ne posions le premier trait. Nous ne construisons pas sur un lieu, nous construisons avec lui.</p>
+        </div>
+      </div>
+      <div class="philo-item reveal">
+        <div class="philo-num">02</div>
+        <div>
+          <h3 class="philo-item-title">L'habitant <em>au centre</em></h3>
+          <p class="philo-item-text">Un espace reussi est celui que ses habitants comprennent sans plan. Nous concevons des circulations naturelles, des proportions qui apaisent, des ouvertures qui invitent la lumiere sans livrer l'intimite.</p>
+        </div>
+      </div>
+      <div class="philo-item reveal">
+        <div class="philo-num">03</div>
+        <div>
+          <h3 class="philo-item-title">Materiaux <em>locaux d'abord</em></h3>
+          <p class="philo-item-text">La laterite, le bois teck, le granit local — notre climat et nos ressources definissent notre palette. Construire ivoirien n'est pas une contrainte, c'est une identite que nous revendiquons.</p>
+        </div>
+      </div>
+      <div class="philo-item reveal">
+        <div class="philo-num">04</div>
+        <div>
+          <h3 class="philo-item-title">Concevoir pour <em>les decennies</em></h3>
+          <p class="philo-item-text">Un batiment que nous livrons en 2025 doit encore etre juste en 2045. Nous refusons les modes au profit de principes — proportion, solidite, adaptabilite. Ce que nous construisons, nous assumons dans le temps.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="equipe" class="equipe">
+  <div class="equipe-inner">
+    <div class="equipe-header reveal">
+      <div class="section-eyebrow">L'equipe</div>
+      <h2 class="section-h2">Les architectes <em>derriere les projets</em></h2>
+    </div>
+    <div class="equipe-grid">
+      <div class="reveal">
+        <div class="membre-photo">
+          <div class="membre-placeholder m1">
+            <div class="membre-initials">AB</div>
+          </div>
+        </div>
+        <div class="membre-name">Amadou Baro</div>
+        <div class="membre-role">Fondateur & Architecte principal</div>
+        <p class="membre-bio">DESS Ecole Speciale d'Architecture, Paris. 14 ans d'exercice entre la France et la Cote d'Ivoire. Specialite architecture tropicale durable.</p>
+      </div>
+      <div class="reveal">
+        <div class="membre-photo">
+          <div class="membre-placeholder m2">
+            <div class="membre-initials">SC</div>
+          </div>
+        </div>
+        <div class="membre-name">Sophie Coulibaly</div>
+        <div class="membre-role">Architecte associee</div>
+        <p class="membre-bio">INSA Strasbourg. Specialiste interieur et conception bioclimatique. 8 ans sur des projets residentiels haut de gamme a Abidjan et Yamoussoukro.</p>
+      </div>
+      <div class="reveal">
+        <div class="membre-photo">
+          <div class="membre-placeholder m3">
+            <div class="membre-initials">KD</div>
+          </div>
+        </div>
+        <div class="membre-name">Kevin Diagou</div>
+        <div class="membre-role">Architecte — Projets commerciaux</div>
+        <p class="membre-bio">ESTP Paris. En charge des projets tertiaires, immeubles de bureaux et centres commerciaux. Referent BIM du cabinet depuis 2020.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact-cta">
+  <div>
+    <h2 class="contact-h2 reveal">Votre projet<br>merite une <em>vision.</em></h2>
+  </div>
+  <div class="contact-right reveal">
+    <div class="contact-info">
+      Plateau, Abidjan<br>
+      +225 27 00 00 00 00<br>
+      contact@baro-architecture.ci
+    </div>
+    <a href="mailto:contact@baro-architecture.ci" class="contact-btn">Envoyer une demande</a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">Baro Architecture</div>
+  <div class="footer-mid">Abidjan · Cote d'Ivoire · Membre Ordre des Architectes CI</div>
+  <div class="footer-credit">Design par <span>Eliel Poster</span> · Concept Project 2025</div>
+</footer>
+
+<script>
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
