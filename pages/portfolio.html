@@ -15,6 +15,16 @@
         .portfolio-hero { padding:10rem 6% 5rem; background:var(--bg); border-bottom:1px solid var(--border); }
         .portfolio-hero-inner { max-width:700px; display:flex; flex-direction:column; gap:1.2rem; }
         .portfolio-hero-inner h1 { font-size:clamp(2.4rem,5vw,4rem); }
+        .portfolio-selection-note {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.8rem;
+            color: var(--fg-muted);
+            font-weight: 400;
+            margin-top: -0.3rem;
+        }
+        .portfolio-selection-note svg { color: var(--rouge); flex-shrink: 0; }
         .portfolio-stats { display:flex; align-items:center; gap:0; background:var(--bg-alt); border:1px solid var(--border); border-radius:var(--radius-lg); padding:1.4rem 2rem; max-width:520px; margin-top:1rem; }
         .stat-item { display:flex; flex-direction:column; align-items:center; flex:1; gap:0.3rem; }
         .stat-item strong { font-family:var(--font-titre); font-size:2rem; font-weight:800; color:var(--rouge); line-height:1; }
@@ -121,9 +131,13 @@
 
 <section class="portfolio-hero">
     <div class="portfolio-hero-inner">
-        <span class="section-label">Nos travaux</span>
+        <span class="section-label">Sélection · 10 meilleurs projets</span>
         <h1>Ce que nous avons<br>construit <em class="hero-em">ensemble.</em></h1>
-        <p>Projets clients réels et explorations de design — la preuve concrète de notre polyvalence.</p>
+        <p>Sur plus de 50 projets livrés, voici les 10 que nous avons choisis — ceux qui représentent le mieux notre niveau, notre polyvalence et les transformations réelles que nous avons produites.</p>
+        <div class="portfolio-selection-note">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <span>Sélectionnés pour leur impact, leur diversité et la qualité d'exécution</span>
+        </div>
     </div>
     <div class="portfolio-stats">
         <div class="stat-item"><strong class="proof-num" data-count="50" data-suffix="+">0+</strong><span>Projets livrés</span></div>
