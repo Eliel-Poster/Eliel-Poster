@@ -1,5 +1,5 @@
 /* ============================================================
-   ELIEL POSTER — contact.js
+   ELIEL POSTER - contact.js
    ============================================================ */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
             setTimeout(() => ripple.remove(), 600);
 
             const dest  = ['postereliel', 'gmail.com'].join('@');
-            const sujet = encodeURIComponent('Demande de rendez-vous visio — Eliel Poster');
+            const sujet = encodeURIComponent('Demande de rendez-vous visio - Eliel Poster');
             const corps = encodeURIComponent('Bonjour,\n\nJe souhaite réserver un appel découverte de 10 minutes pour discuter de mon projet.\n\nVoici mes disponibilités :\n\nMerci !');
 
             // Tentative 1 : client mail natif

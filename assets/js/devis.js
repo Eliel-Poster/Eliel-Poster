@@ -1,5 +1,5 @@
 /* ============================================================
-   ELIEL POSTER — devis.js
+   ELIEL POSTER - devis.js
    Formulaire de devis avec EmailJS
    ============================================================ */
 
@@ -135,7 +135,7 @@ document.addEventListener('DOMContentLoaded', () => {
             console.error('EmailJS error:', err);
 
             // Fallback : ouvrir Gmail avec les données pré-remplies
-            const sujet = encodeURIComponent(`Devis — ${params.service}`);
+            const sujet = encodeURIComponent(`Devis - ${params.service}`);
             const corps = encodeURIComponent(
 `Nom : ${params.nom} ${params.prenoms}
 Email : ${params.email}
