@@ -28,8 +28,8 @@
     --border:       var(--gris-border);
     --border-dark:  #222;
 
-    --font-titre:   'Syne', sans-serif;
-    --font-corps:   'DM Sans', sans-serif;
+    --font-titre:   'Outfit', sans-serif;
+    --font-corps:   'Poppins', sans-serif;
 
     --transition:   0.28s ease;
     --radius-sm:    4px;
@@ -74,8 +74,8 @@ a { text-decoration: none; color: inherit; }
 ul { list-style: none; }
 
 h1,h2,h3,h4 { font-family: var(--font-titre); font-weight: 700; line-height: 1.15; color: var(--fg); }
-h1 { font-size: clamp(2.6rem, 5.5vw, 4.4rem); letter-spacing: -0.03em; }
-h2 { font-size: clamp(1.9rem, 3.5vw, 3rem); letter-spacing: -0.02em; }
+h1 { font-size: clamp(2.6rem, 5.5vw, 4.4rem); letter-spacing: -0.04em; }
+h2 { font-size: clamp(1.9rem, 3.5vw, 3rem); letter-spacing: -0.03em; }
 h3 { font-size: clamp(1.05rem, 1.8vw, 1.25rem); font-weight: 600; }
 p  { font-size: 1rem; font-weight: 300; color: var(--fg-muted); line-height: 1.85; }
 
@@ -328,8 +328,8 @@ nav ul li a:hover::after, nav ul li a.nav-actif::after { width: 100%; }
 
 .hero-titre {
     font-size: clamp(3rem, 6.5vw, 5.5rem);
-    line-height: 1.05;
-    letter-spacing: -0.04em;
+    line-height: 1.04;
+    letter-spacing: -0.05em;
     margin-bottom: 1.8rem;
     animation: fadeUp 0.9s ease both;
 }
