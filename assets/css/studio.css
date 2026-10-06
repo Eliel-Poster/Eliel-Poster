@@ -678,6 +678,23 @@ a,button,summary,label,select,[role=button],.board,.panel,.project-image,.faq su
 /* Contours animés au survol des cadres de projet : un trait de lumière fait le tour */
 @property --turn{syntax:'<angle>';inherits:false;initial-value:0deg}
 @keyframes turn{to{--turn:360deg}}
-.project:after,.case-art:after,.panel:before,.tile:before{content:'';position:absolute;z-index:5;inset:0;border-radius:inherit;padding:2px;background:conic-gradient(from var(--turn),#0000 0 55%,var(--glow) 72%,#fff 82%,var(--glow) 91%,#0000 100%);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask:linear-gradient(#000 0 0) content-box exclude,linear-gradient(#000 0 0);opacity:0;transition:opacity .45s var(--ease);pointer-events:none}
-.project:hover:after,.project:focus-within:after,.case-art:hover:after,.panel:hover:before,.panel:focus-visible:before,.tile:hover:before{opacity:1;animation:turn 2.4s linear infinite}
+.project:after,.case-art:after,.panel:before{content:'';position:absolute;z-index:5;inset:0;border-radius:inherit;padding:2px;background:conic-gradient(from var(--turn),#0000 0 55%,var(--glow) 72%,#fff 82%,var(--glow) 91%,#0000 100%);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask:linear-gradient(#000 0 0) content-box exclude,linear-gradient(#000 0 0);opacity:0;transition:opacity .45s var(--ease);pointer-events:none}
+.project:hover:after,.project:focus-within:after,.case-art:hover:after,.panel:hover:before,.panel:focus-visible:before{opacity:1;animation:turn 2.4s linear infinite}
 .case-art,.tile{position:relative}
+
+/* Fenêtre du hero : refermer replie les deux panneaux, gauche et droite */
+.ed-right{min-width:0;transition:opacity .35s var(--ease),border-color .4s,visibility 0s}
+.ed-right>*{min-width:240px}
+.editor.no-left .ed-right{opacity:0;border-left-color:#0000;visibility:hidden;overflow:hidden;transition:opacity .25s var(--ease),border-color .4s,visibility 0s .65s}
+@media(min-width:1101px){.editor.no-left .ed-body{grid-template-columns:0px 1fr 0px}}
+@media(max-width:1100px){.ed-body{transition:grid-template-columns .65s var(--ease)}.editor.no-left .ed-body{grid-template-columns:1fr 0px}}
+@media(max-width:760px){.editor.no-left .ed-body{grid-template-columns:1fr}.editor.no-left .ed-right{display:none}.ed-right>*{min-width:0}}
+
+/* Projets : en fin de défilement, un voile flou recouvre l’anneau et « Voir plus » apparaît */
+.works-more{position:absolute;z-index:6;inset:0;display:grid;place-content:center;justify-items:center;gap:14px;text-align:center;color:var(--fg);background:color-mix(in srgb,var(--bg) 38%,#0000);-webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px);opacity:0;visibility:hidden;pointer-events:none;transition:opacity .6s var(--ease),visibility 0s .6s}
+.works.more-on .works-more{opacity:1;visibility:visible;pointer-events:auto;transition:opacity .6s var(--ease),visibility 0s}
+.works-more span{font:italic 500 clamp(54px,9vw,140px)/1 Studio,sans-serif;letter-spacing:-.05em;translate:0 26px;transition:translate .8s var(--ease)}
+.works-more i{display:inline-block;font-style:normal;font-size:.5em;color:var(--glow);transition:translate .4s var(--ease)}
+.works-more small{font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.works.more-on .works-more span{translate:0}
+.works-more:hover i{translate:6px -6px}

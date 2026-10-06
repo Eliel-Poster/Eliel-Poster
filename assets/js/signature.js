@@ -56,16 +56,27 @@
   }));
   document.querySelector('#poster-word')?.addEventListener('input', e => { document.querySelectorAll('[data-poster-word]').forEach(el => { el.textContent = e.target.value.trim() || 'Oser.'; }); });
   const form = document.querySelector('.brief-form');
-  form?.addEventListener('submit', e => {
+  form?.addEventListener('submit', async e => {
     e.preventDefault(); if (!form.reportValidity()) return;
     const data = new FormData(form);
+    const status = document.querySelector('.form-status'), button = form.querySelector('.submit');
+    const label = button.firstChild, initial = label.textContent;
+    const say = text => { const line = document.createElement('p'); line.textContent = text; status.replaceChildren(line); return line; };
+    button.disabled = true; label.textContent = 'Envoi en cours… '; say('Envoi de votre message…');
+    let sent = false;
+    try {
+      const response = await fetch('/api/contact', {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(Object.fromEntries(data))});
+      sent = response.ok && (await response.json()).ok === true;
+    } catch (error) { sent = false; }
+    button.disabled = false; label.textContent = initial;
+    if (sent) { form.reset(); say('Message envoyé. Nous vous répondons sous 24h.'); status.focus(); return; }
+    // L’envoi automatique n’a pas abouti : rien n’est annoncé comme envoyé, le message est prêt pour un envoi manuel.
     const message = `Bonjour ELIEL POSTER,\n\nJe suis ${data.get('name')} (${data.get('email')}).\n\nMon projet : ${data.get('service')}\n\n${data.get('message')}\n\nÀ bientôt !`;
     const href = `mailto:contact@elielposter.com?subject=${encodeURIComponent('Un projet — ' + data.get('name'))}&body=${encodeURIComponent(message)}`;
-    const status = document.querySelector('.form-status'); status.replaceChildren();
-    const description = document.createElement('p'); description.textContent = 'Votre message est prêt. Choisissez comment l’envoyer :';
+    const description = say('L’envoi automatique n’a pas abouti. Votre message est conservé : envoyez-le en un clic par e-mail ou WhatsApp.');
     const email = document.createElement('a'); email.href = href; email.textContent = 'Ouvrir mon application email ↗';
     const wa = document.createElement('a'); wa.href = 'https://wa.me/2250576224680?text=' + encodeURIComponent(message); wa.target = '_blank'; wa.rel = 'noopener noreferrer'; wa.textContent = 'Envoyer avec WhatsApp ↗'; wa.style.display = 'block'; wa.style.marginTop = '12px';
-    status.append(description,email,wa); status.focus();
+    status.append(email, wa); description.focus?.(); status.focus();
   });
 })();
 (() => {

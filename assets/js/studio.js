@@ -275,6 +275,12 @@
     });
   }
 
+  // Section « Ce que nous construisons » : un double-clic ouvre la page services.
+  $('.services')?.addEventListener('dblclick', e => {
+    if (e.target.closest('a, button')) return;
+    e.preventDefault(); location.href = 'pages/services.html';
+  });
+
   // Bandeau.
   const ticker = $('.ticker-track');
   if (ticker) for (let i = 0; i < 4; i++) ['Identité visuelle', 'Direction artistique', 'Digital', 'Motion', 'Communication'].forEach(text => {
@@ -295,6 +301,7 @@
   }
 
   const top = $('.top'), works = $('.works'), cta = $('.cta'), big = $('.bigmark svg');
+  const values = $('.values');
   let queued = false;
   const started = performance.now();
   function frame(now = performance.now()) {
@@ -307,8 +314,12 @@
       if (rect.top < vh && rect.bottom > 0) {
         const p = clamp(-rect.top / Math.max(1, rect.height - vh));
         ring.style.setProperty('--spin', `${(-(p * 330)).toFixed(2)}deg`);
+        // Fin du défilement : l’anneau se floute et « Voir plus » apparaît.
+        works.classList.toggle('more-on', p > .93);
       }
     }
+    // Page à propos : la ligne des valeurs se remplit à mesure qu’on descend.
+    if (values) { const rect = values.getBoundingClientRect(); values.style.setProperty('--p', clamp((vh * .7 - rect.top) / rect.height).toFixed(3)); }
     if (big) { const rect = cta.getBoundingClientRect(); if (rect.top < vh) big.style.setProperty('--e', clamp((vh - rect.top) / rect.height).toFixed(3)); }
   }
   const request = () => { if (!queued) { queued = true; requestAnimationFrame(frame); } };
