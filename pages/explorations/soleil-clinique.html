@@ -1,532 +1,240 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Soleil Clinique — Medecine Privee, Abidjan</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400&family=IBM+Plex+Mono:wght@300;400&display=swap" rel="stylesheet">
-<style>
-:root {
-  --blanc: #FAFCFF;
-  --bleu-profond: #0A2342;
-  --bleu: #1A4A7A;
-  --bleu-clair: #EDF3FA;
-  --turquoise: #0D8A7A;
-  --turquoise-pale: #E0F5F2;
-  --gris: #5A6A7A;
-  --gris-clair: #F0F4F8;
-  --ligne: rgba(10,35,66,0.08);
-}
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
-body {
-  background: var(--blanc);
-  color: var(--bleu-profond);
-  font-family: 'Newsreader', serif;
-  overflow-x: hidden;
-}
-
-/* NAV */
-nav {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-  background: rgba(250,252,255,0.96);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--ligne);
-}
-.nav-inner {
-  max-width: 1200px; margin: 0 auto;
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 1.2rem 2.5rem;
-}
-.nav-logo { display: flex; flex-direction: column; }
-.nav-logo-main {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 13px; font-weight: 400;
-  letter-spacing: 0.08em; text-transform: uppercase;
-  color: var(--bleu-profond);
-}
-.nav-logo-main span { color: var(--turquoise); }
-.nav-logo-sub {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 8px; font-weight: 300;
-  letter-spacing: 0.16em; color: var(--gris); text-transform: uppercase;
-}
-.nav-links { display: flex; gap: 2.5rem; list-style: none; }
-.nav-links a {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase;
-  color: var(--gris); text-decoration: none; transition: color 0.3s;
-}
-.nav-links a:hover { color: var(--bleu-profond); }
-.nav-rdv {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase;
-  background: var(--turquoise); color: #fff;
-  padding: 11px 22px; text-decoration: none; transition: background 0.3s;
-}
-.nav-rdv:hover { background: #0A7060; }
-.nav-urgences {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 10px; letter-spacing: 0.1em;
-  color: #D94040; margin-right: 1rem;
-  text-decoration: none; display: flex; align-items: center; gap: 6px;
-}
-.nav-urgences::before { content: ''; width: 6px; height: 6px; background: #D94040; border-radius: 50%; animation: pulse 1.5s infinite; }
-@keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
-
-/* HERO */
-.hero {
-  padding: 8rem 2.5rem 5rem;
-  max-width: 1200px; margin: 0 auto;
-  display: grid; grid-template-columns: 1fr 1fr;
-  gap: 5rem; align-items: center; min-height: 90vh;
-}
-.hero-left { }
-.hero-badge {
-  display: inline-flex; align-items: center; gap: 8px;
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 9px; letter-spacing: 0.16em; text-transform: uppercase;
-  color: var(--turquoise); background: var(--turquoise-pale);
-  padding: 6px 14px; margin-bottom: 2rem;
-}
-.hero-badge::before { content: ''; width: 6px; height: 6px; background: var(--turquoise); border-radius: 50%; }
-.hero-h1 {
-  font-size: clamp(2.5rem, 4.5vw, 4rem);
-  font-weight: 300; line-height: 1.1;
-  letter-spacing: -0.01em; margin-bottom: 1.8rem;
-}
-.hero-h1 em { font-style: italic; color: var(--turquoise); }
-.hero-h1 strong { font-weight: 500; }
-.hero-desc {
-  font-size: 1.05rem; font-weight: 300; font-style: italic;
-  color: var(--gris); line-height: 1.85; margin-bottom: 2.5rem;
-  max-width: 440px;
-}
-.hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; }
-.btn-primary {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase;
-  background: var(--turquoise); color: #fff;
-  padding: 14px 28px; text-decoration: none; transition: background 0.3s;
-}
-.btn-primary:hover { background: #0A7060; }
-.btn-outline {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase;
-  color: var(--bleu-profond); border: 1px solid rgba(10,35,66,0.2);
-  padding: 14px 28px; text-decoration: none; transition: border-color 0.3s;
-}
-.btn-outline:hover { border-color: var(--bleu-profond); }
-.hero-right { }
-.hero-card {
-  background: var(--bleu-profond); border-radius: 2px;
-  padding: 2.5rem; color: #fff;
-}
-.hero-card-title {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase;
-  color: rgba(255,255,255,0.5); margin-bottom: 2rem;
-}
-.hero-stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: rgba(255,255,255,0.08); margin-bottom: 2rem; }
-.hero-stat-box { background: var(--bleu-profond); padding: 1.5rem; }
-.hero-stat-box:hover { background: #0d2d52; }
-.stat-number { font-size: 2.4rem; font-weight: 300; color: #fff; line-height: 1; margin-bottom: 0.3rem; }
-.stat-number em { font-style: italic; color: rgba(13,138,122,0.9); }
-.stat-text { font-family: 'IBM Plex Mono', monospace; font-size: 9px; color: rgba(255,255,255,0.4); letter-spacing: 0.1em; text-transform: uppercase; line-height: 1.5; }
-.hero-urgence-strip {
-  background: rgba(217,64,64,0.1);
-  border: 1px solid rgba(217,64,64,0.2);
-  padding: 1rem 1.5rem;
-  display: flex; align-items: center; justify-content: space-between;
-}
-.urgence-label { font-family: 'IBM Plex Mono', monospace; font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(217,64,64,0.9); }
-.urgence-num { font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: rgba(217,64,64,0.9); font-weight: 400; }
-
-/* SPECIALITES */
-.specialites { padding: 6rem 2.5rem; background: var(--gris-clair); }
-.spec-inner { max-width: 1200px; margin: 0 auto; }
-.spec-header { margin-bottom: 4rem; }
-.section-tag {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase;
-  color: var(--turquoise); margin-bottom: 0.8rem;
-}
-.section-h2 { font-size: clamp(1.8rem, 3vw, 2.5rem); font-weight: 300; }
-.section-h2 em { font-style: italic; color: var(--turquoise); }
-.spec-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--ligne); }
-.spec-card {
-  background: var(--blanc); padding: 2rem 1.5rem;
-  transition: background 0.3s;
-}
-.spec-card:hover { background: var(--bleu-clair); }
-.spec-icon {
-  width: 44px; height: 44px; background: var(--turquoise-pale);
-  display: flex; align-items: center; justify-content: center;
-  margin-bottom: 1.2rem;
-}
-.spec-icon-inner {
-  width: 20px; height: 20px; border-radius: 50%;
-  background: var(--turquoise); opacity: 0.6;
-}
-.spec-name { font-size: 1rem; font-weight: 400; margin-bottom: 0.5rem; }
-.spec-desc { font-family: 'IBM Plex Mono', monospace; font-size: 10px; font-weight: 300; color: var(--gris); line-height: 1.8; }
-
-/* MEDECINS */
-.medecins { padding: 7rem 2.5rem; }
-.med-inner { max-width: 1200px; margin: 0 auto; }
-.med-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; margin-top: 4rem; }
-.med-card { }
-.med-photo {
-  height: 260px; margin-bottom: 1.2rem;
-  position: relative; overflow: hidden; background: var(--bleu-clair);
-  display: flex; align-items: flex-end; padding: 1rem;
-}
-.md1 { background: linear-gradient(170deg, #C8D8E8 0%, #8AA8C8 100%); }
-.md2 { background: linear-gradient(170deg, #C0D8D0 0%, #7AAAA0 100%); }
-.md3 { background: linear-gradient(170deg, #D0C8D8 0%, #A090B8 100%); }
-.md4 { background: linear-gradient(170deg, #D8D0C8 0%, #B0A090 100%); }
-.med-initials {
-  width: 40px; height: 40px; background: rgba(250,252,255,0.8);
-  display: flex; align-items: center; justify-content: center;
-  font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--bleu-profond);
-}
-.med-name { font-size: 1rem; font-weight: 400; margin-bottom: 2px; }
-.med-spec { font-family: 'IBM Plex Mono', monospace; font-size: 9px; color: var(--turquoise); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.4rem; }
-.med-formation { font-family: 'IBM Plex Mono', monospace; font-size: 9px; color: var(--gris); }
-
-/* PROCESS */
-.process-section { padding: 7rem 2.5rem; background: var(--bleu-profond); color: #fff; }
-.process-inner { max-width: 1200px; margin: 0 auto; }
-.process-header { margin-bottom: 4rem; }
-.process-section .section-tag { color: rgba(13,138,122,0.8); }
-.process-section .section-h2 { color: #fff; }
-.process-section .section-h2 em { color: rgba(13,138,122,0.9); }
-.process-steps {
-  display: grid; grid-template-columns: repeat(4, 1fr);
-  gap: 1px; background: rgba(255,255,255,0.06);
-}
-.process-step { background: var(--bleu-profond); padding: 2rem; }
-.process-step:hover { background: #0d2d52; }
-.step-num {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 11px; color: rgba(13,138,122,0.7); margin-bottom: 1.5rem;
-}
-.step-title { font-size: 1.05rem; font-weight: 300; margin-bottom: 0.8rem; }
-.step-desc { font-family: 'IBM Plex Mono', monospace; font-size: 10px; font-weight: 300; color: rgba(255,255,255,0.4); line-height: 1.8; }
-
-/* HORAIRES & INFO */
-.infos { padding: 5rem 2.5rem; background: var(--bleu-clair); }
-.infos-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 3rem; }
-.info-block-title { font-family: 'IBM Plex Mono', monospace; font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--turquoise); margin-bottom: 1.5rem; }
-.horaires-list { display: flex; flex-direction: column; gap: 0; }
-.horaire-row { display: flex; justify-content: space-between; padding: 0.7rem 0; border-bottom: 1px solid var(--ligne); font-size: 0.9rem; }
-.horaire-row .jour { font-weight: 400; }
-.horaire-row .heure { font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: var(--gris); }
-.contact-list { display: flex; flex-direction: column; gap: 1rem; }
-.contact-item { display: flex; flex-direction: column; gap: 2px; }
-.contact-label { font-family: 'IBM Plex Mono', monospace; font-size: 9px; color: var(--gris); letter-spacing: 0.1em; text-transform: uppercase; }
-.contact-val { font-size: 0.95rem; color: var(--bleu-profond); }
-.assurances { }
-.assurance-item { padding: 0.8rem 0; border-bottom: 1px solid var(--ligne); font-size: 0.88rem; display: flex; align-items: center; gap: 10px; }
-.assurance-item::before { content: ''; width: 6px; height: 6px; background: var(--turquoise); border-radius: 50%; flex-shrink: 0; }
-
-/* CTA */
-.rdv-cta {
-  padding: 7rem 2.5rem; text-align: center;
-  background: var(--blanc); border-top: 1px solid var(--ligne);
-}
-.rdv-cta-inner { max-width: 640px; margin: 0 auto; }
-.rdv-tag { font-family: 'IBM Plex Mono', monospace; font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--turquoise); margin-bottom: 2rem; }
-.rdv-h2 { font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 300; line-height: 1.1; margin-bottom: 1rem; }
-.rdv-h2 em { font-style: italic; color: var(--turquoise); }
-.rdv-desc { font-size: 1rem; font-style: italic; color: var(--gris); margin-bottom: 2.5rem; line-height: 1.7; }
-.rdv-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
-
-footer {
-  background: var(--bleu-profond); color: rgba(255,255,255,0.6);
-  padding: 2.5rem; display: flex; align-items: center; justify-content: space-between;
-}
-.footer-logo { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: #fff; }
-.footer-logo span { color: rgba(13,138,122,0.9); }
-.footer-mid { font-family: 'IBM Plex Mono', monospace; font-size: 9px; color: rgba(255,255,255,0.3); letter-spacing: 0.08em; text-align: center; line-height: 2; }
-.footer-credit { font-family: 'IBM Plex Mono', monospace; font-size: 9px; color: rgba(255,255,255,0.2); letter-spacing: 0.08em; text-align: right; }
-.footer-credit span { color: rgba(13,138,122,0.7); }
-
-.concept-badge {
-  position: fixed; bottom: 2rem; left: 2rem; z-index: 200;
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 8px; letter-spacing: 0.14em;
-  background: rgba(13,138,122,0.08); color: var(--turquoise);
-  border: 1px solid rgba(13,138,122,0.2); padding: 6px 12px;
-}
-
-.reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.7s cubic-bezier(0.16,1,0.3,1), transform 0.7s cubic-bezier(0.16,1,0.3,1); }
-.reveal.visible { opacity: 1; transform: none; }
-
-@media (max-width: 900px) {
-  nav { padding: 1rem; }
-  .nav-links { display: none; }
-  .hero { grid-template-columns: 1fr; gap: 3rem; min-height: auto; padding: 7rem 1.5rem 3rem; }
-  .spec-grid { grid-template-columns: 1fr 1fr; }
-  .med-grid { grid-template-columns: 1fr 1fr; }
-  .process-steps { grid-template-columns: 1fr 1fr; }
-  .infos-inner { grid-template-columns: 1fr; }
-  footer { flex-direction: column; gap: 1rem; text-align: center; }
-}
-</style>
-</head>
-<body>
-<div class="concept-badge">Concept Project — Eliel Poster</div>
-
-<nav>
-  <div class="nav-inner">
-    <div class="nav-logo">
-      <span class="nav-logo-main">Soleil <span>Clinique</span></span>
-      <span class="nav-logo-sub">Medecine privee — Abidjan</span>
-    </div>
-    <ul class="nav-links">
-      <li><a href="#specialites">Specialites</a></li>
-      <li><a href="#medecins">Medecins</a></li>
-      <li><a href="#infos">Informations</a></li>
-      <li><a href="#rdv">Rendez-vous</a></li>
-    </ul>
-    <div style="display:flex;align-items:center;">
-      <a href="tel:+22527000000" class="nav-urgences">Urgences 24h/24</a>
-      <a href="#rdv" class="nav-rdv">Prendre rendez-vous</a>
+<!doctype html><html lang="fr" data-theme="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#000000"><title>Votre sante, entre les mains qu&#x27;il vous faut. — ELIEL POSTER</title><meta name="description" content="ELIEL POSTER, studio créatif indépendant à Abidjan. Design graphique, identité visuelle, affiches et motion design."><meta property="og:title" content="Votre sante, entre les mains qu&#x27;il vous faut. — ELIEL POSTER"><meta property="og:description" content="ELIEL POSTER, studio créatif indépendant à Abidjan. Design graphique, identité visuelle, affiches et motion design."><meta property="og:type" content="website"><meta property="og:image" content="https://elielposter.com/assets/img/portfolio/abraham.webp"><link rel="icon" href="../../favicon.svg" type="image/svg+xml"><link rel="preload" href="../../assets/fonts/outfit.woff2" as="font" type="font/woff2" crossorigin><script>try{var t=localStorage.getItem('ep-theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script><link rel="stylesheet" href="../../assets/css/studio.css"><link rel="stylesheet" href="../../assets/css/pages.css"><link rel="canonical" href="https://elielposter.com/pages/explorations/soleil-clinique.html"></head><body class=""><a class="skip" href="#main">Aller au contenu</a><svg class="sprite" aria-hidden="true" width="0" height="0" style="position:absolute"><symbol id="i-identity" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 12.5a4 4 0 0 1 8 0V14M12 12v5.5M9.5 16.5c0-1 .2-2.6.2-4"/></symbol><symbol id="i-compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M15.6 8.4l-2.1 5.1-5.1 2.1 2.1-5.1z"/></symbol><symbol id="i-monitor" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M9 20h6M12 16v4"/></symbol><symbol id="i-motion" viewBox="0 0 24 24"><path d="M6 4.5l11 7.5-11 7.5z"/><path d="M20.5 6v12"/></symbol><symbol id="i-megaphone" viewBox="0 0 24 24"><path d="M4 10v4l3 .6V9.4zM7 9.4L18 5v14L7 14.6M9.5 15.2V18a1.6 1.6 0 0 0 3.2 0v-1.6M21 10.5v3"/></symbol><symbol id="i-poster" viewBox="0 0 24 24"><rect x="5.5" y="3" width="13" height="18" rx="1.6"/><path d="M9 8h6M9 12h6M9 16h3"/></symbol><symbol id="i-browser" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2.2"/><path d="M3 9h18M6.5 6.5h.01M9.5 6.5h.01"/></symbol><symbol id="i-layers" viewBox="0 0 24 24"><path d="M12 3l9 5-9 5-9-5zM3 12.5l9 5 9-5M3 16.5l9 5 9-5"/></symbol><symbol id="i-shapes" viewBox="0 0 24 24"><circle cx="7.5" cy="16.5" r="4.5"/><rect x="13.5" y="12.5" width="7.5" height="8.5" rx="1.2"/><path d="M12 3l4.4 7H7.6z"/></symbol><symbol id="i-palette" viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 0 18c1.2 0 1.9-.8 1.9-1.8 0-1.4-1-1.8-1-3 0-1 .8-1.7 1.8-1.7H17a4 4 0 0 0 4-4C21 6.3 17 3 12 3z"/><path d="M7.5 12.5h.01M9.5 8.3h.01M14.2 7.3h.01"/></symbol><symbol id="i-grid" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="7" height="7" rx="1.6"/><rect x="13.5" y="3.5" width="7" height="7" rx="1.6"/><rect x="3.5" y="13.5" width="7" height="7" rx="1.6"/><rect x="13.5" y="13.5" width="7" height="7" rx="1.6"/></symbol><symbol id="i-type" viewBox="0 0 24 24"><path d="M5 6.5V4h14v2.5M12 4v16M9 20h6"/></symbol><symbol id="i-cursor" viewBox="0 0 24 24"><path d="M5 3.5l14.5 6.8-6.2 2-2 6.2z"/></symbol><symbol id="i-book" viewBox="0 0 24 24"><path d="M4 5.2A2.2 2.2 0 0 1 6.2 3H19.5v15.6H6.2A2.2 2.2 0 0 0 4 20.8zM8 7.5h7.5M8 11h5"/></symbol><symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.2"/><path d="M20 20l-4.4-4.4"/></symbol><symbol id="i-hand" viewBox="0 0 24 24"><path d="M8 12.5V6.2a1.5 1.5 0 0 1 3 0V11M11 11V4.6a1.5 1.5 0 0 1 3 0V11M14 11V6.4a1.5 1.5 0 0 1 3 0V14c0 4-2.5 6.6-6 6.6-2.5 0-4-1-5.4-3.4L4.2 14.4a1.5 1.5 0 0 1 2.6-1.5L8 14.6"/></symbol><symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 14.6A8.5 8.5 0 1 1 9.4 4a7 7 0 0 0 10.6 10.6z"/></symbol><symbol id="i-instagram" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17 7h.01"/></symbol><symbol id="i-linkedin" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="3.2"/><path d="M8 10.6V16M8 7.8v.01M12 16v-5.4M12 13.2a2.2 2.2 0 0 1 4.4 0V16"/></symbol><symbol id="i-whatsapp" viewBox="0 0 24 24"><path d="M4 20l1.3-4.1A8.5 8.5 0 1 1 8.4 19z"/><path d="M9.4 8.8c0 3.1 2.6 5.7 5.7 5.7l1-1.5-2-1-.9.8c-.9-.5-1.7-1.2-2.1-2.1l.8-.9-1-2z"/></symbol><symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2.2"/><path d="M3.5 7.5l8.5 6 8.5-6"/></symbol></svg><header class="top">
+  <div class="top-in">
+    <a class="brand" href="../../index.html" aria-label="ELIEL POSTER, accueil"><img src="../../assets/img/logo.webp" width="556" height="329" alt="ELIEL POSTER" decoding="async"></a>
+    <nav class="top-nav" id="navigation" aria-label="Navigation principale">
+      <a href="../../index.html">Accueil</a><a href="../../index.html#studio">Studio</a><a href="../../pages/portfolio.html">Projets</a><a href="../../index.html#metiers">Métiers</a><a href="../../index.html#approche">Approche</a><a class="nav-cta" href="../../pages/contact.html">Parler de mon projet</a>
+    </nav>
+    <div class="top-end">
+      <button class="switch" type="button" role="switch" aria-checked="false" aria-label="Passer en mode clair"><i></i></button>
+      <a class="btn btn-solid btn-sm" href="../../pages/contact.html"><span>Parler de mon projet</span></a>
+      <button class="burger" type="button" aria-expanded="false" aria-controls="navigation" aria-label="Menu"><i></i></button>
     </div>
   </div>
-</nav>
+</header><main id="main"><section class="page-hero "><p class="eyebrow">Le regard du studio</p><h1>Votre sante, entre les mains qu&#x27;il vous faut.</h1></section><article class="editorial">
+Concept Project — Eliel Poster
 
-<section class="hero">
-  <div class="hero-left reveal">
-    <div class="hero-badge">Clinique privee agréee — Cocody, Abidjan</div>
-    <h1 class="hero-h1">
-      Votre sante,<br>
-      <em>entre les mains</em><br>
-      <strong>qu'il vous faut.</strong>
-    </h1>
-    <p class="hero-desc">Une clinique ou les patients sont traites avec la rigueur medicale et le respect humain qu'ils meritent. Medecine generale, specialites, urgences 24h/24.</p>
-    <div class="hero-actions">
-      <a href="#rdv" class="btn-primary">Prendre rendez-vous</a>
-      <a href="#specialites" class="btn-outline">Nos specialites</a>
-    </div>
-  </div>
-  <div class="hero-right reveal">
-    <div class="hero-card">
-      <div class="hero-card-title">Soleil Clinique en chiffres</div>
-      <div class="hero-stats-grid">
-        <div class="hero-stat-box">
-          <div class="stat-number">12</div>
-          <div class="stat-text">Medecins specialistes en exercice</div>
-        </div>
-        <div class="hero-stat-box">
-          <div class="stat-number"><em>24</em>h</div>
-          <div class="stat-text">Service urgences et hospitalisation</div>
-        </div>
-        <div class="hero-stat-box">
-          <div class="stat-number">8</div>
-          <div class="stat-text">Annees d'exercice a Abidjan</div>
-        </div>
-        <div class="hero-stat-box">
-          <div class="stat-number">4.7</div>
-          <div class="stat-text">Avis patients sur Google Maps</div>
-        </div>
-      </div>
-      <div class="hero-urgence-strip">
-        <span class="urgence-label">Urgences medicales</span>
-        <span class="urgence-num">+225 27 00 00 00 00</span>
-      </div>
-    </div>
-  </div>
+
+
+Clinique privee agréee — Cocody, Abidjan
+
+<p>Une clinique ou les patients sont traites avec la rigueur medicale et le respect humain qu'ils meritent. Medecine generale, specialites, urgences 24h/24.</p>
+
+<a href="#rdv">Prendre rendez-vous</a>
+<a href="#specialites">Nos specialites</a>
+
+
+
+
+Soleil Clinique en chiffres
+
+
+12
+Medecins specialistes en exercice
+
+
+<em>24</em>h
+Service urgences et hospitalisation
+
+
+8
+Annees d'exercice a Abidjan
+
+
+4.7
+Avis patients sur Google Maps
+
+
+
+Urgences medicales
++225 27 00 00 00 00
+
+
+
+
+<section id="specialites">
+
+
+Nos competences
+<h2>Specialites <em>medicales</em></h2>
+
+
+
+
+Medecine generale
+Consultations, bilans de sante, suivi des pathologies chroniques. Disponible sans rendez-vous.
+
+
+
+Cardiologie
+ECG, echocardiographie, suivi hypertension et insuffisances cardiaques.
+
+
+
+Pediatrie
+Suivi de croissance, vaccinations, maladies infantiles. Espace dedié et adapté aux enfants.
+
+
+
+Gynecologie
+Suivi grossesse, echographies, consultation prevention et sante feminine.
+
+
+
+Dermatologie
+Maladies de peau tropicales, dermatologie esthetique, consultations specialisées.
+
+
+
+Ophtalmologie
+Bilan visuel, fond d'oeil, prescription lunettes et lentilles.
+
+
+
+Laboratoire
+Analyses biologiques completes sur place. Resultats numeriques en 24 a 48 heures.
+
+
+
+Radiologie
+Radiographies, echographies, IRM sur prescription. Plateau technique complet.
+
+
+
+</section>
+<section id="medecins">
+
+
+L'equipe medicale
+<h2>Des praticiens <em>formes et engages</em></h2>
+
+
+
+DK
+Dr. Diallo Konan
+Medecine interne
+CHU Treichville — Paris VII
+
+
+AN
+Dr. Adjoua N'Guessan
+Gynecologie
+Faculte de Medecine d'Abidjan
+
+
+SK
+Dr. Soro Kanga
+Cardiologie
+Universite de Bordeaux
+
+
+MT
+Dr. Marie Traore
+Pediatrie
+CHU Cocody — Strasbourg
+
+
+
 </section>
 
-<section id="specialites" class="specialites">
-  <div class="spec-inner">
-    <div class="spec-header reveal">
-      <div class="section-tag">Nos competences</div>
-      <h2 class="section-h2">Specialites <em>medicales</em></h2>
-    </div>
-    <div class="spec-grid">
-      <div class="spec-card reveal">
-        <div class="spec-icon"><div class="spec-icon-inner"></div></div>
-        <div class="spec-name">Medecine generale</div>
-        <div class="spec-desc">Consultations, bilans de sante, suivi des pathologies chroniques. Disponible sans rendez-vous.</div>
-      </div>
-      <div class="spec-card reveal">
-        <div class="spec-icon"><div class="spec-icon-inner"></div></div>
-        <div class="spec-name">Cardiologie</div>
-        <div class="spec-desc">ECG, echocardiographie, suivi hypertension et insuffisances cardiaques.</div>
-      </div>
-      <div class="spec-card reveal">
-        <div class="spec-icon"><div class="spec-icon-inner"></div></div>
-        <div class="spec-name">Pediatrie</div>
-        <div class="spec-desc">Suivi de croissance, vaccinations, maladies infantiles. Espace dedié et adapté aux enfants.</div>
-      </div>
-      <div class="spec-card reveal">
-        <div class="spec-icon"><div class="spec-icon-inner"></div></div>
-        <div class="spec-name">Gynecologie</div>
-        <div class="spec-desc">Suivi grossesse, echographies, consultation prevention et sante feminine.</div>
-      </div>
-      <div class="spec-card reveal">
-        <div class="spec-icon"><div class="spec-icon-inner"></div></div>
-        <div class="spec-name">Dermatologie</div>
-        <div class="spec-desc">Maladies de peau tropicales, dermatologie esthetique, consultations specialisées.</div>
-      </div>
-      <div class="spec-card reveal">
-        <div class="spec-icon"><div class="spec-icon-inner"></div></div>
-        <div class="spec-name">Ophtalmologie</div>
-        <div class="spec-desc">Bilan visuel, fond d'oeil, prescription lunettes et lentilles.</div>
-      </div>
-      <div class="spec-card reveal">
-        <div class="spec-icon"><div class="spec-icon-inner"></div></div>
-        <div class="spec-name">Laboratoire</div>
-        <div class="spec-desc">Analyses biologiques completes sur place. Resultats numeriques en 24 a 48 heures.</div>
-      </div>
-      <div class="spec-card reveal">
-        <div class="spec-icon"><div class="spec-icon-inner"></div></div>
-        <div class="spec-name">Radiologie</div>
-        <div class="spec-desc">Radiographies, echographies, IRM sur prescription. Plateau technique complet.</div>
-      </div>
-    </div>
-  </div>
+
+
+Comment ca se passe
+<h2>De la prise de contact <em>a la sortie</em></h2>
+
+
+
+01
+Rendez-vous en ligne ou par telephone
+Choisissez votre praticien, votre creneau. Rappel automatique 24h avant.
+
+
+02
+Accueil et prise en charge immediate
+Pas de salle bondee. Maximum 15 minutes d'attente garantis sur rendez-vous.
+
+
+03
+Consultation et prescriptions numeriques
+Ordonnance electronique, compte-rendu envoye par email. Votre dossier medical centralise.
+
+
+04
+Suivi post-consultation
+Rappel de suivi a J+7, acces au dossier en ligne, renouvellement d'ordonnance facilite.
+
+
+
+
+<section id="infos">
+
+
+Horaires d'ouverture
+
+Lundi — Vendredi7h30 — 21h00
+Samedi8h00 — 18h00
+Dimanche9h00 — 14h00
+Urgences24h / 24, 7j / 7
+
+
+
+Nous contacter
+
+
+Adresse
+Cocody Riviera 3, Abidjan
+
+
+Telephone standard
++225 27 00 00 00 00
+
+
+Urgences (24h/24)
++225 07 00 00 00 00
+
+
+Email
+contact@soleil-clinique.ci
+
+
+
+
+Assurances et mutuelles acceptees
+
+CNPS — Caisse Nationale de Prevoyance Sociale
+MUGEFCI — Mutuelles d'Etat
+SANLAM Assurances
+AXA Assurances CI
+NSIA Assurances
+Paiement direct accepte — Mobile Money
+
+
+
+</section>
+<section id="rdv">
+
+Prise de rendez-vous
+<h2>Votre sante <em>ne peut pas attendre.</em></h2>
+<p>Consultations disponibles du lundi au samedi. Rendez-vous confirme par SMS dans les 30 minutes.</p>
+
+<a href="tel:+22527000000">Appeler maintenant</a>
+<a href="mailto:contact@soleil-clinique.ci">Envoyer un email</a>
+
+
 </section>
 
-<section id="medecins" class="medecins">
-  <div class="med-inner">
-    <div class="reveal">
-      <div class="section-tag">L'equipe medicale</div>
-      <h2 class="section-h2">Des praticiens <em>formes et engages</em></h2>
-    </div>
-    <div class="med-grid">
-      <div class="reveal">
-        <div class="med-photo md1"><div class="med-initials">DK</div></div>
-        <div class="med-name">Dr. Diallo Konan</div>
-        <div class="med-spec">Medecine interne</div>
-        <div class="med-formation">CHU Treichville — Paris VII</div>
-      </div>
-      <div class="reveal">
-        <div class="med-photo md2"><div class="med-initials">AN</div></div>
-        <div class="med-name">Dr. Adjoua N'Guessan</div>
-        <div class="med-spec">Gynecologie</div>
-        <div class="med-formation">Faculte de Medecine d'Abidjan</div>
-      </div>
-      <div class="reveal">
-        <div class="med-photo md3"><div class="med-initials">SK</div></div>
-        <div class="med-name">Dr. Soro Kanga</div>
-        <div class="med-spec">Cardiologie</div>
-        <div class="med-formation">Universite de Bordeaux</div>
-      </div>
-      <div class="reveal">
-        <div class="med-photo md4"><div class="med-initials">MT</div></div>
-        <div class="med-name">Dr. Marie Traore</div>
-        <div class="med-spec">Pediatrie</div>
-        <div class="med-formation">CHU Cocody — Strasbourg</div>
-      </div>
-    </div>
+
+</article><section class="contact-section" id="contact"><p class="eyebrow">Votre projet commence par une idée.</p><a class="contact-title" href="../../pages/contact.html">Parlons de<br>votre projet. <span aria-hidden="true">↗</span></a><div class="contact-bottom"><p>Réponse sous 24h · Premier échange sans engagement</p><a class="text-link" href="mailto:contact@elielposter.com">contact@elielposter.com <span aria-hidden="true">↗</span></a></div></section></main><footer class="foot">
+  <ul class="foot-social">
+    <li><a href="https://instagram.com/elielposter" target="_blank" rel="noopener noreferrer"><span><svg class="ic" aria-hidden="true"><use href="#i-instagram"/></svg>Instagram</span> <i>→</i></a></li>
+    <li><a href="https://www.linkedin.com/company/eliel-poster/" target="_blank" rel="noopener noreferrer"><span><svg class="ic" aria-hidden="true"><use href="#i-linkedin"/></svg>LinkedIn</span> <i>→</i></a></li>
+    <li><a href="https://wa.me/2250576224680" target="_blank" rel="noopener noreferrer"><span><svg class="ic" aria-hidden="true"><use href="#i-whatsapp"/></svg>WhatsApp</span> <i>→</i></a></li>
+    <li><a href="mailto:contact@elielposter.com"><span><svg class="ic" aria-hidden="true"><use href="#i-mail"/></svg>Email</span> <i>→</i></a></li>
+  </ul>
+  <div class="foot-cols">
+    <div><h2>Studio</h2><a href="../../index.html#studio">Studio</a><a href="../../pages/portfolio.html">Projets</a><a href="../../index.html#metiers">Métiers</a><a href="../../pages/contact.html">Parler de mon projet</a></div>
+    <div><h2>Métiers</h2><span><svg class="ic" aria-hidden="true"><use href="#i-identity"/></svg>Identité</span><span><svg class="ic" aria-hidden="true"><use href="#i-compass"/></svg>Direction artistique</span><span><svg class="ic" aria-hidden="true"><use href="#i-monitor"/></svg>Digital</span><span><svg class="ic" aria-hidden="true"><use href="#i-motion"/></svg>Motion</span></div>
+    <div><h2>Ressources</h2><a href="../../pages/portfolio.html">Réalisations</a><a href="../../pages/journal.html">Journal</a><a href="../../pages/centre-information.html">Informations</a></div>
+    <div><h2>Contact</h2><a href="mailto:contact@elielposter.com">contact@elielposter.com</a><a href="tel:+2250576224680">+225 05 76 22 46 80</a><span>Abidjan, Côte d’Ivoire</span><span>Studio créatif indépendant</span></div>
   </div>
-</section>
-
-<section class="process-section">
-  <div class="process-inner">
-    <div class="process-header reveal">
-      <div class="section-tag">Comment ca se passe</div>
-      <h2 class="section-h2">De la prise de contact <em>a la sortie</em></h2>
-    </div>
-    <div class="process-steps">
-      <div class="process-step reveal">
-        <div class="step-num">01</div>
-        <div class="step-title">Rendez-vous en ligne ou par telephone</div>
-        <div class="step-desc">Choisissez votre praticien, votre creneau. Rappel automatique 24h avant.</div>
-      </div>
-      <div class="process-step reveal">
-        <div class="step-num">02</div>
-        <div class="step-title">Accueil et prise en charge immediate</div>
-        <div class="step-desc">Pas de salle bondee. Maximum 15 minutes d'attente garantis sur rendez-vous.</div>
-      </div>
-      <div class="process-step reveal">
-        <div class="step-num">03</div>
-        <div class="step-title">Consultation et prescriptions numeriques</div>
-        <div class="step-desc">Ordonnance electronique, compte-rendu envoye par email. Votre dossier medical centralise.</div>
-      </div>
-      <div class="process-step reveal">
-        <div class="step-num">04</div>
-        <div class="step-title">Suivi post-consultation</div>
-        <div class="step-desc">Rappel de suivi a J+7, acces au dossier en ligne, renouvellement d'ordonnance facilite.</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="infos" class="infos">
-  <div class="infos-inner">
-    <div class="reveal">
-      <div class="info-block-title">Horaires d'ouverture</div>
-      <div class="horaires-list">
-        <div class="horaire-row"><span class="jour">Lundi — Vendredi</span><span class="heure">7h30 — 21h00</span></div>
-        <div class="horaire-row"><span class="jour">Samedi</span><span class="heure">8h00 — 18h00</span></div>
-        <div class="horaire-row"><span class="jour">Dimanche</span><span class="heure">9h00 — 14h00</span></div>
-        <div class="horaire-row"><span class="jour">Urgences</span><span class="heure">24h / 24, 7j / 7</span></div>
-      </div>
-    </div>
-    <div class="reveal">
-      <div class="info-block-title">Nous contacter</div>
-      <div class="contact-list">
-        <div class="contact-item">
-          <span class="contact-label">Adresse</span>
-          <span class="contact-val">Cocody Riviera 3, Abidjan</span>
-        </div>
-        <div class="contact-item">
-          <span class="contact-label">Telephone standard</span>
-          <span class="contact-val">+225 27 00 00 00 00</span>
-        </div>
-        <div class="contact-item">
-          <span class="contact-label">Urgences (24h/24)</span>
-          <span class="contact-val">+225 07 00 00 00 00</span>
-        </div>
-        <div class="contact-item">
-          <span class="contact-label">Email</span>
-          <span class="contact-val">contact@soleil-clinique.ci</span>
-        </div>
-      </div>
-    </div>
-    <div class="reveal">
-      <div class="info-block-title">Assurances et mutuelles acceptees</div>
-      <div class="assurances">
-        <div class="assurance-item">CNPS — Caisse Nationale de Prevoyance Sociale</div>
-        <div class="assurance-item">MUGEFCI — Mutuelles d'Etat</div>
-        <div class="assurance-item">SANLAM Assurances</div>
-        <div class="assurance-item">AXA Assurances CI</div>
-        <div class="assurance-item">NSIA Assurances</div>
-        <div class="assurance-item">Paiement direct accepte — Mobile Money</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="rdv" class="rdv-cta">
-  <div class="rdv-cta-inner">
-    <div class="rdv-tag">Prise de rendez-vous</div>
-    <h2 class="rdv-h2 reveal">Votre sante <em>ne peut pas attendre.</em></h2>
-    <p class="rdv-desc">Consultations disponibles du lundi au samedi. Rendez-vous confirme par SMS dans les 30 minutes.</p>
-    <div class="rdv-actions">
-      <a href="tel:+22527000000" class="btn-primary">Appeler maintenant</a>
-      <a href="mailto:contact@soleil-clinique.ci" class="btn-outline">Envoyer un email</a>
-    </div>
-  </div>
-</section>
-
-<footer>
-  <div class="footer-logo">Soleil <span>Clinique</span></div>
-  <div class="footer-mid">Cocody Riviera 3 · Abidjan · Agrément Ministere de la Sante CI</div>
-  <div class="footer-credit">Design par <span>Eliel Poster</span> · Concept Project 2026</div>
-</footer>
-
-<script>
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-}, { threshold: 0.1 });
-document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-</script>
-</body>
-</html>
+  <p class="foot-end">© 2026 ELIEL POSTER · Tous droits réservés</p>
+</footer><dialog class="viewer" id="viewer" aria-labelledby="viewer-title"><div class="viewer-bar"><p id="viewer-title">ELIEL POSTER</p><button class="viewer-close" type="button" aria-label="Fermer la présentation">Fermer ×</button></div><div class="viewer-media"></div><p class="viewer-copy"></p></dialog><script src="../../assets/js/signature.js" defer></script><script src="../../assets/js/studio.js" defer></script></body></html>

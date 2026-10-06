@@ -1,0 +1,113 @@
+/* Studio, craft and contact share a restrained type scale after the oversized opening. */
+.home-page .studio-manifesto { padding:100px 0; background:var(--bg-sec); }
+.manifesto-grid { display:grid; grid-template-columns:1fr 3fr; gap:8%; }
+.manifesto-label { font-size:11px; padding-top:10px; color:var(--text-muted); }
+.manifesto-title { font-size:clamp(34px,4.9vw,74px); font-weight:400; line-height:1.12; letter-spacing:-.055em; }
+.manifesto-title span { color:var(--rouge-main); }
+.manifesto-bottom { display:grid; grid-template-columns:1fr auto; gap:10%; align-items:end; margin-top:35px; }
+.manifesto-bottom p { max-width:540px; font-size:14px; line-height:1.9; }
+.manifesto-bottom .text-link { white-space:nowrap; font-size:12px; }
+.home-page #services { padding-block:110px; }
+.home-page .expertise-layout { display:grid; grid-template-columns:.9fr 1.5fr; gap:10%; align-items:start; }
+.home-page .expertise-heading { position:sticky; top:120px; }
+.home-page .expertise-heading .eyebrow { font-size:11px; margin-bottom:25px; color:var(--text-muted); }
+.home-page .expertise-heading .display-title { font-size:clamp(38px,4.2vw,62px); line-height:1.03; letter-spacing:-.055em; }
+.home-page .expertise-heading > p:last-child { font-size:13px; line-height:1.8; max-width:290px; margin-top:27px; }
+.home-page .service { border-bottom:1px solid var(--border-color); }
+.home-page .service:first-child { border-top:1px solid var(--text-main); }
+.home-page .service summary { display:grid; grid-template-columns:26px 1fr 26px; gap:20px; align-items:center; padding-block:27px; cursor:pointer; }
+.home-page .service summary > span:first-child { color:var(--text-muted); font-size:10px; }
+.home-page .service h3 { font-size:clamp(24px,2.4vw,36px); font-weight:400; letter-spacing:-.04em; line-height:1.15; }
+.home-page .service-plus { font-size:27px; font-weight:300; color:var(--rouge-main); justify-self:end; }
+.home-page .service[open] h3 { color:var(--rouge-main); }
+.home-page .service-body { padding:0 20px 28px 46px; }
+.home-page .service-body p { font-size:12px; line-height:1.8; max-width:470px; }
+.home-page .service-body .card-tech-tags { margin-top:15px; gap:6px 15px; }
+.home-page .service-body .tech-tag { padding:0; border:0; font-size:9px; background:none; color:var(--text-muted); }
+.home-page .service-body .text-link { margin-top:19px; font-size:11px; }
+.home-page .process-section { padding-top:0; padding-bottom:100px; }
+.home-page .process-section .section-index { margin-bottom:35px; color:var(--text-muted); }
+.home-page .process-section .section-index > span { color:var(--text-muted); }
+.home-page .process-section .display-title { max-width:850px; font-size:clamp(33px,4.5vw,65px); font-weight:400; line-height:1.12; letter-spacing:-.05em; }
+.home-page .process-section .display-title em { color:var(--text-muted); }
+.home-page .process-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:40px; margin-top:50px; }
+.home-page .process-step { border-top:1px solid var(--border-color); padding-top:22px; }
+.home-page .process-step > span { display:block; color:var(--rouge-main); font-size:13px; letter-spacing:0; margin-bottom:35px; }
+.home-page .process-step h3 { font-size:23px; font-weight:400; letter-spacing:-.025em; }
+.home-page .process-step p { font-size:12px; margin-top:12px; line-height:1.85; }
+.home-page #temoignages { background:var(--bg-main); padding:0 0 110px; }
+.home-page #temoignages .section-index { margin-bottom:42px; }
+.home-page #temoignages .section-index > span { color:var(--text-muted); }
+.home-page .testimonial-layout { position:relative; display:grid; grid-template-columns:1fr 3fr; gap:8%; }
+.home-page .quote-mark { font-size:180px; font-weight:400; height:110px; line-height:1; }
+.home-page .testimonial-layout blockquote { font-size:clamp(28px,3.5vw,50px); font-weight:400; line-height:1.18; letter-spacing:-.04em; }
+.home-page .testimonial-layout figcaption { display:flex; gap:16px; align-items:center; margin-top:30px; }
+.home-page .testimonial-avatar { display:none; }
+.home-page .testimonial-layout figcaption strong { font-size:12px; }
+.home-page .testimonial-layout figcaption p { font-size:10px; }
+.home-page .testimonial-layout figcaption .text-link { margin-left:auto; font-size:10px; }
+.home-page #contact { padding:90px 0 100px; background:var(--bg-sec); }
+.home-page .contact-home { display:grid; grid-template-columns:1fr 1fr; gap:10%; align-items:start; }
+.home-page .contact-home-copy { position:sticky; top:120px; }
+.home-page .contact-home-copy .eyebrow { font-size:11px; margin-bottom:25px; }
+.home-page .contact-home .display-title { font-size:clamp(58px,7vw,105px); font-weight:500; letter-spacing:-.065em; line-height:1; }
+.home-page .contact-home-copy p:not(.eyebrow) { max-width:315px; margin-top:25px; font-size:13px; line-height:1.85; }
+.home-page .contact-home-copy > .text-link { margin-top:28px; font-size:clamp(14px,1.3vw,19px); gap:24px; }
+.home-page .contact-card-box { padding:0!important; border:0!important; background:none!important; box-shadow:none; }
+.home-page #qualifyingForm .form-group { margin-bottom:25px!important; }
+.home-page #qualifyingForm .form-label { color:var(--text-main); display:block; font-size:12px!important; line-height:1.5; margin-bottom:12px!important; }
+.home-page #qualifyingForm .radio-pills { gap:8px!important; }
+.home-page #qualifyingForm .pill-option span { background:transparent; border:1px solid var(--border-hover); border-radius:0!important; color:var(--text-muted); font-size:10px; line-height:1.45; padding:11px 13px; transition:background .2s,color .2s; }
+.home-page #qualifyingForm .pill-option input:checked + span { background:var(--text-main); color:var(--bg-main); border-color:var(--text-main)!important; }
+.home-page #qualifyingForm .form-input,.home-page #qualifyingForm .form-textarea { border:0!important; border-bottom:1px solid var(--text-muted)!important; border-radius:0!important; background:transparent; padding:10px 0 15px!important; font-size:13px; box-shadow:none; color:var(--text-main); }
+.home-page #qualifyingForm .form-input::placeholder,.home-page #qualifyingForm .form-textarea::placeholder { color:var(--text-muted); opacity:1; }
+.home-page #qualifyingForm .form-textarea { min-height:100px; resize:vertical; }
+.home-page #qualifyingForm .btn { border-radius:0; min-height:58px; padding:18px 20px!important; font-size:12px!important; font-weight:500; background:#c62828; color:#fff; }
+.home-page #qualifyingForm .btn:hover { background:#a41d1d; transform:none; }
+.home-page .contact-card-box .form-hint { font-size:10px; line-height:1.8; color:var(--text-muted); margin-top:14px; }
+.home-page #qualifyingForm :focus-visible,.home-page .service summary:focus-visible { outline:2px solid var(--rouge-main); outline-offset:5px; }
+@media(max-width:1024px) {
+ .home-page .expertise-layout { grid-template-columns:.9fr 1.5fr; gap:6%; }
+ .home-page .service summary { gap:12px; grid-template-columns:20px 1fr 22px; }
+ .home-page .service-body { padding-left:32px; padding-right:0; }
+ .home-page .process-grid { grid-template-columns:repeat(2,1fr); gap:35px; }
+ .home-page .contact-home { gap:6%; }
+ .home-page .contact-home .display-title { font-size:7.3vw; }
+ .manifesto-bottom { grid-template-columns:1fr; gap:20px; }
+ .manifesto-bottom .text-link { justify-self:start; }
+}
+@media(max-width:767px) {
+ .home-page .studio-manifesto { padding:60px 0; }
+ .manifesto-grid { grid-template-columns:1fr; gap:25px; }
+ .manifesto-label { padding:0; font-size:10px; }
+ .manifesto-title { font-size:clamp(31px,8.2vw,48px); }
+ .manifesto-bottom { margin-top:25px; }
+ .manifesto-bottom p { font-size:12px; }
+ .home-page #services { padding:65px 0; }
+ .home-page .expertise-layout { grid-template-columns:1fr; gap:36px; }
+ .home-page .expertise-heading { position:static; }
+ .home-page .expertise-heading .display-title { font-size:43px; }
+ .home-page .expertise-heading > p:last-child { font-size:12px; margin-top:20px; }
+ .home-page .service h3 { font-size:26px; }
+ .home-page .service summary { padding-block:24px; }
+ .home-page .process-section { padding-bottom:65px; }
+ .home-page .process-section .display-title { font-size:34px; }
+ .home-page .process-grid { grid-template-columns:1fr 1fr; gap:30px 22px; margin-top:30px; }
+ .home-page .process-step > span { margin-bottom:20px; }
+ .home-page .process-step h3 { font-size:21px; line-height:1.15; }
+ .home-page .process-step p { font-size:11px; }
+ .home-page #temoignages { padding-bottom:65px; }
+ .home-page #temoignages .section-index { margin-bottom:24px; }
+ .home-page .testimonial-layout { display:block; }
+ .home-page .quote-mark { display:block; font-size:110px; height:65px; }
+ .home-page .testimonial-layout blockquote { font-size:29px; }
+ .home-page .testimonial-layout figcaption { flex-wrap:wrap; }
+ .home-page .testimonial-layout figcaption .text-link { margin-left:0; }
+ .home-page #contact { padding:60px 0; }
+ .home-page .contact-home { grid-template-columns:1fr; gap:45px; }
+ .home-page .contact-home-copy { position:static; }
+ .home-page .contact-home .display-title { font-size:clamp(55px,14.5vw,88px); }
+ .home-page .contact-home-copy p:not(.eyebrow) { font-size:12px; margin-top:22px; }
+ .home-page #qualifyingForm .pill-option span { padding:11px; font-size:10px; }
+ .home-page #qualifyingForm .btn { padding-inline:10px!important; font-size:11px!important; }
+}

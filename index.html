@@ -1,283 +1,193 @@
-<!DOCTYPE html>
-<html lang="fr" data-theme="light">
+<!doctype html>
+<html lang="fr" data-theme="dark">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eliel Poster - Produits numériques</title>
-    <meta name="description" content="Eliel Poster est un studio fondé par Eliel AGUIA. Nous concevons des produits numériques depuis Abidjan.">
-    <link rel="canonical" href="https://elielposter.com/">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#000000">
+<title>ELIEL POSTER — Studio créatif à Abidjan</title>
+<meta name="description" content="ELIEL POSTER, studio créatif indépendant à Abidjan. Identité visuelle, direction artistique, digital et motion.">
+<meta property="og:title" content="ELIEL POSTER — Studio créatif à Abidjan">
+<meta property="og:description" content="ELIEL POSTER, studio créatif indépendant à Abidjan. Identité visuelle, direction artistique, digital et motion.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://elielposter.com/assets/img/portfolio/abraham.webp">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preload" href="assets/fonts/outfit.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/anton.woff2" as="font" type="font/woff2" crossorigin>
+<script>try{var t=localStorage.getItem('ep-theme');if(t)document.documentElement.dataset.theme=t}catch(e){};try{var s=sessionStorage;if(!matchMedia('(prefers-reduced-motion: reduce)').matches&&(!s.getItem('ep-seen')||s.getItem('ep-last')==='inner'))document.documentElement.classList.add('opening-on');s.setItem('ep-seen','1');s.setItem('ep-last','home')}catch(e){}</script>
+<link rel="stylesheet" href="assets/css/studio.css">
+<link rel="canonical" href="https://elielposter.com/">
 </head>
 <body>
-
-<a href="#solutions" class="skip-link">Aller au contenu</a>
-
-<header class="header-nav">
-    <div class="container header-container">
-        <a href="index.html" class="brand-logo">
-            <img src="assets/img/logo.png" alt="Eliel Poster">
-        </a>
-
-        <nav class="nav-menu">
-            <a href="pages/ce-que-nous-construisons.html" class="nav-link">Solutions</a>
-            <a href="pages/work.html" class="nav-link">Work</a>
-            <a href="pages/journal.html" class="nav-link">Journal</a>
-            <a href="pages/contact.html" class="nav-link">Contact</a>
-        </nav>
-
-        <div class="nav-actions">
-            <a href="pages/contact.html" class="btn btn-primary">Parlons de votre projet</a>
-        </div>
-    </div>
-</header>
-
-<section class="hero-typography-section">
-    <div class="container hero-type-container">
-        <p class="hero-greeting">Bonjour.</p>
-        <span class="section-label">Nous imaginons et développons</span>
-        
-        <h1 class="hero-main-headline">
-            <span class="hero-fixed-line">Nous concevons des</span>
-            <span class="dynamic-word-wrap">
-                <span class="dynamic-word" id="dynamicWord" style="color:var(--rouge-main);">plateformes.</span>
-            </span>
-        </h1>
-
-        <p class="hero-location-subhead">
-            Nous concevons des produits numériques depuis Abidjan.
-        </p>
-
-        <div class="hero-centered-ctas">
-            <a href="pages/contact.html" class="btn btn-primary">Parlons de votre projet</a>
-            <a href="pages/work.html" class="btn-text-link">Voir notre travail →</a>
-        </div>
-
-        <div class="scroll-indicator-arrow" id="scrollArrow" title="Découvrir la suite">
-            ↓
-        </div>
-    </div>
-</section>
-
-<section class="section-padding bg-alt reveal" id="solutions">
-    <div class="container">
-        <div class="section-header">
-            <span class="section-label">Domaines d'intervention</span>
-            <h2>Ce que nous construisons</h2>
-            <p>Des outils que les entreprises utilisent tous les jours.</p>
-        </div>
-
-        <div class="solutions-grid">
-            <div class="solution-card">
-                <h3>Plateformes numériques</h3>
-                <p style="margin-top:0.5rem; margin-bottom:1.2rem;">Marketplaces, applications métiers et logiciels sur mesure.</p>
-                <div class="card-tech-tags">
-                    <span class="tech-tag">React</span>
-                    <span class="tech-tag">Supabase</span>
-                    <span class="tech-tag">Node.js</span>
-                    <span class="tech-tag">PostgreSQL</span>
-                </div>
-                <a href="pages/ce-que-nous-construisons.html#plateformes" class="btn btn-secondary" style="margin-top:1rem;">En savoir plus →</a>
-            </div>
-
-            <div class="solution-card">
-                <h3>Identités de marque</h3>
-                <p style="margin-top:0.5rem; margin-bottom:1.2rem;">Branding complet, chartes graphiques et interfaces utilisateur.</p>
-                <div class="card-tech-tags">
-                    <span class="tech-tag">Figma</span>
-                    <span class="tech-tag">Illustrator</span>
-                    <span class="tech-tag">Motion</span>
-                </div>
-                <a href="pages/ce-que-nous-construisons.html#identites" class="btn btn-secondary" style="margin-top:1rem;">En savoir plus →</a>
-            </div>
-
-            <div class="solution-card">
-                <h3>Évolution & Modernisation</h3>
-                <p style="margin-top:0.5rem; margin-bottom:1.2rem;">Audit de code, sécurisation, refonte d'architecture et maintenance.</p>
-                <div class="card-tech-tags">
-                    <span class="tech-tag">Flutter</span>
-                    <span class="tech-tag">Firebase</span>
-                    <span class="tech-tag">API</span>
-                </div>
-                <a href="pages/ce-que-nous-construisons.html#evolution" class="btn btn-secondary" style="margin-top:1rem;">En savoir plus →</a>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="section-padding reveal">
-    <div class="container">
-        <div class="section-header">
-            <span class="section-label">Laboratoire</span>
-            <h2>Nos produits & recherches internes</h2>
-            <p>Notre laboratoire nous permet d'appliquer à nos clients les mêmes exigences que celles que nous appliquons à nos propres produits.</p>
-        </div>
-
-        <div class="lab-grid">
-            <div class="lab-card">
-                <span class="section-label" style="margin-bottom:0.5rem;">MVP · En test</span>
-                <h3>AlloDaloa</h3>
-                <p style="font-size:0.95rem; margin-top:0.4rem;">Marketplace et réseau de distribution de proximité à Daloa.</p>
-                <div class="card-tech-tags">
-                    <span class="tech-tag">Flutter</span>
-                    <span class="tech-tag">Supabase</span>
-                    <span class="tech-tag">Maps</span>
-                </div>
-                <a href="pages/lab.html#allodaloa" class="btn btn-ghost" style="padding-left:0; margin-top:0.8rem;">Consulter le projet →</a>
-            </div>
-
-            <div class="lab-card">
-                <span class="section-label" style="margin-bottom:0.5rem;">Prototype · Phase 2</span>
-                <h3>SmartPresence</h3>
-                <p style="font-size:0.95rem; margin-top:0.4rem;">Système de gestion automatique des présences en mode offline.</p>
-                <div class="card-tech-tags">
-                    <span class="tech-tag">Flutter</span>
-                    <span class="tech-tag">SQLite</span>
-                    <span class="tech-tag">Bluetooth</span>
-                </div>
-                <a href="pages/lab.html#smartpresence" class="btn btn-ghost" style="padding-left:0; margin-top:0.8rem;">Consulter le projet →</a>
-            </div>
-
-            <div class="lab-card">
-                <span class="section-label" style="margin-bottom:0.5rem;">Recherche</span>
-                <h3>OrientCI</h3>
-                <p style="font-size:0.95rem; margin-top:0.4rem;">Plateforme d'orientation académique guidée par l'intelligence artificielle.</p>
-                <div class="card-tech-tags">
-                    <span class="tech-tag">React</span>
-                    <span class="tech-tag">OpenAI</span>
-                    <span class="tech-tag">Python</span>
-                </div>
-                <a href="pages/lab.html#orientci" class="btn btn-ghost" style="padding-left:0; margin-top:0.8rem;">Consulter le projet →</a>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="section-padding bg-alt reveal">
-    <div class="container">
-        <div class="section-header">
-            <span class="section-label">À propos</span>
-            <h2>Fondateur</h2>
-        </div>
-
-        <div class="founder-profile">
-            <div class="founder-avatar-lg">EA</div>
-            <div class="founder-details">
-                <h3>Eliel AGUIA</h3>
-                <div class="founder-title-role">Fondateur</div>
-                <p style="font-size:1.02rem; line-height:1.8;">
-                    J'ai créé Eliel Poster avec une idée simple : construire des outils numériques utiles, bien conçus et capables d'évoluer dans le temps.
-                </p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="section-padding reveal" id="contact">
-    <div class="container">
-        <div class="section-header">
-            <span class="section-label">Contact</span>
-            <h2>Vous avez une idée ?</h2>
-            <p>Construisons quelque chose d'utile. Répondez à ces 2 questions pour préparer notre premier échange.</p>
-        </div>
-
-        <div class="contact-card-box" style="max-width:720px; margin:0 auto; background:var(--bg-card); border:1px solid var(--border-color); border-radius:var(--radius); padding:2.5rem;">
-            <form id="qualifyingForm">
-                <div class="form-group" style="margin-bottom:1.5rem;">
-                    <label class="form-label" style="font-weight:600; font-size:0.95rem; margin-bottom:0.6rem; display:block;">1. Qu'essayez-vous de construire ?</label>
-                    <div class="radio-pills" style="display:flex; flex-wrap:wrap; gap:0.6rem;">
-                        <label class="pill-option"><input type="radio" name="goal" value="launch" checked><span>Lancer un produit</span></label>
-                        <label class="pill-option"><input type="radio" name="goal" value="modernize"><span>Moderniser un outil</span></label>
-                        <label class="pill-option"><input type="radio" name="goal" value="brand"><span>Créer une identité</span></label>
-                        <label class="pill-option"><input type="radio" name="goal" value="audit"><span>Obtenir un audit</span></label>
-                    </div>
-                </div>
-
-                <div class="form-group" style="margin-bottom:1.5rem;">
-                    <label class="form-label" style="font-weight:600; font-size:0.95rem; margin-bottom:0.6rem; display:block;">2. Où en êtes-vous aujourd'hui ?</label>
-                    <div class="radio-pills" style="display:flex; flex-wrap:wrap; gap:0.6rem;">
-                        <label class="pill-option"><input type="radio" name="stage" value="idea" checked><span>Stade de l'idée</span></label>
-                        <label class="pill-option"><input type="radio" name="stage" value="proto"><span>Prototype existant</span></label>
-                        <label class="pill-option"><input type="radio" name="stage" value="active"><span>Entreprise en activité</span></label>
-                    </div>
-                </div>
-
-                <div style="display:grid; grid-template-columns: 1fr 1fr; gap:1rem; margin-top:1.5rem;">
-                    <div class="form-group">
-                        <label class="form-label" for="contactName" style="font-size:0.9rem; font-weight:600;">Votre nom & prénom</label>
-                        <input type="text" id="contactName" class="form-input" placeholder="ex: Jean Koffi" required style="width:100%; padding:0.8rem; border:1px solid var(--border-color); border-radius:6px;">
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label" for="contactPhone" style="font-size:0.9rem; font-weight:600;">Téléphone / WhatsApp</label>
-                        <input type="tel" id="contactPhone" class="form-input" placeholder="+225 0576 224 680" required style="width:100%; padding:0.8rem; border:1px solid var(--border-color); border-radius:6px;">
-                    </div>
-                </div>
-
-                <div class="form-group" style="margin-top:1rem;">
-                    <label class="form-label" for="contactEmail" style="font-size:0.9rem; font-weight:600;">Adresse email professionnel</label>
-                    <input type="email" id="contactEmail" class="form-input" placeholder="nom@entreprise.ci" required style="width:100%; padding:0.8rem; border:1px solid var(--border-color); border-radius:6px;">
-                </div>
-
-                <div class="form-group" style="margin-top:1rem; margin-bottom:1.5rem;">
-                    <label class="form-label" for="contactMessage" style="font-size:0.9rem; font-weight:600;">Présentation du besoin</label>
-                    <textarea id="contactMessage" class="form-textarea" rows="3" placeholder="Décrivez en quelques mots votre projet..." style="width:100%; padding:0.8rem; border:1px solid var(--border-color); border-radius:6px;"></textarea>
-                </div>
-
-                <button type="submit" class="btn btn-primary" style="width:100%; font-size:1rem; padding:1rem;">Transmettre ma demande</button>
-            </form>
-        </div>
-    </div>
-</section>
-
-<div class="brand-prefooter-signature">
-    <div class="container">
-        <p>Ce qu'on construit aujourd'hui doit encore être utile demain.</p>
-    </div>
+<a class="skip" href="#main">Aller au contenu</a><svg class="sprite" aria-hidden="true" width="0" height="0" style="position:absolute"><symbol id="i-identity" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 12.5a4 4 0 0 1 8 0V14M12 12v5.5M9.5 16.5c0-1 .2-2.6.2-4"/></symbol><symbol id="i-compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M15.6 8.4l-2.1 5.1-5.1 2.1 2.1-5.1z"/></symbol><symbol id="i-phone" viewBox="0 0 24 24"><rect x="7" y="2.5" width="10" height="19" rx="2.4"/><path d="M11 18.5h2"/></symbol><symbol id="i-monitor" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M9 20h6M12 16v4"/></symbol><symbol id="i-motion" viewBox="0 0 24 24"><path d="M6 4.5l11 7.5-11 7.5z"/><path d="M20.5 6v12"/></symbol><symbol id="i-megaphone" viewBox="0 0 24 24"><path d="M4 10v4l3 .6V9.4zM7 9.4L18 5v14L7 14.6M9.5 15.2V18a1.6 1.6 0 0 0 3.2 0v-1.6M21 10.5v3"/></symbol><symbol id="i-poster" viewBox="0 0 24 24"><rect x="5.5" y="3" width="13" height="18" rx="1.6"/><path d="M9 8h6M9 12h6M9 16h3"/></symbol><symbol id="i-browser" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2.2"/><path d="M3 9h18M6.5 6.5h.01M9.5 6.5h.01"/></symbol><symbol id="i-layers" viewBox="0 0 24 24"><path d="M12 3l9 5-9 5-9-5zM3 12.5l9 5 9-5M3 16.5l9 5 9-5"/></symbol><symbol id="i-shapes" viewBox="0 0 24 24"><circle cx="7.5" cy="16.5" r="4.5"/><rect x="13.5" y="12.5" width="7.5" height="8.5" rx="1.2"/><path d="M12 3l4.4 7H7.6z"/></symbol><symbol id="i-palette" viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 0 18c1.2 0 1.9-.8 1.9-1.8 0-1.4-1-1.8-1-3 0-1 .8-1.7 1.8-1.7H17a4 4 0 0 0 4-4C21 6.3 17 3 12 3z"/><path d="M7.5 12.5h.01M9.5 8.3h.01M14.2 7.3h.01"/></symbol><symbol id="i-grid" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="7" height="7" rx="1.6"/><rect x="13.5" y="3.5" width="7" height="7" rx="1.6"/><rect x="3.5" y="13.5" width="7" height="7" rx="1.6"/><rect x="13.5" y="13.5" width="7" height="7" rx="1.6"/></symbol><symbol id="i-type" viewBox="0 0 24 24"><path d="M5 6.5V4h14v2.5M12 4v16M9 20h6"/></symbol><symbol id="i-cursor" viewBox="0 0 24 24"><path d="M5 3.5l14.5 6.8-6.2 2-2 6.2z"/></symbol><symbol id="i-book" viewBox="0 0 24 24"><path d="M4 5.2A2.2 2.2 0 0 1 6.2 3H19.5v15.6H6.2A2.2 2.2 0 0 0 4 20.8zM8 7.5h7.5M8 11h5"/></symbol><symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.2"/><path d="M20 20l-4.4-4.4"/></symbol><symbol id="i-hand" viewBox="0 0 24 24"><path d="M8 12.5V6.2a1.5 1.5 0 0 1 3 0V11M11 11V4.6a1.5 1.5 0 0 1 3 0V11M14 11V6.4a1.5 1.5 0 0 1 3 0V14c0 4-2.5 6.6-6 6.6-2.5 0-4-1-5.4-3.4L4.2 14.4a1.5 1.5 0 0 1 2.6-1.5L8 14.6"/></symbol><symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 14.6A8.5 8.5 0 1 1 9.4 4a7 7 0 0 0 10.6 10.6z"/></symbol><symbol id="i-instagram" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17 7h.01"/></symbol><symbol id="i-linkedin" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="3.2"/><path d="M8 10.6V16M8 7.8v.01M12 16v-5.4M12 13.2a2.2 2.2 0 0 1 4.4 0V16"/></symbol><symbol id="i-whatsapp" viewBox="0 0 24 24"><path d="M4 20l1.3-4.1A8.5 8.5 0 1 1 8.4 19z"/><path d="M9.4 8.8c0 3.1 2.6 5.7 5.7 5.7l1-1.5-2-1-.9.8c-.9-.5-1.7-1.2-2.1-2.1l.8-.9-1-2z"/></symbol><symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2.2"/><path d="M3.5 7.5l8.5 6 8.5-6"/></symbol></svg>
+<div class="opening" aria-hidden="true">
+  <div class="opening-rows"><div class="wall-row"><div class="wall-track" data-wall="abraham,octobre,apa,masterclass,film"></div></div><div class="wall-row rev"><div class="wall-track" data-wall="apa,film,octobre,abraham,masterclass"></div></div><div class="wall-row"><div class="wall-track" data-wall="masterclass,abraham,film,octobre,apa"></div></div></div>
+  <div class="opening-logo"><svg viewBox="-6 -6 267 341" aria-hidden="true"><path pathLength="1" d="M254.28,97.89v2.82c0,53.13-31.72,96.2-70.85,96.2H66.23c-13.08,0-23.69,14.4-23.69,32.16h0c0,22.84,13.64,41.35,30.46,41.35H232.74c11.75,0,21.27,12.93,21.27,28.88h0c0,15.95-9.52,28.89-21.27,28.89H69.06C30.92,328.19,0,286.2,0,234.42v-3.09c0-50.91,30.4-92.18,67.89-92.18H185.16c14.68,0,26.58-16.16,26.58-36.1h0c0-25-14.93-45.29-33.35-45.29H21.27C9.52,57.76,0,44.83,0,28.88H0C0,12.93,9.52,0,21.27,0H182.18C222,0,254.28,43.83,254.28,97.89Z"/><rect pathLength="1" x="27.39" y="71.88" width="104.94" height="16.68" rx="7.83"/></svg><b>Eliel Poster</b></div>
 </div>
 
-<footer class="site-footer">
-    <div class="container">
-        <div class="footer-signature-text">
-            <blockquote>
-                "Nous construisons aujourd'hui les produits numériques qui accompagneront la croissance des entreprises africaines demain."
-            </blockquote>
-            <div class="footer-thanks-note">
-                Merci d'avoir pris le temps de découvrir notre travail.
-            </div>
-        </div>
-
-        <div class="footer-minimal-nav">
-            <a href="pages/ce-que-nous-construisons.html">Solutions</a>
-            <a href="pages/work.html">Work</a>
-            <a href="pages/journal.html">Journal</a>
-            <a href="pages/principles.html">Principes</a>
-            <a href="pages/contact.html">Contact</a>
-        </div>
-
-        <div class="social-links">
-            <a href="https://www.linkedin.com/company/eliel-poster/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
-            </a>
-            <a href="https://instagram.com/elielposter" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-            </a>
-            <a href="https://facebook.com/elielposter" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-            </a>
-            <a href="https://tiktok.com/@elielposter" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.98-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.24-2.58.7-5.16 2.57-6.95 1.58-1.52 3.76-2.29 5.94-2.12.02 1.43.01 2.86.01 4.29-.98-.12-1.99.14-2.82.68-1.04.66-1.67 1.82-1.67 3.05.02 1.25.68 2.39 1.74 3.01 1.09.64 2.45.69 3.58.15 1.15-.55 1.89-1.72 1.94-2.99.04-3.55.01-7.1.02-10.65z"/></svg>
-            </a>
-        </div>
-
-        <div class="footer-bottom">
-            <div>&copy; 2026 Eliel Poster · Tous droits réservés.</div>
-            <div>Abidjan, Côte d'Ivoire · <a href="tel:+2250576224680" style="color:#94A3B8;">+225 0576 224 680</a></div>
-        </div>
+<header class="top">
+  <div class="top-in">
+    <a class="brand" href="index.html" aria-label="ELIEL POSTER, accueil"><img src="assets/img/logo.webp" width="556" height="329" alt="ELIEL POSTER" decoding="async"></a>
+    <nav class="top-nav" id="navigation" aria-label="Navigation principale">
+      <a class="on" href="index.html">Accueil</a><a href="#studio">Studio</a><a href="pages/portfolio.html">Projets</a><a href="#metiers">Métiers</a><a href="#approche">Approche</a><a class="nav-cta" href="pages/contact.html">Parler de mon projet</a>
+    </nav>
+    <div class="top-end">
+      <button class="switch" type="button" role="switch" aria-checked="false" aria-label="Passer en mode clair"><i></i></button>
+      <a class="btn btn-solid btn-sm" href="pages/contact.html"><span>Parler de mon projet</span></a>
+      <button class="burger" type="button" aria-expanded="false" aria-controls="navigation" aria-label="Menu"><i></i></button>
     </div>
-</footer>
+  </div>
+</header>
 
-<script src="assets/js/main.js"></script>
+<main id="main">
+
+<section class="hero" aria-labelledby="hero-title">
+  <p class="tag">ELIEL POSTER</p>
+  <h1 id="hero-title"><span>Votre idée <em>mérite</em></span><span><em>une image</em> à sa hauteur</span></h1>
+  <p class="lead">Nous construisons des identités, des expériences digitales et des contenus qui donnent aux marques une présence claire, cohérente et reconnaissable.</p>
+  <div class="actions"><a class="btn btn-solid" href="pages/contact.html"><span>Parler de mon projet</span></a><a class="btn btn-ghost" href="pages/portfolio.html"><span>Voir les réalisations</span></a></div>
+
+  <div class="editor" id="atelier" aria-label="L’atelier : un plan de travail que vous pouvez manipuler">
+    <div class="ed-top">
+      <button class="ed-file" type="button" data-ed="panel" aria-label="Afficher ou masquer le panneau de gauche"><img src="assets/img/logo.webp" width="556" height="329" alt="ELIEL POSTER" decoding="async"><b>›</b></button>
+      <span class="ed-mid"><span class="ed-seg" role="group" aria-label="Format d’aperçu"><button type="button" data-device="desktop" aria-pressed="true" aria-label="Aperçu ordinateur"><svg class="ic" aria-hidden="true"><use href="#i-monitor"/></svg></button><button type="button" data-device="mobile" aria-pressed="false" aria-label="Aperçu téléphone"><svg class="ic" aria-hidden="true"><use href="#i-phone"/></svg></button></span><span class="ed-size"><small>L</small><span data-ed-w>1440px</span> <u>|</u> <small>Z</small><span data-ed-z>100%</span></span></span>
+      <span class="ed-users" aria-hidden="true"><i>E</i><i>P</i></span>
+    </div>
+    <div class="ed-body">
+      <aside class="ed-left" aria-label="Pages, calques et fonds">
+        <div class="ed-tabs" role="group" aria-label="Panneaux"><button type="button" data-tab="pages" aria-pressed="false">Pages</button><button type="button" data-tab="layers" aria-pressed="true">Calques</button><button type="button" data-tab="fonds" aria-pressed="false">Fonds</button></div>
+        <div class="ed-pane" data-pane="pages" hidden><p class="ed-select">Le site</p><ul class="ed-layers"><li><a class="on" href="index.html">Accueil</a></li><li><a href="pages/portfolio.html">Projets</a></li><li><a href="pages/method.html">Approche</a></li><li><a href="pages/vision.html">Manifeste</a></li><li><a href="pages/journal.html">Journal</a></li><li><a href="pages/contact.html">Parler de mon projet</a></li></ul></div>
+        <div class="ed-pane" data-pane="layers"><p class="ed-select">Accueil</p><ul class="ed-layers"><li><button class="on" type="button" data-goto=".hero">Hero</button></li><li><button type="button" data-goto=".fields">Outils</button></li><li><button type="button" data-goto="#studio">Introduction</button></li><li><button type="button" data-goto="#projets">Projets</button></li><li><button type="button" data-goto="#metiers">Métiers</button></li><li><button type="button" data-goto="#approche">Approche</button></li><li><button type="button" data-goto=".faq">Questions</button></li><li><button type="button" data-goto="#contact">Contact</button></li><li><button type="button" data-goto=".foot">Pied de page</button></li></ul></div>
+        <div class="ed-pane" data-pane="fonds" hidden><p class="ed-select">Fond de la page</p><div class="ed-fonds"><button type="button" data-theme-set="dark" aria-pressed="true"><i></i>Sombre</button><button type="button" data-theme-set="light" aria-pressed="false"><i></i>Clair</button></div><p class="ed-hint">Le fond choisi s’applique à tout le site et reste mémorisé.</p></div>
+      </aside>
+      <div class="ed-canvas" data-tool="select" tabindex="0" aria-label="Plan de travail : glissez pour parcourir, cliquez une réalisation pour la sélectionner">
+        <div class="ed-boards" data-boards>
+          <figure class="board board-web" tabindex="0" data-name="Abraham Dogo" data-domain="Web design" data-href="pages/project-abraham.html"><img src="assets/img/portfolio/abraham-md.webp" width="1200" height="624" alt="Portfolio d’Abraham Dogo conçu par ELIEL POSTER" decoding="async" draggable="false"></figure>
+          <figure class="board board-poster" tabindex="0" data-poster data-name="Votre affiche" data-domain="Atelier libre"><p class="po-top"><span>ELIEL POSTER</span><span>Atelier libre</span></p><p class="po-type"><span data-word>Oser.</span><span data-word>Oser.</span><span data-word>Oser.</span></p><p class="po-foot"><span>Une idée prend forme.</span><i class="mark"></i></p></figure>
+          <figure class="board board-apa" tabindex="0" data-name="APA Systheme" data-domain="Design d’interface" data-href="pages/project-apa.html"><img src="assets/img/portfolio/apa-systheme-md.webp" width="1200" height="623" alt="Site APA Systheme conçu par ELIEL POSTER" decoding="async" draggable="false"></figure>
+          <figure class="board board-square" tabindex="0" data-name="Octobre Rose" data-domain="Affiche" data-href="pages/project-octobre-rose.html"><img src="assets/img/portfolio/octobre-rose-md.webp" width="1013" height="1013" alt="Affiche Octobre Rose pour MIAGE-GI" decoding="async" draggable="false"></figure>
+          <figure class="board board-square" tabindex="0" data-name="Master Class d’Adoration" data-domain="Affiche" data-href="pages/project-masterclass.html"><img src="assets/img/portfolio/masterclass-md.webp" width="780" height="839" alt="Affiche Master Class d’Adoration" decoding="async" draggable="false"></figure>
+        </div>
+        <div class="ed-tools" role="toolbar" aria-label="Outils"><button type="button" data-tool="select" aria-pressed="true" aria-label="Sélectionner"><svg class="ic" aria-hidden="true"><use href="#i-cursor"/></svg></button><button type="button" data-tool="zoom" aria-pressed="false" aria-label="Zoomer (Maj + clic pour dézoomer)"><svg class="ic" aria-hidden="true"><use href="#i-search"/></svg></button><button type="button" data-tool="pan" aria-pressed="false" aria-label="Déplacer le plan de travail"><svg class="ic" aria-hidden="true"><use href="#i-hand"/></svg></button><button class="ed-reset" type="button" data-zoom aria-label="Revenir à 100 %">1X</button><button type="button" data-ed="theme" aria-label="Changer le fond clair ou sombre"><svg class="ic" aria-hidden="true"><use href="#i-moon"/></svg></button><button type="button" data-ed="panel" aria-label="Afficher ou masquer les calques"><svg class="ic" aria-hidden="true"><use href="#i-layers"/></svg></button></div>
+      </div>
+      <aside class="ed-right">
+        <div class="ed-prop" aria-live="polite"><h2>Sélection</h2><dl><div><dt>Nom</dt><dd data-sel-name>Aucune</dd></div><div><dt>Domaine</dt><dd data-sel-domain>—</dd></div></dl><a class="btn btn-solid btn-sm ed-open" data-sel-link href="pages/portfolio.html" hidden><span>Voir le projet</span></a><p class="ed-hint" data-sel-hint>Cliquez une réalisation sur le plan de travail.</p></div>
+        <div class="ed-prop"><h2>Votre mot</h2><label class="sr" for="poster-word">Le mot affiché sur l’affiche</label><input id="poster-word" type="text" value="Oser." maxlength="10" autocomplete="off" spellcheck="false"></div>
+        <div class="ed-prop"><h2 id="ink-label">Encre</h2><div class="inks" role="group" aria-labelledby="ink-label"><button type="button" data-ink="red" aria-pressed="true" aria-label="Rouge"></button><button type="button" data-ink="white" aria-pressed="false" aria-label="Blanc"></button><button type="button" data-ink="black" aria-pressed="false" aria-label="Noir"></button></div></div>
+        <div class="ed-prop" aria-hidden="true"><h2>Typographie</h2><dl><div><dt>Titre</dt><dd>Anton</dd></div><div><dt>Texte</dt><dd>Outfit</dd></div></dl></div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section class="fields tools" aria-labelledby="tools-title">
+  <h2 id="tools-title">Les outils que nous utilisons</h2>
+  <ul><li><img src="assets/img/tools/figma.webp" width="85" height="128" alt="" loading="lazy" decoding="async">Figma</li><li><img src="assets/img/tools/photoshop.webp" width="131" height="128" alt="" loading="lazy" decoding="async">Photoshop</li><li><img src="assets/img/tools/premiere-pro.webp" width="131" height="128" alt="" loading="lazy" decoding="async">Premiere Pro</li><li><img src="assets/img/tools/capcut.webp" width="128" height="128" alt="" loading="lazy" decoding="async">CapCut</li><li><img src="assets/img/tools/react.webp" width="144" height="128" alt="" loading="lazy" decoding="async">React</li><li><img src="assets/img/tools/html5.webp" width="113" height="128" alt="" loading="lazy" decoding="async">HTML5</li><li><img src="assets/img/tools/css3.webp" width="113" height="128" alt="" loading="lazy" decoding="async">CSS3</li><li><img src="assets/img/tools/javascript.webp" width="128" height="128" alt="" loading="lazy" decoding="async">JavaScript</li></ul>
+</section>
+
+<section class="intro" id="studio" aria-labelledby="intro-title">
+  <div class="intro-copy">
+    <h2 id="intro-title">Une identité ne sert pas<br>seulement à être belle.</h2>
+    <p>Elle doit permettre à votre marque d’être <b>comprise, reconnue et retenue</b>. Chez ELIEL POSTER, nous transformons une idée, une activité ou une ambition en une <b>direction visuelle cohérente</b>.</p>
+    <div class="actions"><a class="btn btn-solid" href="#approche"><span>Découvrir notre approche</span></a><a class="btn btn-ghost" href="pages/portfolio.html"><span>Voir les réalisations</span></a></div>
+  </div>
+  <div class="wall" aria-hidden="true">
+    <div class="wall-row"><div class="wall-track" data-wall="abraham,octobre,apa,masterclass,film"></div></div>
+    <div class="wall-row rev"><div class="wall-track" data-wall="apa,film,octobre,abraham,masterclass"></div></div>
+    <div class="wall-row"><div class="wall-track" data-wall="masterclass,abraham,film,octobre,apa"></div></div>
+  </div>
+</section>
+
+<section class="works" id="projets" aria-labelledby="works-title">
+  <div class="works-pin">
+    <div class="works-bg" aria-hidden="true"><canvas class="flow"></canvas><i class="works-spot"></i></div>
+    <h2 id="works-title">Nos <em>projets</em></h2>
+    <div class="ring-view"><div class="ring" data-ring>
+      <a class="panel" href="pages/project-abraham.html"><img src="assets/img/portfolio/abraham-sm.webp" width="1885" height="980" alt="Abraham Dogo, direction artistique et web design" loading="lazy" decoding="async"><span><svg class="ic" aria-hidden="true"><use href="#i-browser"/></svg>Abraham Dogo</span></a>
+      <a class="panel panel-print" href="pages/project-octobre-rose.html"><img src="assets/img/portfolio/octobre-rose-sm.webp" width="1013" height="1013" alt="Octobre Rose, affiche de campagne pour MIAGE-GI" loading="lazy" decoding="async"><span><svg class="ic" aria-hidden="true"><use href="#i-poster"/></svg>Octobre Rose</span></a>
+      <a class="panel" href="pages/project-apa.html"><img src="assets/img/portfolio/apa-systheme-sm.webp" width="1864" height="968" alt="APA Systheme, design d’interface" loading="lazy" decoding="async"><span><svg class="ic" aria-hidden="true"><use href="#i-browser"/></svg>APA Systheme</span></a>
+      <a class="panel panel-print" href="pages/project-masterclass.html"><img src="assets/img/portfolio/masterclass-sm.webp" width="780" height="839" alt="Master Class d’Adoration, affiche" loading="lazy" decoding="async"><span><svg class="ic" aria-hidden="true"><use href="#i-poster"/></svg>Master Class d’Adoration</span></a>
+      <a class="panel panel-film" href="pages/project-motion.html"><img src="assets/video/studio-film.webp" width="1280" height="720" alt="Le film du studio" loading="lazy" decoding="async"><span><svg class="ic" aria-hidden="true"><use href="#i-motion"/></svg>Le film du studio</span></a>
+    </div></div>
+    <div class="works-foot"><div><h3>Des projets qui ont quelque chose à dire.</h3><p>Nous travaillons sur des identités, campagnes, expériences digitales et contenus qui doivent trouver leur place dans le monde réel.</p></div><a class="btn btn-solid" href="pages/portfolio.html"><span>Voir toutes les réalisations</span></a></div>
+  </div>
+</section>
+
+<section class="services" id="metiers" aria-labelledby="services-title">
+  <div class="head-split"><h2 id="services-title" data-reveal>Ce que nous<br>construisons.</h2><div class="actions"><a class="btn btn-solid" href="#approche"><span>Notre approche</span></a><a class="btn btn-ghost" href="pages/contact.html"><span>Parler de mon projet</span></a></div></div>
+  <ul class="cells cells-4" data-reveal>
+    <li><svg class="ic" aria-hidden="true"><use href="#i-identity"/></svg><b>Identité</b><span>Créer une image reconnaissable et cohérente.</span></li>
+    <li><svg class="ic" aria-hidden="true"><use href="#i-megaphone"/></svg><b>Communication</b><span>Transformer un message en une création qui attire et transmet.</span></li>
+    <li><svg class="ic" aria-hidden="true"><use href="#i-monitor"/></svg><b>Digital</b><span>Concevoir des expériences web qui prolongent votre identité.</span></li>
+    <li><svg class="ic" aria-hidden="true"><use href="#i-motion"/></svg><b>Motion</b><span>Donner du mouvement aux idées et aux marques.</span></li>
+  </ul>
+  <ul class="cells" data-reveal>
+    <li><svg class="ic" aria-hidden="true"><use href="#i-shapes"/></svg>Logo<br>&amp; symbole</li><li><svg class="ic" aria-hidden="true"><use href="#i-palette"/></svg>Charte<br>graphique</li><li><svg class="ic" aria-hidden="true"><use href="#i-poster"/></svg>Affiches<br>&amp; campagnes</li><li><svg class="ic" aria-hidden="true"><use href="#i-grid"/></svg>Visuels<br>réseaux sociaux</li><li><svg class="ic" aria-hidden="true"><use href="#i-browser"/></svg>Sites<br>&amp; landing pages</li>
+    <li><svg class="ic" aria-hidden="true"><use href="#i-type"/></svg>Typographie<br>cinétique</li><li><svg class="ic" aria-hidden="true"><use href="#i-cursor"/></svg>Expériences<br>digitales</li><li><svg class="ic" aria-hidden="true"><use href="#i-book"/></svg>Édition<br>&amp; présentations</li><li><svg class="ic" aria-hidden="true"><use href="#i-compass"/></svg>Direction<br>artistique</li><li><svg class="ic" aria-hidden="true"><use href="#i-layers"/></svg>Contenus<br>de marque</li>
+  </ul>
+  <div class="span-card" data-reveal>
+    <div class="span-copy"><h3>Du papier à l’écran.<br>La même signature.</h3><p>Quel que soit le support, la direction reste <b>cohérente, lisible et reconnaissable</b>.</p><a class="btn btn-ghost" href="pages/portfolio.html"><span>Voir les réalisations</span></a></div>
+    <ul class="span-grid"><li>Affiche</li><li>Logo</li><li>Écran</li><li>Site</li><li>Campagne</li><li>Film</li><li>Réseaux</li><li>Édition</li></ul>
+  </div>
+</section>
+
+<div class="ticker" aria-hidden="true"><div class="ticker-track"></div></div>
+
+<section class="approach" id="approche" aria-labelledby="approach-title">
+  <h2 id="approach-title" data-reveal>Pas de décoration. <em>Une direction.</em></h2>
+  <div class="bento">
+    <article class="b-wide" data-reveal><h3>Comprendre d’abord</h3><p>Avant de créer, <b>nous cherchons à comprendre</b>. C’est ce qui donne une direction, pas seulement une image.</p><div class="b-shots" aria-hidden="true"><img src="assets/img/portfolio/octobre-rose-sm.webp" alt="" loading="lazy"><img src="assets/img/portfolio/apa-systheme-sm.webp" alt="" loading="lazy"><img src="assets/img/portfolio/masterclass-sm.webp" alt="" loading="lazy"></div></article>
+    <article class="b-tall" data-reveal><h3>Votre activité</h3><p>Ce que vous faites, <b>ce que vous défendez</b>, ce qui vous distingue.</p><div class="b-posters" aria-hidden="true"><img src="assets/img/portfolio/masterclass-sm.webp" alt="" loading="lazy"><img src="assets/img/portfolio/octobre-rose-sm.webp" alt="" loading="lazy"></div></article>
+    <article data-reveal><h3>Votre public</h3><p>À qui vous parlez, et <b>ce qui doit lui rester</b>.</p><div class="b-img" aria-hidden="true"><img src="assets/img/portfolio/octobre-rose-sm.webp" alt="" loading="lazy" style="object-position:50% 62%"></div></article>
+    <article data-reveal><h3>Votre positionnement</h3><p>La place que vous prenez, <b>et celle que vous laissez aux autres</b>.</p><div class="b-img" aria-hidden="true"><img src="assets/img/portfolio/apa-systheme-sm.webp" alt="" loading="lazy" style="object-position:0 40%"></div></article>
+    <article data-reveal><h3>Votre ambition</h3><p>Là où la marque doit être <b>quand tout sera en place</b>.</p><div class="b-img" aria-hidden="true"><img src="assets/img/portfolio/abraham-sm.webp" alt="" loading="lazy" style="object-position:100% 60%"></div></article>
+    <article class="b-wide" data-reveal><h3>Puis une direction</h3><p>Nous construisons une direction <b>capable de tenir</b> sur chaque support.</p><table class="b-table" aria-hidden="true"><thead><tr><th>Support</th><th>Format</th><th>Tient</th></tr></thead><tbody><tr><td>Une affiche</td><td>Papier</td><td><i></i></td></tr><tr><td>Un écran</td><td>Social</td><td><i></i></td></tr><tr><td>Un site</td><td>Web</td><td><i></i></td></tr><tr><td>Une campagne</td><td>Multi-supports</td><td><i></i></td></tr></tbody></table><a class="btn btn-ghost" href="#studio"><span>Découvrir le studio</span></a></article>
+  </div>
+</section>
+
+<section class="stats" aria-label="Le studio en bref">
+  <ul>
+    <li data-reveal><b data-count="4">4</b><span>Métiers réunis sous une seule direction</span></li>
+    <li data-reveal><b data-count="5">5</b><span>Réalisations présentées sur ce site</span></li>
+    <li data-reveal><b data-count="24">24<i>h</i></b><span>Pour une première réponse, sans engagement</span></li>
+  </ul>
+</section>
+
+<section class="faq" aria-labelledby="faq-title">
+  <h2 id="faq-title" data-reveal>Questions fréquentes</h2>
+  <div class="faq-list" data-reveal>
+    <details><summary>1. Comment démarrer avec ELIEL POSTER ?</summary><p>Présentez-nous votre projet depuis la <a href="pages/contact.html">page contact</a>, par email ou sur WhatsApp. Nous vous dirons ce que nous pouvons construire ensemble.</p></details>
+    <details><summary>2. Avec qui travaillez-vous ?</summary><p>Avec une personne, une petite activité, une marque qui démarre ou une entreprise qui veut professionnaliser son image.</p></details>
+    <details><summary>3. Que pouvez-vous construire ?</summary><p>Des identités, des créations de communication, des expériences digitales et du motion. Quatre métiers pensés ensemble pour que votre image reste cohérente partout.</p></details>
+    <details><summary>4. Sous combien de temps répondez-vous ?</summary><p>Sous 24 heures. Le premier échange est sans engagement.</p></details>
+    <details><summary>5. Faut-il être à Abidjan ?</summary><p>Non. Le studio est basé à Abidjan, en Côte d’Ivoire, et les échanges se font aussi bien à distance, par email et WhatsApp.</p></details>
+  </div>
+</section>
+
+<section class="cta" id="contact" aria-labelledby="cta-title">
+  <h2 id="cta-title"><span>Votre projet commence par une idée.</span><span><em>La suite mérite une vraie direction.</em></span></h2>
+  <p class="lead">Présentez-nous votre projet. Nous vous dirons ce que nous pouvons construire ensemble.</p>
+  <div class="actions"><a class="btn btn-ghost" href="pages/portfolio.html"><span>Voir les réalisations</span></a><a class="btn btn-solid" href="pages/contact.html"><span>Parler de mon projet</span></a></div>
+  <p class="note">Réponse sous 24h · Premier échange sans engagement</p>
+  <div class="bigmark" aria-hidden="true"><svg viewBox="-6 -6 267 341" aria-hidden="true"><path pathLength="1" d="M254.28,97.89v2.82c0,53.13-31.72,96.2-70.85,96.2H66.23c-13.08,0-23.69,14.4-23.69,32.16h0c0,22.84,13.64,41.35,30.46,41.35H232.74c11.75,0,21.27,12.93,21.27,28.88h0c0,15.95-9.52,28.89-21.27,28.89H69.06C30.92,328.19,0,286.2,0,234.42v-3.09c0-50.91,30.4-92.18,67.89-92.18H185.16c14.68,0,26.58-16.16,26.58-36.1h0c0-25-14.93-45.29-33.35-45.29H21.27C9.52,57.76,0,44.83,0,28.88H0C0,12.93,9.52,0,21.27,0H182.18C222,0,254.28,43.83,254.28,97.89Z"/><rect pathLength="1" x="27.39" y="71.88" width="104.94" height="16.68" rx="7.83"/></svg></div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <ul class="foot-social">
+    <li><a href="https://instagram.com/elielposter" target="_blank" rel="noopener noreferrer"><span><svg class="ic" aria-hidden="true"><use href="#i-instagram"/></svg>Instagram</span> <i>→</i></a></li>
+    <li><a href="https://www.linkedin.com/company/eliel-poster/" target="_blank" rel="noopener noreferrer"><span><svg class="ic" aria-hidden="true"><use href="#i-linkedin"/></svg>LinkedIn</span> <i>→</i></a></li>
+    <li><a href="https://wa.me/2250576224680" target="_blank" rel="noopener noreferrer"><span><svg class="ic" aria-hidden="true"><use href="#i-whatsapp"/></svg>WhatsApp</span> <i>→</i></a></li>
+    <li><a href="mailto:contact@elielposter.com"><span><svg class="ic" aria-hidden="true"><use href="#i-mail"/></svg>Email</span> <i>→</i></a></li>
+  </ul>
+  <div class="foot-cols">
+    <div><h2>Studio</h2><a href="#studio">Studio</a><a href="pages/portfolio.html">Projets</a><a href="#metiers">Métiers</a><a href="pages/contact.html">Parler de mon projet</a></div>
+    <div><h2>Métiers</h2><span><svg class="ic" aria-hidden="true"><use href="#i-identity"/></svg>Identité</span><span><svg class="ic" aria-hidden="true"><use href="#i-compass"/></svg>Direction artistique</span><span><svg class="ic" aria-hidden="true"><use href="#i-monitor"/></svg>Digital</span><span><svg class="ic" aria-hidden="true"><use href="#i-motion"/></svg>Motion</span></div>
+    <div><h2>Ressources</h2><a href="pages/portfolio.html">Réalisations</a><a href="pages/journal.html">Journal</a><a href="pages/centre-information.html">Informations</a></div>
+    <div><h2>Contact</h2><a href="mailto:contact@elielposter.com">contact@elielposter.com</a><a href="tel:+2250576224680">+225 05 76 22 46 80</a><span>Abidjan, Côte d’Ivoire</span><span>Studio créatif indépendant</span></div>
+  </div>
+  <p class="foot-end">© 2026 ELIEL POSTER · Tous droits réservés</p>
+</footer>
+<script src="assets/js/studio.js" defer></script>
 </body>
 </html>

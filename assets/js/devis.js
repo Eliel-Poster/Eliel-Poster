@@ -17,11 +17,14 @@ const EMAILJS_TEMPLATE_ID = 'template_eohyi9n';
 document.addEventListener('DOMContentLoaded', () => {
 
     // Initialiser EmailJS
-    emailjs.init(EMAILJS_PUBLIC_KEY);
+    const canSend = Boolean(window.emailjs) && EMAILJS_SERVICE_ID !== 'service_abc123';
+    if (canSend) emailjs.init(EMAILJS_PUBLIC_KEY);
 
     const form      = document.getElementById('formDevis');
     const msgBox    = document.getElementById('message-devis');
-    const btnSubmit = form?.querySelector('.btn-devis');
+    const btnSubmit = form?.querySelector('button[type="submit"]');
+
+    if (btnSubmit && !canSend) btnSubmit.textContent = 'Préparer ma demande de devis ↗';
 
     if (!form) return;
 
@@ -124,6 +127,7 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         try {
+            if (!canSend) throw new Error('Email service is not configured');
             await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, params);
 
             afficherMessage('success', '✓ Votre demande a bien été envoyée ! Nous vous répondons sous 24h.');
@@ -132,7 +136,6 @@ document.addEventListener('DOMContentLoaded', () => {
             window.scrollTo({ top: 0, behavior: 'smooth' });
 
         } catch (err) {
-            console.error('EmailJS error:', err);
 
             // Fallback : ouvrir Gmail avec les données pré-remplies
             const sujet = encodeURIComponent(`Devis - ${params.service}`);
@@ -150,10 +153,19 @@ Date : ${params.date}`
             );
             const dest = ['postereliel', 'gmail.com'].join('@');
 
-            afficherMessage('success', '✓ Redirection vers Gmail pour finaliser l\'envoi…');
-            setTimeout(() => {
-                window.open(`https://mail.google.com/mail/?view=cm&to=${dest}&su=${sujet}&body=${corps}`, '_blank');
-            }, 800);
+            afficherMessage('info', 'Votre demande est prête. Ouvrez votre messagerie puis validez son envoi. ');
+            const mailLink = document.createElement('a');
+            mailLink.href = `mailto:${dest}?subject=${sujet}&body=${corps}`;
+            mailLink.textContent = 'Ouvrir mon email ↗';
+            mailLink.className = 'text-link';
+            msgBox.append(mailLink);
+            const gmailLink = document.createElement('a');
+            gmailLink.href = `https://mail.google.com/mail/?view=cm&to=${dest}&su=${sujet}&body=${corps}`;
+            gmailLink.target = '_blank';
+            gmailLink.rel = 'noopener noreferrer';
+            gmailLink.className = 'text-link';
+            gmailLink.textContent = 'Ouvrir Gmail ↗';
+            msgBox.append(document.createTextNode(' '), gmailLink);
         }
 
         setBtnLoading(false);
@@ -171,7 +183,7 @@ Date : ${params.date}`
             btnSubmit.innerHTML = '<span class="spinner"></span> Envoi en cours…';
         } else {
             btnSubmit.disabled = false;
-            btnSubmit.innerHTML = 'Envoyer ma demande de devis <span class="btn-fleche">→</span>';
+            btnSubmit.textContent = canSend ? 'Envoyer ma demande de devis →' : 'Préparer ma demande de devis ↗';
         }
     }
 
@@ -179,6 +191,8 @@ Date : ${params.date}`
         if (!msgBox) return;
         msgBox.className = '';
         msgBox.textContent = texte;
+        msgBox.style.display = type ? 'block' : 'none';
+        msgBox.setAttribute('role', type === 'error' ? 'alert' : 'status');
         if (type) {
             msgBox.classList.add(type);
             msgBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
