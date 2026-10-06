@@ -691,7 +691,7 @@ a,button,summary,label,select,[role=button],.board,.panel,.project-image,.faq su
 @media(max-width:760px){.editor.no-left .ed-body{grid-template-columns:1fr}.editor.no-left .ed-right{display:none}.ed-right>*{min-width:0}}
 
 /* Projets : en fin de défilement, un voile flou recouvre l’anneau et « Voir plus » apparaît */
-.works-more{position:absolute;z-index:6;inset:0;display:grid;place-content:center;justify-items:center;gap:14px;text-align:center;color:var(--fg);background:color-mix(in srgb,var(--bg) 38%,#0000);-webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px);opacity:0;visibility:hidden;pointer-events:none;transition:opacity .6s var(--ease),visibility 0s .6s}
+.works-more{position:absolute;z-index:6;inset:0;display:grid;place-content:center;justify-items:center;gap:14px;text-align:center;color:var(--fg);background:color-mix(in srgb,var(--bg) 58%,#0000);-webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px);opacity:0;visibility:hidden;pointer-events:none;transition:opacity .6s var(--ease),visibility 0s .6s}
 .works.more-on .works-more{opacity:1;visibility:visible;pointer-events:auto;transition:opacity .6s var(--ease),visibility 0s}
 .works-more span{font:italic 500 clamp(54px,9vw,140px)/1 Studio,sans-serif;letter-spacing:-.05em;translate:0 26px;transition:translate .8s var(--ease)}
 .works-more i{display:inline-block;font-style:normal;font-size:.5em;color:var(--glow);transition:translate .4s var(--ease)}

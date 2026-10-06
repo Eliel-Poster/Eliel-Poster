@@ -275,3 +275,8 @@
 .values li:after,.values li:nth-child(even):after{left:1px;right:auto}
 .values p,.values li:nth-child(even) p{margin-left:0;max-width:none}
 }
+
+/* Page introuvable */
+.lost{min-height:78svh;display:grid;align-content:center;justify-items:center;text-align:center}
+.lost-lead{max-width:46ch;margin:18px auto 30px;color:var(--muted);font-size:clamp(16px,1.3vw,19px);line-height:1.6}
+.lost .actions{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
