@@ -223,9 +223,8 @@
 .a-words b:nth-child(2){color:var(--glow)}
 .a-words b:nth-child(3){-webkit-text-stroke:1.2px var(--fg);-webkit-text-fill-color:transparent}
 .svc-body{position:relative;padding:20px 22px 22px}
-.svc-n{position:absolute;right:22px;top:22px;font:400 15px/1 Poster,sans-serif;color:var(--glow)}
 .svc h2{padding-right:34px;font-size:22px;letter-spacing:-.035em}
-.svc-body>p:not(.svc-n){margin-top:8px;min-height:4.6em;font-size:15px;line-height:1.5;color:var(--muted)}
+.svc-body>p{margin-top:8px;min-height:4.6em;font-size:15px;line-height:1.5;color:var(--muted)}
 .svc details{margin-top:14px}
 .svc summary{display:inline-flex;list-style:none;cursor:pointer}
 .svc summary::-webkit-details-marker{display:none}
