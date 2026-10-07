@@ -41,8 +41,8 @@
     node.src = trigger.dataset.src || trigger.href;
     if (film) { node.controls = true; node.playsInline = true; node.autoplay = !reduced.matches; node.muted = !('sound' in trigger.dataset); }
     else node.alt = trigger.dataset.title || 'Affiche ELIEL POSTER';
-    title.textContent = trigger.dataset.title || 'ELIEL POSTER — Le film';
-    media.replaceChildren(node); copy.textContent = trigger.dataset.copy || (film ? 'Une idée. Prend forme. Du mouvement. ELIEL POSTER : votre image, une autre dimension. Film de 12 secondes, sans audio.' : 'Direction artistique & communication visuelle — Divine Production.');
+    title.textContent = trigger.dataset.title || 'ELIEL POSTER, le film';
+    media.replaceChildren(node); copy.textContent = trigger.dataset.copy || (film ? 'Une idée. Prend forme. Du mouvement. ELIEL POSTER : votre image, une autre dimension. Film de 12 secondes, sans audio.' : 'Direction artistique & communication visuelle, Divine Production.');
     dialog.showModal(); document.body.classList.add('locked'); reel?.pause();
   }));
   dialog?.querySelector('.viewer-close').addEventListener('click', () => dialog.close());
@@ -72,10 +72,10 @@
     if (sent) { form.reset(); say('Message envoyé. Nous vous répondons sous 24h.'); status.focus(); return; }
     // L’envoi automatique n’a pas abouti : rien n’est annoncé comme envoyé, le message est prêt pour un envoi manuel.
     const message = `Bonjour ELIEL POSTER,\n\nJe suis ${data.get('name')} (${data.get('email')}).\n\nMon projet : ${data.get('service')}\n\n${data.get('message')}\n\nÀ bientôt !`;
-    const href = `mailto:contact@elielposter.com?subject=${encodeURIComponent('Un projet — ' + data.get('name'))}&body=${encodeURIComponent(message)}`;
+    const href = `mailto:contact@elielposter.com?subject=${encodeURIComponent('Un projet : ' + data.get('name'))}&body=${encodeURIComponent(message)}`;
     const description = say('L’envoi automatique n’a pas abouti. Votre message est conservé : envoyez-le en un clic par e-mail ou WhatsApp.');
-    const email = document.createElement('a'); email.href = href; email.textContent = 'Ouvrir mon application email ↗';
-    const wa = document.createElement('a'); wa.href = 'https://wa.me/2250576224680?text=' + encodeURIComponent(message); wa.target = '_blank'; wa.rel = 'noopener noreferrer'; wa.textContent = 'Envoyer avec WhatsApp ↗'; wa.style.display = 'block'; wa.style.marginTop = '12px';
+    const email = document.createElement('a'); email.href = href; email.textContent = 'Ouvrir mon application email';
+    const wa = document.createElement('a'); wa.href = 'https://wa.me/2250576224680?text=' + encodeURIComponent(message); wa.target = '_blank'; wa.rel = 'noopener noreferrer'; wa.textContent = 'Envoyer avec WhatsApp'; wa.style.display = 'block'; wa.style.marginTop = '12px';
     status.append(email, wa); description.focus?.(); status.focus();
   });
 })();
@@ -99,7 +99,7 @@
   const contact = $('.contact-section');
   let ring;
   if (contact) {
-    contact.insertAdjacentHTML('beforeend', '<svg class="badge" viewBox="0 0 200 200" aria-hidden="true"><defs><path id="badge-path" d="M100 100m-80 0a80 80 0 1 1 160 0a80 80 0 1 1-160 0"/></defs><g class="ring"><text><textPath href="#badge-path" textLength="496">Faire impression ✺ Eliel Poster ✺ Abidjan ✺</textPath></text></g><text class="arrow" x="100" y="120" text-anchor="middle">↗</text></svg>');
+    contact.insertAdjacentHTML('beforeend', '<svg class="badge" viewBox="0 0 200 200" aria-hidden="true"><defs><path id="badge-path" d="M100 100m-80 0a80 80 0 1 1 160 0a80 80 0 1 1-160 0"/></defs><g class="ring"><text><textPath href="#badge-path" textLength="496">Faire impression ✺ Eliel Poster ✺ Abidjan ✺</textPath></text></g><path class="arrow-mark" d="M86 114L114 86M93 86h21v21" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/></svg>');
     ring = $('.badge .ring', contact);
   }
   const footer = $('.site-footer');

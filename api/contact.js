@@ -40,7 +40,7 @@ module.exports = async (req, res) => {
     const sent = await fetch('https://api.resend.com/emails', {
       method: 'POST',
       headers: {Authorization: `Bearer ${key}`, 'Content-Type': 'application/json'},
-      body: JSON.stringify({from: FROM, to: [TO], reply_to: email, subject: `Un projet — ${name}`, text}),
+      body: JSON.stringify({from: FROM, to: [TO], reply_to: email, subject: `Un projet : ${name}`, text}),
     });
     if (!sent.ok) {
       // Le détail reste dans les journaux Vercel ; le visiteur ne voit qu’un échec générique.

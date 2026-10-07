@@ -162,7 +162,7 @@
 
     const select = board => {
       $$('.board', ed).forEach(el => el.classList.toggle('sel', el === board));
-      selName.textContent = board ? board.dataset.name : 'Aucune'; selDomain.textContent = board ? board.dataset.domain : '—';
+      selName.textContent = board ? board.dataset.name : 'Aucune'; selDomain.textContent = board ? board.dataset.domain : 'Aucun';
       selLink.hidden = !board?.dataset.href; if (board?.dataset.href) selLink.href = board.dataset.href;
       selHint.hidden = Boolean(board?.dataset.href);
       selHint.textContent = board ? 'Modifiez son mot et son encre juste en dessous.' : 'Cliquez une réalisation sur le plan de travail.';

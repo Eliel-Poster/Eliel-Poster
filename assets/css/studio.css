@@ -698,3 +698,7 @@ a,button,summary,label,select,[role=button],.board,.panel,.project-image,.faq su
 .works-more small{font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
 .works.more-on .works-more span{translate:0}
 .works-more:hover i{translate:6px -6px}
+
+/* Flèches : une icône dessinée, à la taille du texte qui la porte */
+svg.ar{flex:none;display:inline-block;width:.78em;height:.78em;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:-.04em;overflow:visible}
+.contact-title svg.ar,.works-more svg.ar{stroke-width:1.3}
