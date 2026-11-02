@@ -1,12 +1,12 @@
 # Rien de ceci n'est servi par le site : documents, scripts et réglages internes
-.claude
-.agents
+/.claude
+/.agents
 .git
 .gitignore
 .vercelignore
-docs
-tools
-presentation
+/docs
+/tools
+/presentation
 *.md
 *.py
 
