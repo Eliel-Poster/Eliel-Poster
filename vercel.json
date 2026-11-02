@@ -2,8 +2,105 @@
   "version": 2,
   "routes": [
     {
+      "src": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.elielposter.com"
+        }
+      ],
+      "status": 301,
+      "headers": {
+        "Location": "https://elielposter.com/$1"
+      }
+    },
+    {
       "src": "/(sitemap|sitemap_index|sitemap-index)(\\.xml)?/?",
       "dest": "/sitemap.xml"
+    },
+    {
+      "src": "/(?:pages/)?devis\\.html",
+      "status": 301,
+      "headers": {
+        "Location": "/pages/contact.html"
+      }
+    },
+    {
+      "src": "/contact\\.html",
+      "status": 301,
+      "headers": {
+        "Location": "/pages/contact.html"
+      }
+    },
+    {
+      "src": "/portfolio\\.html",
+      "status": 301,
+      "headers": {
+        "Location": "/pages/portfolio.html"
+      }
+    },
+    {
+      "src": "/pages/(?:work|lab)\\.html",
+      "status": 301,
+      "headers": {
+        "Location": "/pages/portfolio.html"
+      }
+    },
+    {
+      "src": "/pages/explorations(?:/.*)?",
+      "status": 301,
+      "headers": {
+        "Location": "/pages/portfolio.html"
+      }
+    },
+    {
+      "src": "/pages/grilletarif\\.html",
+      "status": 301,
+      "headers": {
+        "Location": "/pages/services.html"
+      }
+    },
+    {
+      "src": "/pages/(?:pour-qui|elielteams)\\.html",
+      "status": 301,
+      "headers": {
+        "Location": "/pages/a-propos.html"
+      }
+    },
+    {
+      "src": "/teams(?:/.*)?",
+      "status": 301,
+      "headers": {
+        "Location": "/pages/a-propos.html"
+      }
+    },
+    {
+      "src": "/(?:Eliel(?:%20| )Poster/)?Centre(?:%20| )d(?:'|%27|’|%E2%80%99)information(?:/.*)?",
+      "status": 301,
+      "headers": {
+        "Location": "/pages/centre-information.html"
+      }
+    },
+    {
+      "src": "/Eliel(?:%20| )Poster/(?:contact|devis)\\.html",
+      "status": 301,
+      "headers": {
+        "Location": "/pages/contact.html"
+      }
+    },
+    {
+      "src": "/Eliel(?:%20| )Poster/portfolio\\.html",
+      "status": 301,
+      "headers": {
+        "Location": "/pages/portfolio.html"
+      }
+    },
+    {
+      "src": "/Eliel(?:%20| )Poster(?:/.*)?",
+      "status": 301,
+      "headers": {
+        "Location": "/"
+      }
     },
     {
       "src": "/(.*)",
