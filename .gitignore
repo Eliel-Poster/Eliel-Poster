@@ -1,1 +1,9 @@
+# Outils et réglages locaux
 .vercel
+.claude/
+.agents/
+
+# Documents et scripts internes, gardés sur l'ordinateur
+docs/
+tools/
+presentation/
