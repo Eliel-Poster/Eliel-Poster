@@ -1,6 +1,13 @@
 {
   "version": 2,
   "routes": [
-    { "src": "/(.*)", "dest": "/$1" }
+    {
+      "src": "/(sitemap|sitemap_index|sitemap-index)(\\.xml)?/?",
+      "dest": "/sitemap.xml"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/$1"
+    }
   ]
 }
